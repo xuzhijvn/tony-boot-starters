@@ -8,5 +8,5 @@ risk:
         webhooks: https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxxxxxxxx
         kibana:
           url: https://127.0.0.1/app/kibana#/discover
-          sname: xl-risk-jsticker-svc
+          sname: tony-buyboy-svc
           stype: javadaemon
