@@ -15,10 +15,8 @@ public class ThreadLocalCacheFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
-
         filterChain.doFilter(servletRequest, servletResponse);
         // 执行完后清除缓存
         ThreadLocalCacheManager.removeCache();
-        System.out.println("清除ThreadLocal");
     }
 }
