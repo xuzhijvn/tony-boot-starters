@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.tony</groupId>
         <artifactId>spring-boot-tony-starters</artifactId>
-        <version>${revision}</version>
+        <version>1.0.1.RELEASE</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>global-handle-spring-boot-starter</artifactId>

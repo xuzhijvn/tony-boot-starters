@@ -33,7 +33,7 @@ public class GlobalDefaultConfiguration {
 //    }
 
     @Bean
-    public BeanTemplate beanTool(){
+    public BeanTemplate beanTemplate(){
         return new BeanTemplate();
     }
 
