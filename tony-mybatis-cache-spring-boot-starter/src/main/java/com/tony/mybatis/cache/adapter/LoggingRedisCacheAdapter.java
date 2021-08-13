@@ -1,4 +1,4 @@
-package com.tony.mybatis.cache;
+package com.tony.mybatis.cache.adapter;
 
 
 import org.apache.ibatis.cache.decorators.LoggingCache;

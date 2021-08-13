@@ -1,6 +1,7 @@
-package com.tony.mybatis.cache;
+package com.tony.mybatis.cache.autoconfigure;
 
 
+import com.tony.mybatis.cache.ApplicationContextHolder;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -11,6 +12,6 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import(ApplicationContextHolder.class)
-public class MybatisCacheAutoConfiguration {
+public class RedisCacheMybatisAutoConfiguration {
 
 }
