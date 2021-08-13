@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tony.mybatis.cache;
+package net.oschina.j2cache.mybatis;
 
 import net.oschina.j2cache.CacheChannel;
 import net.oschina.j2cache.J2Cache;
@@ -24,9 +24,8 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * @author tony
- * @create 2021/8/7
- * @description: 实现了 MyBatis 的缓存接口
+ * 实现了 MyBatis 的缓存接口
+ * @author Winter Lau (javayou@gmail.com)
  */
 public class J2CacheAdapter implements Cache {
 
@@ -37,22 +36,20 @@ public class J2CacheAdapter implements Cache {
     private String id;
 
     public J2CacheAdapter(String id) {
-        if (id == null) {
+        if (id == null)
             id = DEFAULT_REGION;
-        }
+        this.id = id;
+    }
+
+    public void setId(String id) {
+        if (id == null)
+            id = DEFAULT_REGION;
         this.id = id;
     }
 
     @Override
     public String getId() {
         return this.id;
-    }
-
-    public void setId(String id) {
-        if (id == null) {
-            id = DEFAULT_REGION;
-        }
-        this.id = id;
     }
 
     @Override
@@ -68,9 +65,8 @@ public class J2CacheAdapter implements Cache {
     @Override
     public Object removeObject(Object o) {
         Object obj = this.cache.get(this.id, o.toString()).getValue();
-        if (obj != null) {
+        if (obj != null)
             this.cache.evict(this.id, o.toString());
-        }
         return obj;
     }
 
