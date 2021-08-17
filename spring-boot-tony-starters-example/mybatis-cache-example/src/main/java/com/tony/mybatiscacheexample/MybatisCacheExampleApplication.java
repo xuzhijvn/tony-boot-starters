@@ -1,13 +1,13 @@
-package com.tony.example;
+package com.tony.mybatiscacheexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootTonyStartersExampleApplication {
+public class MybatisCacheExampleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootTonyStartersExampleApplication.class, args);
+        SpringApplication.run(MybatisCacheExampleApplication.class, args);
     }
 
 }

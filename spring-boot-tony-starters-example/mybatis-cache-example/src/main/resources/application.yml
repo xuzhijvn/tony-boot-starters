@@ -1,0 +1,7 @@
+# 应用名称
+spring:
+  application:
+    name: mybatis-cache-example
+
+j2cache:
+  l2-cache-open: false

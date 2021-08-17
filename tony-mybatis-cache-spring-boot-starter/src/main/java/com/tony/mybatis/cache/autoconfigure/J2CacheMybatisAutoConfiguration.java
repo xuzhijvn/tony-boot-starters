@@ -1,5 +1,6 @@
 package com.tony.mybatis.cache.autoconfigure;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -11,8 +12,10 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @Import(J2CacheAutoConfiguration.class)
+@ConditionalOnProperty(value = "j2cache.l2-cache-open", havingValue = "true")
 public class J2CacheMybatisAutoConfiguration {
 
+    private String test;
 
 
 }

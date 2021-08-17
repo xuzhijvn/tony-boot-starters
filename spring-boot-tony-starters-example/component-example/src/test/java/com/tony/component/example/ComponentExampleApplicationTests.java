@@ -1,10 +1,10 @@
-package com.tony.example;
+package com.tony.component.example;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootTonyStartersExampleApplicationTests {
+class ComponentExampleApplicationTests {
 
     @Test
     void contextLoads() {

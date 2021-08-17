@@ -19,22 +19,22 @@ public class MybatisTester {
         SqlSession session = sqlSessionFactory.openSession();
         try {
             System.out.println("mybatis init.");
-//
+
+            Blog blog = new Blog();
+            blog.setId(116);
+            blog.setTitle("博客标题116");
+            blog.setBody("博客内容116");
+            session.insert("new", blog);
+
+            System.out.println("blog inserted");
+            session.commit();
+
 //            Blog blog = new Blog();
 //            blog.setId(111);
-//            blog.setTitle("博客标题www");
-//            blog.setBody("博客内容1");
-//            session.insert("new", blog);
+//            blog.setTitle("博客标题-" + RandomUtil.randomInt(100, 1000000));
+//            session.update("update", blog);
 //
-//            System.out.println("blog inserted");
-//            session.commit();
-//
-            Blog blog = new Blog();
-            blog.setId(111);
-            blog.setTitle("博客标题-" + RandomUtil.randomInt(100, 1000000));
-            session.update("update", blog);
-
-            System.out.println("blog updated");
+//            System.out.println("blog updated");
             session.commit();
             for(int i=0;i<1000;i++) {
                 SqlSession session1 = sqlSessionFactory.openSession();
