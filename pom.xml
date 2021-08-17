@@ -4,7 +4,7 @@
 
     <groupId>com.tony</groupId>
     <artifactId>spring-boot-tony-starters</artifactId>
-    <version>1.0.1.RELEASE</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -42,7 +42,7 @@
 
     <properties>
         <!-- Project revision -->
-        <revision>1.0.1.RELEASE</revision>
+        <revision>1.0.2.RELEASE</revision>
 
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
 
@@ -119,7 +119,7 @@
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <name>Nexus Snapshot Repository</name>
-            <url>http://maven.huolala.cn/repository/risk-releases/</url>
+            <url>http://maven.huolala.cn/repository/risk-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>

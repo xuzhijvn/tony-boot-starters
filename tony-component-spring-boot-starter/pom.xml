@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.tony</groupId>
         <artifactId>spring-boot-tony-starters</artifactId>
-        <version>1.0.1.RELEASE</version>
+        <version>1.0.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -93,18 +93,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <name>Nexus Release Repository</name>
-            <url>http://maven.huolala.cn/repository/risk-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>http://maven.huolala.cn/repository/risk-releases/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
 </project>

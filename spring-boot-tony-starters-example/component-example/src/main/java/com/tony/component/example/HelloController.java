@@ -1,7 +1,7 @@
  /*
   *       Copyright© (2020) TONY Co., Ltd.
   */
- package com.tony.example;
+ package com.tony.component.example;
 
  import com.tony.component.annotation.Feishu;
  import com.tony.component.annotation.ThreadLocalCache;
