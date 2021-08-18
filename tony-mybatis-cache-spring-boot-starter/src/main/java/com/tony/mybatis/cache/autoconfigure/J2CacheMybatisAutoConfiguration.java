@@ -15,7 +15,5 @@ import org.springframework.context.annotation.Import;
 @ConditionalOnProperty(value = "j2cache.l2-cache-open", havingValue = "true")
 public class J2CacheMybatisAutoConfiguration {
 
-    private String test;
-
 
 }
