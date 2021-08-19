@@ -1,7 +1,7 @@
  /*
   *       Copyright© (2020) TONY Co., Ltd.
   */
- package com.tony.component.example;
+ package com.tony.component.test;
 
  import com.tony.component.annotation.Feishu;
  import com.tony.component.annotation.ThreadLocalCache;
@@ -71,5 +71,14 @@
          return "123";
      }
 
+     @GetMapping(value = "say5")
+     public String say5(){
+         throw new BizException("hello biz");
+     }
+
+     @GetMapping(value = "say6")
+     public String say6(){
+         throw new BizException2("hello biz2");
+     }
 
  }

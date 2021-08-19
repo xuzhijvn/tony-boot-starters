@@ -1,7 +1,7 @@
 /*
 *       Copyright© (2020).
 */
-package com.tony.component.example;
+package com.tony.component.test;
 
 import com.tony.component.FeishuConstomizer;
 import org.springframework.context.annotation.Bean;

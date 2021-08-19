@@ -1,13 +1,13 @@
-package com.tony.component.example;
+package com.tony.component.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ComponentExampleApplication {
+public class ComponentTestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ComponentExampleApplication.class, args);
+        SpringApplication.run(ComponentTestApplication.class, args);
     }
 
 }

@@ -14,7 +14,16 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class GlobalDefaultProperties {
 
     private String pointcut;
+    private String excludeException;
     private Feishu feishu;
+
+    public String getExcludeException() {
+        return excludeException;
+    }
+
+    public void setExcludeException(String excludeException) {
+        this.excludeException = excludeException;
+    }
 
     public String getPointcut() {
         return pointcut;

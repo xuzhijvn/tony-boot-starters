@@ -8,6 +8,8 @@ import com.tony.component.template.FeishuTemplate;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
+import java.util.Arrays;
+
 
 /**
  * @author tony
@@ -27,6 +29,9 @@ public class GlobalDefaultExceptionHandler implements MethodInterceptor {
         try {
             return methodInvocation.proceed();
         } catch (Throwable ex) {
+            if (Arrays.stream(feishuTemplate.getGlobalDefaultProperties().getExcludeException().split(",")).anyMatch(e -> e.equals(ex.getClass().getName()))){
+                throw ex;
+            }
             Feishu feishu = methodInvocation.getMethod().getAnnotation(Feishu.class);
             if (feishu == null){
                 feishuTemplate.send("全局异常", ex, ex.getMessage());
