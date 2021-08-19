@@ -3,7 +3,8 @@ server:
 risk:
   tony:
     component:
-      pointcut: execution(* com.tony.example..*.*(..))
+      pointcut: execution(* com.tony.component.test..*.*(..))
+      exclude-exception: com.tony.component.test.BizException
       feishu:
 #        webhooks: https://open.feishu.cn/open-apis/bot/v2/hook/e124fb29-8617-4716-b029-a8e5e1fde2d0
         webhooks: https://open.feishu.cn/open-apis/bot/v2/hook/975d6f93-a701-41bf-bad3-78a69fbc6e67

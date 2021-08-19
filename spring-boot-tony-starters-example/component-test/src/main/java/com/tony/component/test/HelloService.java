@@ -1,7 +1,7 @@
 /*
  *       Copyright© (2020).
  */
-package com.tony.component.example;
+package com.tony.component.test;
 
 import com.tony.component.annotation.ThreadLocalCache;
 import org.springframework.stereotype.Service;

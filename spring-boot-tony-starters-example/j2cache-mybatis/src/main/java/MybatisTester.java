@@ -21,9 +21,9 @@ public class MybatisTester {
             System.out.println("mybatis init.");
 
             Blog blog = new Blog();
-            blog.setId(116);
-            blog.setTitle("博客标题116");
-            blog.setBody("博客内容116");
+            blog.setId(136);
+            blog.setTitle("博客标题136");
+            blog.setBody("博客内容136");
             session.insert("new", blog);
 
             System.out.println("blog inserted");
@@ -38,7 +38,7 @@ public class MybatisTester {
             session.commit();
             for(int i=0;i<1000;i++) {
                 SqlSession session1 = sqlSessionFactory.openSession();
-                Blog db = session1.selectOne("read", 111);
+                Blog db = session1.selectOne("read", 136);
                 System.out.printf("id=%d,title=%s,body=%s,i=%s%n", db.getId(), db.getTitle(), db.getBody(), i);
                 session1.commit();
                 Thread.sleep(1000);
