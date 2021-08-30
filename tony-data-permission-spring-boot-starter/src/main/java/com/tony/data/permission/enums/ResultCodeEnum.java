@@ -4,7 +4,7 @@ package com.tony.data.permission.enums;
 /**
  * @ClassName: ResultCodeEnum
  * @Description: 自定义返回码枚举
- * @author GitEgg
+ * @author tony
  * @date 2020年09月19日 下午11:49:45
  */
 public enum ResultCodeEnum {

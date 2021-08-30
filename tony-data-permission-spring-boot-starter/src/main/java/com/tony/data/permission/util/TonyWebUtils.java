@@ -7,7 +7,7 @@ import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class GitEggWebUtils extends WebUtils {
+public class TonyWebUtils extends WebUtils {
 
     /**
      * 获取 HttpServletRequest

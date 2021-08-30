@@ -3,7 +3,7 @@ package com.tony.data.permission.config;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
 import com.tony.data.permission.props.TenantProperties;
-import com.tony.data.permission.util.GitEggAuthUtils;
+import com.tony.data.permission.util.TonyAuthUtils;
 import lombok.RequiredArgsConstructor;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.NullValue;
@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 多租户配置中心
  *
- * @author GitEgg
+ * @author tony
  */
 @Configuration
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
@@ -42,9 +42,9 @@ public class TenantConfig {
 			 */
 			@Override
 			public Expression getTenantId() {
-				String tenant = GitEggAuthUtils.getTenantId();
+				String tenant = TonyAuthUtils.getTenantId();
 				if (tenant != null) {
-					return new StringValue(GitEggAuthUtils.getTenantId());
+					return new StringValue(TonyAuthUtils.getTenantId());
 				}
 				return new NullValue();
 			}

@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
  * 数据权限
  * </p>
  *
- * @author GitEgg
+ * @author tony
  * @since 2021-05-13
  */
 @Data

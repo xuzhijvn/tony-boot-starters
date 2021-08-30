@@ -3,8 +3,8 @@ package com.tony.data.permission.config;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.*;
-import com.tony.data.permission.handler.GitEggDataPermissionHandler;
-import com.tony.data.permission.interceptor.GitEggDataPermissionInterceptor;
+import com.tony.data.permission.handler.TonyDataPermissionHandler;
+import com.tony.data.permission.interceptor.TonyDataPermissionInterceptor;
 import com.tony.data.permission.props.TenantProperties;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.annotation.MapperScan;
@@ -14,12 +14,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
-@MapperScan("com.gitegg.**.mapper.**")
+@MapperScan("com.tony.**.mapper.**")
 public class MybatisPlusConfig {
 
     private final TenantLineInnerInterceptor tenantLineInnerInterceptor;
 
-    private final GitEggDataPermissionHandler gitEggDataPermissionHandler;
+    private final TonyDataPermissionHandler tonyDataPermissionHandler;
 
     private final TenantProperties tenantProperties;
 
@@ -38,7 +38,7 @@ public class MybatisPlusConfig {
         }
 
         //数据权限插件
-        interceptor.addInnerInterceptor(new GitEggDataPermissionInterceptor(gitEggDataPermissionHandler));
+        interceptor.addInnerInterceptor(new TonyDataPermissionInterceptor(tonyDataPermissionHandler));
 
         //分页插件
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));

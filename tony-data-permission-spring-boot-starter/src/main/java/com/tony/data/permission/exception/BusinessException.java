@@ -7,7 +7,7 @@ import lombok.Setter;
 /**
  * @ClassName: BusinessException
  * @Description: 业务处理异常
- * @author GitEgg
+ * @author tony
  * @date
  */
 @Getter
