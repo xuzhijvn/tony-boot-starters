@@ -11,6 +11,7 @@
         <module>global-handle-spring-boot-starter</module>
         <module>tony-component-spring-boot-starter</module>
         <module>tony-mybatis-cache-spring-boot-starter</module>
+        <module>tony-data-permission-spring-boot-starter</module>
     </modules>
 
     <name>spring-boot-tony-starters</name>
@@ -72,6 +73,20 @@
             <artifactId>spring-boot-starter-logging</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- Lombok 通过简单注解消除冗长代码  -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.9</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
