@@ -7,12 +7,12 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.handler.DataPermissionHandler;
 import com.tony.data.permission.annotation.auth.DataPermission;
 import com.tony.data.permission.constant.DataPermissionConstant;
-import com.tony.data.permission.constant.GitEggConstant;
-import com.tony.data.permission.domain.GitEggUser;
+import com.tony.data.permission.constant.TonyConstant;
+import com.tony.data.permission.domain.TonyUser;
 import com.tony.data.permission.entity.DataPermissionEntity;
 import com.tony.data.permission.enums.DataPermissionTypeEnum;
 import com.tony.data.permission.exception.BusinessException;
-import com.tony.data.permission.util.GitEggAuthUtils;
+import com.tony.data.permission.util.TonyAuthUtils;
 import lombok.RequiredArgsConstructor;
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.expression.*;
@@ -36,12 +36,12 @@ import java.util.*;
 /**
  * 数据权限扩展
  *
- * @author GitEgg
+ * @author tony
  * @date 2021-05-12 14:25:22
  **/
 @Component
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
-public class GitEggDataPermissionHandler implements DataPermissionHandler {
+public class TonyDataPermissionHandler implements DataPermissionHandler {
 
     @Value(("${tenant.enable}"))
     private Boolean enable;
@@ -56,7 +56,7 @@ public class GitEggDataPermissionHandler implements DataPermissionHandler {
 
     public void processDataPermission(PlainSelect plainSelect, String mappedStatementId) {
         try {
-            GitEggUser loginUser = GitEggAuthUtils.getCurrentUser();
+            TonyUser loginUser = TonyAuthUtils.getCurrentUser();
             // 1 当有数据权限配置时才去判断用户是否有数据权限控制
             if (ObjectUtils.isNotEmpty(loginUser) && CollectionUtils.isNotEmpty(loginUser.getDataPermissionTypeList())) {
                 // 1 根据系统配置的数据权限拼装sql
@@ -91,8 +91,8 @@ public class GitEggDataPermissionHandler implements DataPermissionHandler {
                 else if(annotationEnable)
                 {
                     // 2 根据注解的数据权限拼装sql
-                    Class<?> clazz = Class.forName(mappedStatementId.substring(GitEggConstant.Number.ZERO, mappedStatementId.lastIndexOf(StringPool.DOT)));
-                    String methodName = mappedStatementId.substring(mappedStatementId.lastIndexOf(StringPool.DOT) + GitEggConstant.Number.ONE);
+                    Class<?> clazz = Class.forName(mappedStatementId.substring(TonyConstant.Number.ZERO, mappedStatementId.lastIndexOf(StringPool.DOT)));
+                    String methodName = mappedStatementId.substring(mappedStatementId.lastIndexOf(StringPool.DOT) + TonyConstant.Number.ONE);
                     Method[] methods = clazz.getDeclaredMethods();
                     for (Method method : methods) {
                         //当有多个时，这个方法可以获取到
@@ -126,7 +126,7 @@ public class GitEggDataPermissionHandler implements DataPermissionHandler {
      * @param plainSelect plainSelect
      * @return 构建后查询条件
      */
-    public static void dataPermissionFilter(GitEggUser user, DataPermissionEntity dataPermissionEntity, PlainSelect plainSelect) {
+    public static void dataPermissionFilter(TonyUser user, DataPermissionEntity dataPermissionEntity, PlainSelect plainSelect) {
         Expression expression = plainSelect.getWhere();
         String dataPermissionType = dataPermissionEntity.getDataPermissionType();
         String dataTableName = dataPermissionEntity.getDataTableName();

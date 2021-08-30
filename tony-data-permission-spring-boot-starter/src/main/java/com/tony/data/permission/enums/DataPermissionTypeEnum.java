@@ -4,7 +4,7 @@ package com.tony.data.permission.enums;
 /**
  * @ClassName: DataPermissionTypeEnum
  * @Description: 数据权限类型枚举类
- * @author GitEgg
+ * @author tony
  * @date 2020年09月19日 下午11:49:45
  */
 public enum DataPermissionTypeEnum {

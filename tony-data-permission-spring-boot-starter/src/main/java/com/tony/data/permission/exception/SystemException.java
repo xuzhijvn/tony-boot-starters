@@ -6,7 +6,7 @@ import lombok.Getter;
 /**
  * @ClassName: SystemException
  * @Description: 系统处理异常
- * @author GitEgg
+ * @author tony
  * @date
  */
 @Getter

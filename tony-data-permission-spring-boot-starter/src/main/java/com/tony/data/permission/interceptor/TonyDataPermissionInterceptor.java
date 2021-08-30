@@ -3,7 +3,7 @@ package com.tony.data.permission.interceptor;
 import com.baomidou.mybatisplus.core.plugins.InterceptorIgnoreHelper;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import com.baomidou.mybatisplus.extension.plugins.inner.DataPermissionInterceptor;
-import com.tony.data.permission.handler.GitEggDataPermissionHandler;
+import com.tony.data.permission.handler.TonyDataPermissionHandler;
 import lombok.*;
 import net.sf.jsqlparser.statement.select.PlainSelect;
 import net.sf.jsqlparser.statement.select.Select;
@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * @author GitEgg
+ * @author tony
  * @date 2021-05-15 10:35:29
  **/
 @Data
@@ -27,9 +27,9 @@ import java.util.List;
 @AllArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class GitEggDataPermissionInterceptor extends DataPermissionInterceptor {
+public class TonyDataPermissionInterceptor extends DataPermissionInterceptor {
 
-    private GitEggDataPermissionHandler dataPermissionHandler;
+    private TonyDataPermissionHandler dataPermissionHandler;
 
     @Override
     public void beforeQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {

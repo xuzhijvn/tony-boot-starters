@@ -1,12 +1,12 @@
 package com.tony.data.permission.constant;
 
 /**
- * @ClassName: GitEggConstant
+ * @ClassName: tonyConstant
  * @Description: 常量类
- * @author gitegg
+ * @author tony
  * @date 2019年5月18日 下午11:49:21
  */
-public class GitEggConstant {
+public class TonyConstant {
 
     /**
      * 根节点id

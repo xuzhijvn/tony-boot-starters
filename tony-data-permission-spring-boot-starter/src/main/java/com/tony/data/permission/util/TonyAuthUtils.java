@@ -2,22 +2,22 @@ package com.tony.data.permission.util;
 
 import cn.hutool.json.JSONUtil;
 import com.tony.data.permission.constant.AuthConstant;
-import com.tony.data.permission.domain.GitEggUser;
+import com.tony.data.permission.domain.TonyUser;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-public class GitEggAuthUtils {
+public class TonyAuthUtils {
 
     /**
      * 获取用户信息
      *
-     * @return GitEggUser
+     * @return TonyUser
      */
-    public static GitEggUser getCurrentUser() {
-        HttpServletRequest request = GitEggWebUtils.getRequest();
+    public static TonyUser getCurrentUser() {
+        HttpServletRequest request = TonyWebUtils.getRequest();
         if (request == null) {
             return null;
         }
@@ -27,8 +27,8 @@ public class GitEggAuthUtils {
                 return null;
             }
             String userStr = URLDecoder.decode(user, "UTF-8");
-            GitEggUser gitEggUser = JSONUtil.toBean(userStr, GitEggUser.class);
-            return gitEggUser;
+            TonyUser TonyUser = JSONUtil.toBean(userStr, TonyUser.class);
+            return TonyUser;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return null;
@@ -42,7 +42,7 @@ public class GitEggAuthUtils {
      * @return tenantId
      */
     public static String getTenantId() {
-        HttpServletRequest request = GitEggWebUtils.getRequest();
+        HttpServletRequest request = TonyWebUtils.getRequest();
         if (request == null) {
             return null;
         }
@@ -52,9 +52,9 @@ public class GitEggAuthUtils {
             //如果请求头中的tenantId为空，那么尝试是否能够从登陆用户中去获取租户id
             if (StringUtils.isEmpty(tenantId) && !StringUtils.isEmpty(user)) {
                 String userStr = URLDecoder.decode(user, "UTF-8");
-                GitEggUser gitEggUser = JSONUtil.toBean(userStr, GitEggUser.class);
-                if (null != gitEggUser) {
-                    tenantId = gitEggUser.getTenantId();
+                TonyUser TonyUser = JSONUtil.toBean(userStr, TonyUser.class);
+                if (null != TonyUser) {
+                    tenantId = TonyUser.getTenantId();
                 }
             }
             return tenantId;

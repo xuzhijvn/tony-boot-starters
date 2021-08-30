@@ -9,11 +9,11 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author gitegg
+ * @author tony
  */
 @Data
 @ApiModel(description = "用户信息")
-public class GitEggUser implements Serializable {
+public class TonyUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
