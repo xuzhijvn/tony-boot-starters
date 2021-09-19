@@ -16,6 +16,15 @@ public class GlobalDefaultProperties {
     private String pointcut;
     private String excludeException;
     private Feishu feishu;
+    //private Boolean currentUser;
+
+//    public Boolean getCurrentUser() {
+//        return currentUser;
+//    }
+
+//    public void setCurrentUser(Boolean currentUser) {
+//        this.currentUser = currentUser;
+//    }
 
     public String getExcludeException() {
         return excludeException;

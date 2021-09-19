@@ -12,3 +12,4 @@ risk:
           url: https://kibana2.huolala.work/app/kibana#/discover
           sname: xl-risk-jsticker-svc
           stype: javadaemon
+#      current-user: true

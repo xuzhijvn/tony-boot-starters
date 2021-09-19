@@ -1,0 +1,5 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.tony.dp.config.DataPermissionConfiguration,\
+  com.tony.dp.config.WebMvcConfiguration,\
+  com.tony.dp.config.MybatisPlusConfiguration

@@ -4,7 +4,7 @@
 package com.tony.component.handler;
 
 import com.tony.component.annotation.Feishu;
-import com.tony.component.template.BeanTemplate;
+import com.tony.component.util.BeanUtil;
 import com.tony.component.template.FeishuTemplate;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -36,7 +36,7 @@ public class FeishuAspect {
         try {
             result = point.proceed();
         } catch (Throwable ex) {
-            BeanTemplate.getBean(FeishuTemplate.class).send(feishu.titleName(), ex, ex.getMessage(), feishu.color());
+            BeanUtil.getBean(FeishuTemplate.class).send(feishu.titleName(), ex, ex.getMessage(), feishu.color());
             throw ex;
         }
         return result;

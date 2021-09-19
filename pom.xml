@@ -12,6 +12,7 @@
         <module>tony-component-spring-boot-starter</module>
         <module>tony-mybatis-cache-spring-boot-starter</module>
         <module>tony-data-permission-spring-boot-starter</module>
+        <module>tony-dp-spring-boot-starter</module>
     </modules>
 
     <name>spring-boot-tony-starters</name>

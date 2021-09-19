@@ -17,6 +17,6 @@ public class CustomFeishuConfig {
 
     @Bean
     public FeishuConstomizer feishuConstomizer(){
-        return feishuApi -> feishuApi.getGlobalDefaultProperties().setPointcut("tony自定义Pointcut");
+        return feishuTemplate -> feishuTemplate.getGlobalDefaultProperties().setPointcut("tony自定义Pointcut");
     }
 }
