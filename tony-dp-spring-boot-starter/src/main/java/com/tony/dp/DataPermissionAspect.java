@@ -15,9 +15,8 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
-import javax.annotation.Resource;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Set;
@@ -28,11 +27,13 @@ import java.util.Set;
  * @description:
  */
 @Aspect
-@Component
 public class DataPermissionAspect {
 
-    @Resource
-    IUserConverter userConverter;
+    private final IUserConverter userConverter;
+
+    public DataPermissionAspect(IUserConverter userConverter) {
+        this.userConverter = userConverter;
+    }
 
     @Before(value = "@annotation(dataPermission)")
     public void doBefore(JoinPoint joinPoint, DataPermission dataPermission) throws Throwable {
@@ -44,8 +45,9 @@ public class DataPermissionAspect {
         if (dataConvertUsing == Void.class) {
             throw new RuntimeException("dataConvertUsing must be configure in @DataPermission");
         }
-        IDataConverter dataConverter = (IDataConverter) dataConvertUsing.getDeclaredConstructor().newInstance();
-        //IDataConverter dataConverter = (IDataConverter) BeanUtil.getBean(dataConvertUsing);
+
+        //获取dataConverter
+        IDataConverter dataConverter = (IDataConverter) getInstance(dataConvertUsing);
 
         Object convertData = getAnnotationParameter(joinPoint, DataConvert.class);
         if (convertData == null) {
@@ -55,12 +57,26 @@ public class DataPermissionAspect {
         User currentUser = (User) TonyContext.get(User.class);
 
         Class<?> permissionHandlerUsing = dataPermission.permissionHandlerUsing();
-        //IPermissionHandler permissionHandler = (IPermissionHandler) BeanUtil.getBean(permissionHandlerUsing);
-        IPermissionHandler permissionHandler = (IPermissionHandler) permissionHandlerUsing.getDeclaredConstructor().newInstance();
+
+        //获取permissionHandler
+        IPermissionHandler permissionHandler = (IPermissionHandler) getInstance(permissionHandlerUsing);
+
         Set<Permission> userPermissions = userConverter.convert(currentUser);
         if (!permissionHandler.hasPermission(userPermissions, permission)) {
             throw new RuntimeException("The current user does not have data permissions, " + currentUser + ", " + permission);
         }
+    }
+
+    private Object getInstance(Class<?> clazz) throws Exception {
+        Object object = null;
+        try {
+            object = ApplicationContextHolder.getBean(clazz);
+        } catch (NoSuchBeanDefinitionException e) {
+        }
+        if (object == null) {
+            return clazz.getDeclaredConstructor().newInstance();
+        }
+        return object;
     }
 
     public Object getAnnotationParameter(JoinPoint joinPoint, Class<? extends Annotation> annotationType) {

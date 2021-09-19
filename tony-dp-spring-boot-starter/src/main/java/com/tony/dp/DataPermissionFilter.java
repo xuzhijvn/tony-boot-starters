@@ -25,8 +25,8 @@ public class DataPermissionFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         User currentUser = TonyAuthUtils.getCurrentUser();
-        if (isEnableCurrentUser && ObjectUtils.isEmpty(currentUser)){
-            throw new RuntimeException("tony dp current-user is enable, but can't parse it from http header");
+        if (isEnableCurrentUser && ObjectUtils.isEmpty(currentUser)) {
+            throw new TonyException(-1, "tony dp current-user is enable, but can't parse user from http header");
         }
         TonyContext.set(currentUser);
         filterChain.doFilter(servletRequest, servletResponse);

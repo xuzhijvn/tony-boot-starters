@@ -4,12 +4,14 @@
 package com.tony.dp.config;
 
 import com.tony.dp.ApplicationContextHolder;
+import com.tony.dp.DataPermissionAspect;
 import com.tony.dp.DataPermissionFilter;
 import com.tony.dp.DataPermissionProperties;
 import com.tony.dp.converter.DefaultUserConverter;
 import com.tony.dp.converter.IUserConverter;
 import com.tony.dp.dao.service.DataPermissionService;
 import com.tony.dp.dao.service.impl.DataPermissionServiceImpl;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -28,8 +30,8 @@ import java.util.Optional;
 @Configuration
 @Import(ApplicationContextHolder.class)
 @EnableConfigurationProperties(DataPermissionProperties.class)
+@AutoConfigureAfter(WebMvcConfiguration.class)
 public class DataPermissionConfiguration {
-
 
     @Bean(name = "dpFilterRegistrationBean")
     public FilterRegistrationBean filterRegistrationBean(DataPermissionProperties dataPermissionProperties) {
@@ -54,5 +56,11 @@ public class DataPermissionConfiguration {
     @DependsOn({"sysDpResourceMapper"})
     public IUserConverter userConverter() {
         return new DefaultUserConverter();
+    }
+
+    @Bean
+    @DependsOn({"defaultUserConverter"})
+    public DataPermissionAspect dataPermissionAspect(IUserConverter defaultUserConverter){
+        return new DataPermissionAspect(defaultUserConverter);
     }
 }
