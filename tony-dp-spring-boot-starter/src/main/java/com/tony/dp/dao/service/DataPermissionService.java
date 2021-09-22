@@ -35,4 +35,6 @@ public interface DataPermissionService {
 
     boolean addRoleUser(RoleUserAddDTO dto);
 
+    boolean deleteRole(RoleDeleteDTO dto);
+
 }

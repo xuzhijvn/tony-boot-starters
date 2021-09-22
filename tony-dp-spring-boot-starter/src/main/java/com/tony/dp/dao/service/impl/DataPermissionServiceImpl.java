@@ -35,14 +35,14 @@ public class DataPermissionServiceImpl implements DataPermissionService {
 
     @Override
     public IPage<SysDpRole> rolePages(RolePagesDTO dto) {
-        SysDpRoleMapper sysDpRoleMapper =  ApplicationContextHolder.getBean(SysDpRoleMapper.class);
+        SysDpRoleMapper sysDpRoleMapper = ApplicationContextHolder.getBean(SysDpRoleMapper.class);
         Page<SysDpRole> page = new Page<>(dto.getCurrent(), dto.getSize());
         return sysDpRoleMapper.rolePages(page, new QueryWrapper<>());
     }
 
     @Override
     public List<SysDpResource> getResources() {
-        SysDpResourceMapper sysDpResourceMapper =  ApplicationContextHolder.getBean(SysDpResourceMapper.class);
+        SysDpResourceMapper sysDpResourceMapper = ApplicationContextHolder.getBean(SysDpResourceMapper.class);
 
         return sysDpResourceMapper.selectList(null);
     }
@@ -51,8 +51,8 @@ public class DataPermissionServiceImpl implements DataPermissionService {
     @Transactional(rollbackFor = Exception.class)
     public boolean addRole(RoleAddDTO dto) {
 
-        SysDpRoleMapper sysDpRoleMapper =  ApplicationContextHolder.getBean(SysDpRoleMapper.class);
-        SysDpRoleResourceMapper sysDpRoleResourceMapper =  ApplicationContextHolder.getBean(SysDpRoleResourceMapper.class);
+        SysDpRoleMapper sysDpRoleMapper = ApplicationContextHolder.getBean(SysDpRoleMapper.class);
+        SysDpRoleResourceMapper sysDpRoleResourceMapper = ApplicationContextHolder.getBean(SysDpRoleResourceMapper.class);
 
 
         SysDpRole role = new SysDpRole();
@@ -74,8 +74,8 @@ public class DataPermissionServiceImpl implements DataPermissionService {
     @Transactional(rollbackFor = Exception.class)
     public boolean updateRole(RoleUpdateDTO dto) {
 
-        SysDpRoleMapper sysDpRoleMapper =  ApplicationContextHolder.getBean(SysDpRoleMapper.class);
-        SysDpRoleResourceMapper sysDpRoleResourceMapper =  ApplicationContextHolder.getBean(SysDpRoleResourceMapper.class);
+        SysDpRoleMapper sysDpRoleMapper = ApplicationContextHolder.getBean(SysDpRoleMapper.class);
+        SysDpRoleResourceMapper sysDpRoleResourceMapper = ApplicationContextHolder.getBean(SysDpRoleResourceMapper.class);
 
         //更新角色名
         LambdaUpdateWrapper<SysDpRole> wrapper = new LambdaUpdateWrapper<>();
@@ -120,7 +120,7 @@ public class DataPermissionServiceImpl implements DataPermissionService {
     @Override
     public List<SysDpUserRole> getRoleUser(RoleUserGetDTO dto) {
 
-        SysDpUserRoleMapper sysDpUserRoleMapper =  ApplicationContextHolder.getBean(SysDpUserRoleMapper.class);
+        SysDpUserRoleMapper sysDpUserRoleMapper = ApplicationContextHolder.getBean(SysDpUserRoleMapper.class);
 
         LambdaQueryWrapper<SysDpUserRole> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(SysDpUserRole::getRoleId, dto.getRoleId());
@@ -129,7 +129,7 @@ public class DataPermissionServiceImpl implements DataPermissionService {
 
     @Override
     public boolean deleteRoleUser(RoleUserDeleteDTO dto) {
-        SysDpUserRoleMapper sysDpUserRoleMapper =  ApplicationContextHolder.getBean(SysDpUserRoleMapper.class);
+        SysDpUserRoleMapper sysDpUserRoleMapper = ApplicationContextHolder.getBean(SysDpUserRoleMapper.class);
         LambdaQueryWrapper<SysDpUserRole> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(SysDpUserRole::getRoleId, dto.getRoleId());
         wrapper.eq(SysDpUserRole::getUserId, dto.getUserId());
@@ -139,7 +139,7 @@ public class DataPermissionServiceImpl implements DataPermissionService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean addRoleUser(RoleUserAddDTO dto) {
-        SysDpUserRoleMapper sysDpUserRoleMapper =  ApplicationContextHolder.getBean(SysDpUserRoleMapper.class);
+        SysDpUserRoleMapper sysDpUserRoleMapper = ApplicationContextHolder.getBean(SysDpUserRoleMapper.class);
         dto.getUsers().forEach(user -> {
             SysDpUserRole entity = new SysDpUserRole();
             entity.setRoleId(dto.getRoleId());
@@ -148,5 +148,29 @@ public class DataPermissionServiceImpl implements DataPermissionService {
             sysDpUserRoleMapper.insert(entity);
         });
         return true;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean deleteRole(RoleDeleteDTO dto) {
+
+        SysDpRoleMapper sysDpRoleMapper = ApplicationContextHolder.getBean(SysDpRoleMapper.class);
+        SysDpRoleResourceMapper sysDpRoleResourceMapper = ApplicationContextHolder.getBean(SysDpRoleResourceMapper.class);
+        SysDpUserRoleMapper sysDpUserRoleMapper = ApplicationContextHolder.getBean(SysDpUserRoleMapper.class);
+
+        int affect = sysDpRoleMapper.deleteById(dto.getRoleId());
+        if (affect == 0) {
+            throw new RuntimeException("roleId: " + dto.getRoleId() + "doesn't exist");
+        }
+
+        LambdaQueryWrapper<SysDpRoleResource> wrapper1 = new LambdaQueryWrapper<>();
+        wrapper1.eq(SysDpRoleResource::getRoleId, dto.getRoleId());
+        sysDpRoleResourceMapper.delete(wrapper1);
+
+        LambdaQueryWrapper<SysDpUserRole> wrapper2 = new LambdaQueryWrapper<>();
+        wrapper2.eq(SysDpUserRole::getRoleId, dto.getRoleId());
+        sysDpUserRoleMapper.delete(wrapper2);
+
+        return affect == 1;
     }
 }
