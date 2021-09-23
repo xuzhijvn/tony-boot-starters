@@ -37,6 +37,13 @@ public class DataPermissionAspect {
 
     @Before(value = "@annotation(dataPermission)")
     public void doBefore(JoinPoint joinPoint, DataPermission dataPermission) throws Throwable {
+
+        User currentUser = (User) TonyContext.get(User.class);
+
+        if (currentUser == null || currentUser.getId() == null){
+            throw new RuntimeException("when @DataPermission is configured, the User in the header cannot be empty");
+        }
+
         Object[] params = joinPoint.getArgs();
         if (params.length == 0) {
             throw new RuntimeException("@DataPermission can't be used in no args method, " + joinPoint.getSignature().getName());
@@ -54,7 +61,6 @@ public class DataPermissionAspect {
             throw new RuntimeException("@DataConvert must be configure at least one to the method parameter when the method be annotated by @DataPermission");
         }
         Permission permission = dataConverter.convert(convertData);
-        User currentUser = (User) TonyContext.get(User.class);
 
         Class<?> permissionHandlerUsing = dataPermission.permissionHandlerUsing();
 

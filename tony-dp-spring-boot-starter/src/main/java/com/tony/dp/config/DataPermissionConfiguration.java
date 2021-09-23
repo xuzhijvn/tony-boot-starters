@@ -20,6 +20,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Import;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 /**
@@ -38,7 +39,8 @@ public class DataPermissionConfiguration {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         DataPermissionFilter filter = new DataPermissionFilter();
         registration.setFilter(filter);
-        registration.addUrlPatterns("/*");
+        String[] urlPatterns = Arrays.stream(dataPermissionProperties.getUrlPatterns().split(",")).map(String::trim).toArray(String[]::new);
+        registration.addUrlPatterns(urlPatterns);
         registration.addInitParameter("current-user", Optional.ofNullable(dataPermissionProperties.getCurrentUser()).orElse(false).toString());
         registration.setName("data-permission-filter");
         registration.setOrder(2);

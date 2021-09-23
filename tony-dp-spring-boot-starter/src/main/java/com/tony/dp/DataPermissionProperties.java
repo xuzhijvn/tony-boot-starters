@@ -14,6 +14,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class DataPermissionProperties {
 
     private Boolean currentUser;
+    private String urlPatterns = "/api/*";
+
+    public String getUrlPatterns() {
+        return urlPatterns;
+    }
+
+    public void setUrlPatterns(String urlPatterns) {
+        this.urlPatterns = urlPatterns;
+    }
 
     public Boolean getCurrentUser() {
         return currentUser;

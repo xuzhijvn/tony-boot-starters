@@ -54,7 +54,6 @@ public class DataPermissionServiceImpl implements DataPermissionService {
         SysDpRoleMapper sysDpRoleMapper = ApplicationContextHolder.getBean(SysDpRoleMapper.class);
         SysDpRoleResourceMapper sysDpRoleResourceMapper = ApplicationContextHolder.getBean(SysDpRoleResourceMapper.class);
 
-
         SysDpRole role = new SysDpRole();
         role.setName(dto.getRoleName());
         role.setOpUser(dto.getOpUser());
@@ -112,7 +111,6 @@ public class DataPermissionServiceImpl implements DataPermissionService {
                     .eq(SysDpRoleResource::getResourceId, e);
             sysDpRoleResourceMapper.delete(queryWrapper);
         });
-
 
         return true;
     }
