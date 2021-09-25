@@ -11,3 +11,4 @@ risk:
           url: https://127.0.0.1/app/kibana#/discover
           sname: tony-buyboy-svc
           stype: javadaemon
+#      current-user: true

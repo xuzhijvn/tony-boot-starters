@@ -81,4 +81,11 @@
          throw new BizException2("hello biz2");
      }
 
+//     @GetMapping(value = "say7")
+//     @CurrentUser
+//     public String say7(@CurrentUser User user1){
+//         User user = (User) TonyContext.get(User.class);
+//         return user.toString();
+//     }
+
  }
