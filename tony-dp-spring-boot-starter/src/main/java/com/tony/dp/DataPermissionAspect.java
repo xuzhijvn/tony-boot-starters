@@ -4,13 +4,14 @@
 package com.tony.dp;
 
 
+import com.tony.common.CommonContext;
+import com.tony.common.model.User;
 import com.tony.dp.annotation.DataConvert;
 import com.tony.dp.annotation.DataPermission;
 import com.tony.dp.converter.IDataConverter;
 import com.tony.dp.converter.IUserConverter;
 import com.tony.dp.handler.IPermissionHandler;
 import com.tony.dp.model.Permission;
-import com.tony.dp.model.User;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -38,7 +39,7 @@ public class DataPermissionAspect {
     @Before(value = "@annotation(dataPermission)")
     public void doBefore(JoinPoint joinPoint, DataPermission dataPermission) throws Throwable {
 
-        User currentUser = (User) TonyContext.get(User.class);
+        User currentUser = (User) CommonContext.get(User.class);
 
         if (currentUser == null || currentUser.getId() == null){
             throw new RuntimeException("when @DataPermission is configured, the User in the header cannot be empty");

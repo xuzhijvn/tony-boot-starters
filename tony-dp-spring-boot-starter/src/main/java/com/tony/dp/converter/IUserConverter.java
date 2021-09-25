@@ -3,8 +3,8 @@
 */
 package com.tony.dp.converter;
 
+import com.tony.common.model.User;
 import com.tony.dp.model.Permission;
-import com.tony.dp.model.User;
 
 import java.util.Set;
 

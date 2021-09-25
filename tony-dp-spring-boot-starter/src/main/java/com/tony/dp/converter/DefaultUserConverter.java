@@ -4,11 +4,11 @@
 package com.tony.dp.converter;
 
 
+import com.tony.common.model.User;
 import com.tony.dp.ApplicationContextHolder;
 import com.tony.dp.dao.entity.SysDpResource;
 import com.tony.dp.dao.mapper.SysDpResourceMapper;
 import com.tony.dp.model.Permission;
-import com.tony.dp.model.User;
 
 import java.util.Set;
 import java.util.stream.Collectors;

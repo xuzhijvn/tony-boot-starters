@@ -1,0 +1,5 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.tony.common.config.CommonConfiguration,\
+  com.tony.common.config.ThreadPoolConfiguration,\
+  com.tony.common.config.WebMvcConfiguration

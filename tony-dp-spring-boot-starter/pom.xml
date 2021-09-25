@@ -18,6 +18,12 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>com.tony</groupId>
+            <artifactId>tony-spring-boot-starter-common</artifactId>
+            <version>${tony-starter.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <scope>provided</scope>
