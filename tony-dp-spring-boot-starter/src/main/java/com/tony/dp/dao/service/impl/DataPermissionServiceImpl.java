@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.tony.common.exception.TonyException;
 import com.tony.dp.ApplicationContextHolder;
 import com.tony.dp.dao.entity.SysDpResource;
 import com.tony.dp.dao.entity.SysDpRole;
@@ -61,7 +62,7 @@ public class DataPermissionServiceImpl implements DataPermissionService {
         try {
             sysDpRoleMapper.insert(role);
         }catch (DuplicateKeyException e){
-            throw new DuplicateKeyException("角色已存在");
+            throw new TonyException("角色已存在");
         }
 
         dto.getResourceIds().forEach(resourceId -> {
@@ -152,7 +153,7 @@ public class DataPermissionServiceImpl implements DataPermissionService {
                 sysDpUserRoleMapper.insert(entity);
             });
         }catch (DuplicateKeyException e){
-            throw new DuplicateKeyException("用户已经关联角色");
+            throw new TonyException("用户已经关联角色");
         }
         return true;
     }
