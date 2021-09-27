@@ -22,6 +22,8 @@ import com.tony.dp.dao.mapper.SysDpRoleResourceMapper;
 import com.tony.dp.dao.mapper.SysDpUserRoleMapper;
 import com.tony.dp.dao.service.DataPermissionService;
 import com.tony.dp.dto.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,8 @@ import java.util.stream.Collectors;
  * @description:
  */
 public class DataPermissionServiceImpl implements DataPermissionService {
+
+    private final static Logger log = LoggerFactory.getLogger(DataPermissionServiceImpl.class);
 
     @Override
     public IPage<SysDpRole> rolePages(RolePagesDTO dto) {
@@ -144,17 +148,18 @@ public class DataPermissionServiceImpl implements DataPermissionService {
     @Transactional(rollbackFor = Exception.class)
     public boolean addRoleUser(RoleUserAddDTO dto) {
         SysDpUserRoleMapper sysDpUserRoleMapper = ApplicationContextHolder.getBean(SysDpUserRoleMapper.class);
-        try {
-            dto.getUsers().forEach(user -> {
+        dto.getUsers().forEach(user -> {
+            try {
                 SysDpUserRole entity = new SysDpUserRole();
                 entity.setRoleId(dto.getRoleId());
                 entity.setUserId(user.getUserId());
                 entity.setOpUser(dto.getOpUser());
                 sysDpUserRoleMapper.insert(entity);
-            });
-        }catch (DuplicateKeyException e){
-            throw new TonyException("用户已经关联角色");
-        }
+            }catch (DuplicateKeyException e){
+                //忽略冲突
+                log.warn("角色({})-用户({})已经存在", dto.getRoleId(), user.getUserId());
+            }
+        });
         return true;
     }
 
