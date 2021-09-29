@@ -57,7 +57,7 @@ public class SysOperLog extends BaseEntity {
     /**
      * 部门名称
      */
-    private String deptName;
+    private String deptName = "";
 
     /**
      * 请求url
@@ -92,7 +92,7 @@ public class SysOperLog extends BaseEntity {
     /**
      * 错误消息
      */
-    private String errorMsg;
+    private String errorMsg = "";
 
     /**
      * 操作时间

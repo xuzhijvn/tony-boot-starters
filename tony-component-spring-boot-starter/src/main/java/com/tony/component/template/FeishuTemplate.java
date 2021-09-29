@@ -66,7 +66,7 @@ public class FeishuTemplate {
 
     public void send(String titleName, Object content, String ex, String color) {
 
-        content = "**环境** 👉 " + getEnv() + "\n ---\n" + content + "\n ---\n**Exception** 👉 " + ex + "\n ---\n[**日志传送门**](" + getLogUrl(getEnv()) + ")\n";
+        content = "**环境** 👉 " + getEnv() + "\n ---\n" + content + "\n ---\n**Exception** 👉 " + ex + "\n ---\n[**日志传送门🚪**](" + getLogUrl(getEnv()) + ")\n";
         List<FeishuPostRequest.Card.Element> elements = new ArrayList<>();
         FeishuPostRequest.Card.Element element = new FeishuPostRequest.Card.Element();
         element.setContent(content.toString());
