@@ -14,7 +14,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class GlobalDefaultProperties {
 
     private String pointcut;
-    private String excludeException;
+    private String excludeException = "";
     private Feishu feishu;
     //private Boolean currentUser;
 

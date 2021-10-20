@@ -33,7 +33,7 @@ import java.util.Set;
  * @description:
  */
 @Aspect
-@Order(-1)
+//@Order(-1)
 public class DataPermissionAspect {
 
     private final IUserConverter userConverter;

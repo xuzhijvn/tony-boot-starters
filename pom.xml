@@ -15,6 +15,7 @@
         <module>tony-dp-spring-boot-starter</module>
         <module>tony-log-spring-boot-starter</module>
         <module>tony-spring-boot-starter-common</module>
+        <module>tony-page-spring-boot-starter</module>
     </modules>
 
     <name>spring-boot-tony-starters</name>
@@ -132,14 +133,14 @@
         <repository>
             <id>nexus-releases</id>
             <name>Nexus Release Repository</name>
-<!--            <url>http://maven.huolala.cn/repository/risk-releases/</url>-->
-            <url>http://maven.myxl.cn/repository/xl-risk-releases/</url>
+            <url>http://maven.huolala.cn/repository/risk-releases/</url>
+<!--            <url>http://maven.myxl.cn/repository/xl-risk-releases/</url>-->
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <name>Nexus Snapshot Repository</name>
-<!--            <url>http://maven.huolala.cn/repository/risk-snapshots/</url>-->
-            <url>http://maven.myxl.cn/repository/xl-risk-snapshots/</url>
+            <url>http://maven.huolala.cn/repository/risk-snapshots/</url>
+<!--            <url>http://maven.myxl.cn/repository/xl-risk-snapshots/</url>-->
         </snapshotRepository>
     </distributionManagement>
 </project>

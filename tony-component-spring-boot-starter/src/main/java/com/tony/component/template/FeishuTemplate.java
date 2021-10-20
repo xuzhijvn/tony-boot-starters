@@ -91,6 +91,9 @@ public class FeishuTemplate {
 
     private String getEnv() {
         String env = System.getProperty("hll.env");
+        if (env == null){
+            env = System.getProperty("spring.profiles.active");
+        }
         return env != null ? env : "未知";
     }
 }

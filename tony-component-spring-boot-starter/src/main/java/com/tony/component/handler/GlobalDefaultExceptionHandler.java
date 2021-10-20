@@ -7,6 +7,8 @@ import com.tony.component.annotation.Feishu;
 import com.tony.component.template.FeishuTemplate;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import java.util.Arrays;
 
@@ -16,6 +18,7 @@ import java.util.Arrays;
  * @create 2021-05-01
  * Description: 全局异常处理
  */
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalDefaultExceptionHandler implements MethodInterceptor {
 
     private FeishuTemplate feishuTemplate;
