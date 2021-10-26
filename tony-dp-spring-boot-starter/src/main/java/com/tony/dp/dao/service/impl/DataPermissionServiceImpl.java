@@ -91,7 +91,11 @@ public class DataPermissionServiceImpl implements DataPermissionService {
         wrapper.eq(SysDpRole::getId, dto.getRoleId())
                 .set(SysDpRole::getOpUser, dto.getOpUser())
                 .set(SysDpRole::getName, dto.getRoleName());
-        sysDpRoleMapper.update(null, wrapper);
+        try {
+            sysDpRoleMapper.update(null, wrapper);
+        }catch (DuplicateKeyException e){
+            throw new TonyException("角色已存在");
+        }
 
         //查询 角色->资源 的关系
         LambdaQueryWrapper<SysDpRoleResource> queryWrapper = new LambdaQueryWrapper<>();
