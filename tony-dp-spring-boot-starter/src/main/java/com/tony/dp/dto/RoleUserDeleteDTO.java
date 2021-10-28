@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class RoleUserDeleteDTO {
 
-    private Integer roleId;
-    private Integer userId;
+    private Long roleId;
+    private Long userId;
     private String opUser;
 }

@@ -12,6 +12,6 @@ import lombok.Data;
 */
 @Data
 public class RolePagesDTO {
-    private Integer size;
-    private Integer current;
+    private Long size;
+    private Long current;
 }

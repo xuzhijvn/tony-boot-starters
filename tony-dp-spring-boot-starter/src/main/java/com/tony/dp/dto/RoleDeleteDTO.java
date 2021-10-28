@@ -13,5 +13,5 @@ import lombok.Data;
 @Data
 public class RoleDeleteDTO {
 
-    private Integer roleId;
+    private Long roleId;
 }

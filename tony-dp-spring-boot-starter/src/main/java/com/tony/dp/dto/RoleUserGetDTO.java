@@ -13,5 +13,5 @@ import lombok.Data;
 @Data
 public class RoleUserGetDTO {
 
-    private Integer roleId;
+    private Long roleId;
 }

@@ -103,7 +103,7 @@ public class PaginationAspect {
             pageAjaxResult.setPageSize(pageInfo.getPageSize());
             pageAjaxResult.setTotal(pageInfo.getTotal());
 
-            if (pureMode){
+            if (pureMode) {
                 return PageResult.of(pageAjaxResult);
             }
 
