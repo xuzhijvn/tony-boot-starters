@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Import;
 
 /**
  * 启动入口
- * @author tony
  *
+ * @author tony
  */
 
 @Configuration

@@ -1,9 +1,9 @@
 package com.tony.data.permission.constant;
 
 /**
+ * @author tony
  * @ClassName: tonyConstant
  * @Description: 常量类
- * @author tony
  * @date 2019年5月18日 下午11:49:21
  */
 public class TonyConstant {

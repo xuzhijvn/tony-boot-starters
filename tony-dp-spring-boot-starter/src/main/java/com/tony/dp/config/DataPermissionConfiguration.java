@@ -54,7 +54,7 @@ public class DataPermissionConfiguration {
 
     @Bean
     @DependsOn({"defaultUserConverter"})
-    public DataPermissionAspect dataPermissionAspect(IUserConverter defaultUserConverter){
+    public DataPermissionAspect dataPermissionAspect(IUserConverter defaultUserConverter) {
         return new DataPermissionAspect(defaultUserConverter);
     }
 }

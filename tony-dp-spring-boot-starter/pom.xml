@@ -69,7 +69,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
-<!--                    <include>**/*.xml</include>-->
+                    <!--                    <include>**/*.xml</include>-->
                     <include>META-INF/spring.factories</include>
                 </includes>
             </resource>

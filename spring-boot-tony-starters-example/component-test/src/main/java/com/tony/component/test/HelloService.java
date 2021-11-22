@@ -19,4 +19,9 @@ public class HelloService {
         System.out.println("hello " + name);
         return "123";
     }
+
+    public String say8() {
+        System.out.println("hello say8");
+        throw new RuntimeException("rrrr");
+    }
 }

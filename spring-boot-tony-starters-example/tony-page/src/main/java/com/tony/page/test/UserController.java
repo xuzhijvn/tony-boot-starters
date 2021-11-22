@@ -5,7 +5,6 @@ package com.tony.page.test;
 
 import com.tony.page.AjaxResult;
 import com.tony.page.Pagination;
-import com.tony.page.Result;
 import com.tony.page.test.domain.User;
 import com.tony.page.test.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +37,7 @@ public class UserController {
         List<User> userList = userMapper.listAll();
         return AjaxResult.success(userList);
     }
+
     @GetMapping("/list2")
     public AjaxResult list2() {
         List<User> userList = userMapper.listAll();

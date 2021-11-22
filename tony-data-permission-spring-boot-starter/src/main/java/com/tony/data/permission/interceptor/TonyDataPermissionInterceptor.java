@@ -43,14 +43,14 @@ public class TonyDataPermissionInterceptor extends DataPermissionInterceptor {
     protected void processSelect(Select select, int index, String sql, Object obj) {
         SelectBody selectBody = select.getSelectBody();
         if (selectBody instanceof PlainSelect) {
-            PlainSelect plainSelect = (PlainSelect)selectBody;
-            this.processDataPermission(plainSelect, (String)obj);
+            PlainSelect plainSelect = (PlainSelect) selectBody;
+            this.processDataPermission(plainSelect, (String) obj);
         } else if (selectBody instanceof SetOperationList) {
-            SetOperationList setOperationList = (SetOperationList)selectBody;
+            SetOperationList setOperationList = (SetOperationList) selectBody;
             List<SelectBody> selectBodyList = setOperationList.getSelects();
             selectBodyList.forEach((s) -> {
-                PlainSelect plainSelect = (PlainSelect)s;
-                this.processDataPermission(plainSelect, (String)obj);
+                PlainSelect plainSelect = (PlainSelect) s;
+                this.processDataPermission(plainSelect, (String) obj);
             });
         }
 

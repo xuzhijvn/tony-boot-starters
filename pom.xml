@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.tony</groupId>
@@ -57,10 +58,10 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
 
         <!-- Maven Plugin Versions -->
-<!--        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>-->
-<!--        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>-->
-<!--        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>-->
-<!--        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>-->
+        <!--        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>-->
+        <!--        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>-->
+        <!--        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>-->
+        <!--        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>-->
         <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
     </properties>
 
@@ -134,13 +135,13 @@
             <id>nexus-releases</id>
             <name>Nexus Release Repository</name>
             <url>http://maven.huolala.cn/repository/risk-releases/</url>
-<!--            <url>http://maven.myxl.cn/repository/xl-risk-releases/</url>-->
+            <!--            <url>http://maven.myxl.cn/repository/xl-risk-releases/</url>-->
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <name>Nexus Snapshot Repository</name>
             <url>http://maven.huolala.cn/repository/risk-snapshots/</url>
-<!--            <url>http://maven.myxl.cn/repository/xl-risk-snapshots/</url>-->
+            <!--            <url>http://maven.myxl.cn/repository/xl-risk-snapshots/</url>-->
         </snapshotRepository>
     </distributionManagement>
 </project>

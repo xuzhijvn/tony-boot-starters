@@ -11,9 +11,10 @@ import java.time.LocalDateTime;
 
 /**
  * 数据权限资源表
+ *
  * @TableName sys_data_permission_resource
  */
-@TableName(value ="sys_data_permission_resource")
+@TableName(value = "sys_data_permission_resource")
 @Data
 public class SysDpResource implements Serializable {
     /**
@@ -74,12 +75,12 @@ public class SysDpResource implements Serializable {
         }
         SysDpResource other = (SysDpResource) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
-            && (this.getKey() == null ? other.getKey() == null : this.getKey().equals(other.getKey()))
-            && (this.getValue() == null ? other.getValue() == null : this.getValue().equals(other.getValue()))
-            && (this.getOpUser() == null ? other.getOpUser() == null : this.getOpUser().equals(other.getOpUser()))
-            && (this.getUpdatedAt() == null ? other.getUpdatedAt() == null : this.getUpdatedAt().equals(other.getUpdatedAt()))
-            && (this.getCreatedAt() == null ? other.getCreatedAt() == null : this.getCreatedAt().equals(other.getCreatedAt()));
+                && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
+                && (this.getKey() == null ? other.getKey() == null : this.getKey().equals(other.getKey()))
+                && (this.getValue() == null ? other.getValue() == null : this.getValue().equals(other.getValue()))
+                && (this.getOpUser() == null ? other.getOpUser() == null : this.getOpUser().equals(other.getOpUser()))
+                && (this.getUpdatedAt() == null ? other.getUpdatedAt() == null : this.getUpdatedAt().equals(other.getUpdatedAt()))
+                && (this.getCreatedAt() == null ? other.getCreatedAt() == null : this.getCreatedAt().equals(other.getCreatedAt()));
     }
 
     @Override

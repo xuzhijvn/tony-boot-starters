@@ -17,9 +17,7 @@ package com.tony.mybatis.cache.adapter;
 
 import com.tony.mybatis.cache.ApplicationContextHolder;
 import net.oschina.j2cache.CacheChannel;
-import net.oschina.j2cache.J2Cache;
 import org.apache.ibatis.cache.Cache;
-import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.Collection;
 import java.util.concurrent.locks.ReadWriteLock;

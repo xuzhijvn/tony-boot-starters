@@ -7,7 +7,6 @@ package com.tony.log;
 import com.tony.log.dao.service.ISysOperLogService;
 import com.tony.log.dao.service.SysOperLogServiceImpl;
 import org.mybatis.spring.annotation.MapperScan;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
@@ -24,7 +23,7 @@ public class LogConfiguration {
 
     @Bean(name = "sysOperLogService")
     @DependsOn({"sysOperLogMapper"})
-    public ISysOperLogService sysOperLogService(){
+    public ISysOperLogService sysOperLogService() {
         return new SysOperLogServiceImpl();
     }
 

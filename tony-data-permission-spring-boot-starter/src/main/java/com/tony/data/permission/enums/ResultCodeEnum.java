@@ -2,9 +2,9 @@ package com.tony.data.permission.enums;
 
 
 /**
+ * @author tony
  * @ClassName: ResultCodeEnum
  * @Description: 自定义返回码枚举
- * @author tony
  * @date 2020年09月19日 下午11:49:45
  */
 public enum ResultCodeEnum {

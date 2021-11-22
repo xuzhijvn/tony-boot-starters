@@ -8,15 +8,20 @@
     <cache type="net.oschina.j2cache.mybatis.J2CacheAdapter"/>
 
     <insert id="new" parameterType="Blog">
-        INSERT INTO blogs (id,title,body) VALUES(#{id},#{title},#{body});
+        INSERT INTO blogs (id, title, body)
+        VALUES (#{id}, #{title}, #{body});
     </insert>
 
     <select id="read" parameterType="int" resultType="Blog">
-        SELECT * FROM blogs WHERE id = #{id}
+        SELECT *
+        FROM blogs
+        WHERE id = #{id}
     </select>
 
     <update id="update" parameterType="Blog">
-        update blogs set title = #{title}  WHERE id = #{id}
+        update blogs
+        set title = #{title}
+        WHERE id = #{id}
     </update>
 
 </mapper>

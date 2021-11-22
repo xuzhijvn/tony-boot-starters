@@ -15,7 +15,8 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Feishu {
+public @interface Lark {
     String titleName() default "";
+
     String color() default "";
 }

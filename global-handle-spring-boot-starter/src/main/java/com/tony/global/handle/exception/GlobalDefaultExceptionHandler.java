@@ -1,10 +1,10 @@
 package com.tony.global.handle.exception;
 
 import com.netflix.client.ClientException;
+import com.tony.global.handle.Result;
 import com.tony.global.handle.annotation.IgnoreResponseAdvice;
 import com.tony.global.handle.exception.category.BusinessException;
 import com.tony.global.handle.exception.error.CommonErrorCode;
-import com.tony.global.handle.Result;
 import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

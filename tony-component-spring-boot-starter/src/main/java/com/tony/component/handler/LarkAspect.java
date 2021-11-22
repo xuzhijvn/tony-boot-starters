@@ -3,9 +3,9 @@
  */
 package com.tony.component.handler;
 
-import com.tony.component.annotation.Feishu;
+import com.tony.component.annotation.Lark;
+import com.tony.component.template.LarkTemplate;
 import com.tony.component.util.BeanUtil;
-import com.tony.component.template.FeishuTemplate;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -23,23 +23,23 @@ import java.lang.reflect.Method;
  */
 @Aspect
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class FeishuAspect {
+public class LarkAspect {
 
-    @Pointcut("@annotation(com.tony.component.annotation.Feishu)")
-    public void Feishu() {
+    @Pointcut("@annotation(com.tony.component.annotation.Lark)")
+    public void lark() {
     }
 
-    @Around("Feishu()")
+    @Around("lark()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         // 目标方法
         MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
-        Feishu feishu = method.getAnnotation(Feishu.class);
+        Lark lark = method.getAnnotation(Lark.class);
         Object result;
         try {
             result = point.proceed();
         } catch (Throwable ex) {
-            BeanUtil.getBean(FeishuTemplate.class).send(feishu.titleName(), ex, ex.getMessage(), feishu.color());
+            BeanUtil.getBean(LarkTemplate.class).send(lark.titleName(), ex, ex.getMessage(), lark.color());
             throw ex;
         }
         return result;

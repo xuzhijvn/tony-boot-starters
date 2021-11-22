@@ -19,8 +19,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.util.Assert;
 
 import java.lang.annotation.Annotation;
@@ -77,7 +75,7 @@ public class DataPermissionAspect {
 
         Set<Permission> userPermissions = userConverter.convert(currentUser);
 
-        if (!permissionHandler.hasPermission(userPermissions, permission)){
+        if (!permissionHandler.hasPermission(userPermissions, permission)) {
             LogUtils.ACCESS_LOG.warn("The current user does not have data permissions, " + currentUser + ", " + permission);
             throw new TonyException("没有数据权限");
         }

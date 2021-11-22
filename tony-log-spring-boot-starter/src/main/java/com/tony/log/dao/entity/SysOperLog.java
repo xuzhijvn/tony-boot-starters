@@ -1,6 +1,5 @@
 package com.tony.log.dao.entity;
 
-import com.tony.log.dao.entity.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

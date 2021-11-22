@@ -65,7 +65,7 @@ public class DataPermissionServiceImpl implements DataPermissionService {
         role.setOpUser(dto.getOpUser());
         try {
             sysDpRoleMapper.insert(role);
-        }catch (DuplicateKeyException e){
+        } catch (DuplicateKeyException e) {
             throw new TonyException("角色已存在");
         }
 
@@ -93,7 +93,7 @@ public class DataPermissionServiceImpl implements DataPermissionService {
                 .set(SysDpRole::getName, dto.getRoleName());
         try {
             sysDpRoleMapper.update(null, wrapper);
-        }catch (DuplicateKeyException e){
+        } catch (DuplicateKeyException e) {
             throw new TonyException("角色已存在");
         }
 
@@ -159,7 +159,7 @@ public class DataPermissionServiceImpl implements DataPermissionService {
                 entity.setUserId(user.getUserId());
                 entity.setOpUser(dto.getOpUser());
                 sysDpUserRoleMapper.insert(entity);
-            }catch (DuplicateKeyException e){
+            } catch (DuplicateKeyException e) {
                 //忽略冲突
                 log.warn("角色({})-用户({})已经存在", dto.getRoleId(), user.getUserId());
             }

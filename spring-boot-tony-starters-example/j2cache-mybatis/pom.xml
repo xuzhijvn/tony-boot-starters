@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<!--        <parent>-->
-<!--            <groupId>com.tony</groupId>-->
-<!--            <artifactId>spring-boot-tony-starters-example</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </parent>-->
+    <!--        <parent>-->
+    <!--            <groupId>com.tony</groupId>-->
+    <!--            <artifactId>spring-boot-tony-starters-example</artifactId>-->
+    <!--            <version>0.0.1-SNAPSHOT</version>-->
+    <!--        </parent>-->
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>j2cache-mybatis</artifactId>
@@ -42,7 +42,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>net.oschina.j2cache</groupId>
             <artifactId>j2cache-core</artifactId>
@@ -63,8 +62,8 @@
         </dependency>
     </dependencies>
 
-<!--    <build>-->
-<!--        <sourceDirectory>src/main/java</sourceDirectory>-->
-<!--    </build>-->
+    <!--    <build>-->
+    <!--        <sourceDirectory>src/main/java</sourceDirectory>-->
+    <!--    </build>-->
 
 </project>

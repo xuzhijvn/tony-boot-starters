@@ -16,27 +16,27 @@ public @interface DataPermission {
     /**
      * 需要做数据权限主表
      */
-    String dataTableName() default  "";
+    String dataTableName() default "";
 
     /**
      * 需要做数据权限表的别名
      */
-    String dataTableAlias() default  "";
+    String dataTableAlias() default "";
 
     /**
      * 数据权限需要排除的字段
      */
-    String dataColumnExclude() default  "";
+    String dataColumnExclude() default "";
 
     /**
      * 数据权限需要保留的字段
      */
-    String dataColumnInclude() default  "";
+    String dataColumnInclude() default "";
 
     /**
      * 数据权限表
      */
-   String innerTableName() default "t_sys_organization";
+    String innerTableName() default "t_sys_organization";
 
     /**
      * 数据权限表的别名

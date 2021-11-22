@@ -2,11 +2,10 @@ package com.tony.log.enums;
 
 /**
  * 操作状态
- * 
+ *
  * @author tony
  */
-public enum BusinessStatus
-{
+public enum BusinessStatus {
     /**
      * 成功
      */

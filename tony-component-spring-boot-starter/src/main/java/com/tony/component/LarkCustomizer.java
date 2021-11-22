@@ -3,7 +3,7 @@
  */
 package com.tony.component;
 
-import com.tony.component.template.FeishuTemplate;
+import com.tony.component.template.LarkTemplate;
 
 /**
  * @author tony
@@ -11,6 +11,6 @@ import com.tony.component.template.FeishuTemplate;
  * @description:
  */
 @FunctionalInterface
-public interface FeishuConstomizer {
-    void customize(FeishuTemplate feishuTemplate);
+public interface LarkCustomizer {
+    void customize(LarkTemplate larkTemplate);
 }

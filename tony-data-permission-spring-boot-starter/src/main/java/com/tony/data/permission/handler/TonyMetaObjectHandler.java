@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 /**
+ * @author tony
  * @ClassName: MyMetaObjectHandler
  * @Description: 自定义填充公共字段
- * @author tony
  * @date 2019年5月19日 上午10:32:29
  */
 @Component
@@ -22,7 +22,7 @@ public class TonyMetaObjectHandler implements MetaObjectHandler {
         Object creator = getFieldValByName("creator", metaObject);
         TonyUser TonyUser = TonyAuthUtils.getCurrentUser();
         if (null == creator && null != TonyUser) {
-           setFieldValByName("creator", TonyUser.getId(), metaObject);
+            setFieldValByName("creator", TonyUser.getId(), metaObject);
         }
         Object createTime = getFieldValByName("createTime", metaObject);
         if (null == createTime) {

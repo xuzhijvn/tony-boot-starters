@@ -1,6 +1,8 @@
 package com.tony.data.permission.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -9,7 +11,6 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * 
  * @author tony
  * @date 2020/12/14
  **/

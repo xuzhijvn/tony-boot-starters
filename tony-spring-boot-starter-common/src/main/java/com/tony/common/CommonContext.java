@@ -16,7 +16,7 @@ public class CommonContext {
     private static final ThreadLocal<Map<Object, Object>> THREAD_LOCAL_CACHE = new ThreadLocal<>();
 
     public static void set(Object obj) {
-        if (obj == null){
+        if (obj == null) {
             return;
         }
         Map<Object, Object> cache = THREAD_LOCAL_CACHE.get();
@@ -29,7 +29,7 @@ public class CommonContext {
 
     public static Object get(Class<?> clazz) {
         Map<Object, Object> cache = THREAD_LOCAL_CACHE.get();
-        return cache == null ? null: cache.get(clazz);
+        return cache == null ? null : cache.get(clazz);
     }
 
     public static void removeCache() {

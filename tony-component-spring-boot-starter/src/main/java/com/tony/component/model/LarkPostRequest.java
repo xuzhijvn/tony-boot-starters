@@ -15,7 +15,7 @@ import java.util.List;
  * @description:
  */
 
-public class FeishuPostRequest {
+public class LarkPostRequest {
     @JSONField(name = "msg_type")
     private String msgType = "interactive";
     private Card card;
