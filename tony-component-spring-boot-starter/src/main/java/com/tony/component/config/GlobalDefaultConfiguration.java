@@ -3,14 +3,13 @@
  */
 package com.tony.component.config;
 
-import com.tony.component.FeishuConstomizer;
 import com.tony.component.GlobalDefaultProperties;
+import com.tony.component.LarkCustomizer;
 import com.tony.component.filter.ThreadLocalCacheFilter;
-import com.tony.component.handler.FeishuAspect;
 import com.tony.component.handler.GlobalDefaultExceptionHandler;
+import com.tony.component.handler.LarkAspect;
 import com.tony.component.handler.ThreadLocalCacheAspect;
-import com.tony.component.util.BeanUtil;
-import com.tony.component.template.FeishuTemplate;
+import com.tony.component.template.LarkTemplate;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -19,8 +18,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Optional;
 
 /**
  * @author tony
@@ -42,18 +39,18 @@ public class GlobalDefaultConfiguration {
 //    }
 
     @Bean
-    @ConditionalOnMissingBean(FeishuTemplate.class)
-    @ConditionalOnProperty(prefix = "risk.tony.component.feishu", name = "webhooks")
-    public FeishuTemplate feishuApi(GlobalDefaultProperties globalDefaultProperties, ObjectProvider<FeishuConstomizer> customizers) {
-        FeishuTemplate feishuTemplate = new FeishuTemplate(globalDefaultProperties);
-        customizers.orderedStream().forEach(customizer -> customizer.customize(feishuTemplate));
-        return new FeishuTemplate(globalDefaultProperties);
+    @ConditionalOnMissingBean(LarkTemplate.class)
+    @ConditionalOnProperty(prefix = "risk.tony.component.lark", name = "webhooks")
+    public LarkTemplate larkApi(GlobalDefaultProperties globalDefaultProperties, ObjectProvider<LarkCustomizer> customizers) {
+        LarkTemplate larkTemplate = new LarkTemplate(globalDefaultProperties);
+        customizers.orderedStream().forEach(customizer -> customizer.customize(larkTemplate));
+        return new LarkTemplate(globalDefaultProperties);
     }
 
     @Bean
-    @ConditionalOnMissingBean(FeishuAspect.class)
-    public FeishuAspect feishuAspect() {
-        return new FeishuAspect();
+    @ConditionalOnMissingBean(LarkAspect.class)
+    public LarkAspect larkAspect() {
+        return new LarkAspect();
     }
 
     @Bean(name = "globalAspectJExpressionPointcutAdvisor")
@@ -61,7 +58,7 @@ public class GlobalDefaultConfiguration {
     public AspectJExpressionPointcutAdvisor pointcutAdvisor(GlobalDefaultProperties globalDefaultProperties) {
         AspectJExpressionPointcutAdvisor advisor = new AspectJExpressionPointcutAdvisor();
         advisor.setExpression(globalDefaultProperties.getPointcut());
-        advisor.setAdvice(new GlobalDefaultExceptionHandler(new FeishuTemplate(globalDefaultProperties)));
+        advisor.setAdvice(new GlobalDefaultExceptionHandler(new LarkTemplate(globalDefaultProperties)));
         return advisor;
     }
 

@@ -74,7 +74,7 @@
     <select id="selectResourceByRoleId" resultType="com.tony.dp.dao.entity.SysDpResource">
         SELECT resource_id as id, type, `key`, `value`
         FROM sys_data_permission_role_resource role_resource,
-            sys_data_permission_resource resource
+             sys_data_permission_resource resource
         WHERE role_resource.role_id = #{id}
           AND resource.id = role_resource.resource_id
     </select>

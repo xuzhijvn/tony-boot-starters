@@ -10,7 +10,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
 
 /**
- *
  * @author tony
  * @date 2020/12/23 15:54
  **/

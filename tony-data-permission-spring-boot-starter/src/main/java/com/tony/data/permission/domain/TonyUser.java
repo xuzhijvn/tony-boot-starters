@@ -1,4 +1,3 @@
-
 package com.tony.data.permission.domain;
 
 import io.swagger.annotations.ApiModel;

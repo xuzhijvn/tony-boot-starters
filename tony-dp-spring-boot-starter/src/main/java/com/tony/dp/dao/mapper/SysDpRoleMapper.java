@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Param;
 public interface SysDpRoleMapper extends BaseMapper<SysDpRole> {
 
 
-    IPage<SysDpRole> rolePages(IPage<SysDpRole> page , @Param(Constants.WRAPPER) Wrapper<SysDpRole> queryWrapper);
+    IPage<SysDpRole> rolePages(IPage<SysDpRole> page, @Param(Constants.WRAPPER) Wrapper<SysDpRole> queryWrapper);
 //    List<SysDpRole> rolePages(IPage<SysDpRole> page , @Param(Constants.WRAPPER) Wrapper<SysDpRole> queryWrapper);
 
 }

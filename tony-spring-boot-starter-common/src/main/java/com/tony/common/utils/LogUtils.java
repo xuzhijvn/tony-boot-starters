@@ -11,11 +11,10 @@ import java.util.Map;
 
 /**
  * 处理并记录日志文件
- * 
+ *
  * @author ruoyi
  */
-public class LogUtils
-{
+public class LogUtils {
     public static final Logger ERROR_LOG = LoggerFactory.getLogger("sys-error");
     public static final Logger ACCESS_LOG = LoggerFactory.getLogger("sys-access");
 
@@ -25,8 +24,7 @@ public class LogUtils
      * @param request
      * @throws Exception
      */
-    public static void logAccess(HttpServletRequest request) throws Exception
-    {
+    public static void logAccess(HttpServletRequest request) throws Exception {
         //String username = getUsername();
         String jsessionId = request.getRequestedSessionId();
         String ip = IpUtils.getIpAddr(request);
@@ -53,8 +51,7 @@ public class LogUtils
      * @param message
      * @param e
      */
-    public static void logError(String message, Throwable e)
-    {
+    public static void logError(String message, Throwable e) {
         //String username = getUsername();
         StringBuilder s = new StringBuilder();
         s.append(getBlock("exception"));
@@ -68,8 +65,7 @@ public class LogUtils
      *
      * @param request
      */
-    public static void logPageError(HttpServletRequest request)
-    {
+    public static void logPageError(HttpServletRequest request) {
         //String username = getUsername();
 
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
@@ -77,8 +73,7 @@ public class LogUtils
         String uri = (String) request.getAttribute("javax.servlet.error.request_uri");
         Throwable t = (Throwable) request.getAttribute("javax.servlet.error.exception");
 
-        if (statusCode == null)
-        {
+        if (statusCode == null) {
             statusCode = 0;
         }
 
@@ -93,8 +88,7 @@ public class LogUtils
         s.append(getBlock(request.getHeader("Referer")));
         StringWriter sw = new StringWriter();
 
-        while (t != null)
-        {
+        while (t != null) {
             t.printStackTrace(new PrintWriter(sw));
             t = t.getCause();
         }
@@ -103,17 +97,14 @@ public class LogUtils
 
     }
 
-    public static String getBlock(Object msg)
-    {
-        if (msg == null)
-        {
+    public static String getBlock(Object msg) {
+        if (msg == null) {
             msg = "";
         }
         return "[" + msg.toString() + "]";
     }
 
-    protected static String getParams(HttpServletRequest request) throws Exception
-    {
+    protected static String getParams(HttpServletRequest request) throws Exception {
         Map<String, String[]> params = request.getParameterMap();
         return JSON.toJSONString(params);
     }
@@ -123,13 +114,11 @@ public class LogUtils
 //        return (String) SecurityUtils.getSubject().getPrincipal();
 //    }
 
-    public static Logger getAccessLog()
-    {
+    public static Logger getAccessLog() {
         return ACCESS_LOG;
     }
 
-    public static Logger getErrorLog()
-    {
+    public static Logger getErrorLog() {
         return ERROR_LOG;
     }
 }

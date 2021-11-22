@@ -5,9 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * @author tony
  * @ClassName: BusinessException
  * @Description: 业务处理异常
- * @author tony
  * @date
  */
 @Getter

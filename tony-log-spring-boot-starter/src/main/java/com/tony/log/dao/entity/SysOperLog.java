@@ -1,6 +1,5 @@
 package com.tony.log.dao.entity;
 
-import com.tony.log.dao.entity.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -57,7 +56,7 @@ public class SysOperLog extends BaseEntity {
     /**
      * 部门名称
      */
-    private String deptName;
+    private String deptName = "";
 
     /**
      * 请求url
@@ -92,7 +91,7 @@ public class SysOperLog extends BaseEntity {
     /**
      * 错误消息
      */
-    private String errorMsg;
+    private String errorMsg = "";
 
     /**
      * 操作时间

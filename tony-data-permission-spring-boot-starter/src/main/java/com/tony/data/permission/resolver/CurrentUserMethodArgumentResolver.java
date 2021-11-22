@@ -11,9 +11,9 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
 /**
+ * @author tony
  * @ClassName: CurrentUserMethodArgumentResolver
  * @Description: 增加方法注入，将含有 @CurrentUser 注解的方法参数注入当前登录用户
- * @author tony
  * @date 2019年5月18日 下午3:59:17
  */
 public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentResolver {
@@ -26,7 +26,7 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
 
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
-            NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
+                                  NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
         TonyUser user = TonyAuthUtils.getCurrentUser();
         return user;
     }

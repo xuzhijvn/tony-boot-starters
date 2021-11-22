@@ -6,15 +6,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 
+ * @author tony
  * @ClassName: BeforeLog
  * @Description: 记录前置日志
- * @author tony
  * @date 2019年4月27日 下午3:36:29
- *
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.METHOD })
+@Target({ElementType.METHOD})
 public @interface BeforeLog {
 
     String name() default "";

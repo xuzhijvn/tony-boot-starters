@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.tony.common.exception.TonyException;
 import com.tony.dp.ApplicationContextHolder;
 import com.tony.dp.dao.entity.SysDpResource;
 import com.tony.dp.dao.entity.SysDpRole;
@@ -21,6 +22,9 @@ import com.tony.dp.dao.mapper.SysDpRoleResourceMapper;
 import com.tony.dp.dao.mapper.SysDpUserRoleMapper;
 import com.tony.dp.dao.service.DataPermissionService;
 import com.tony.dp.dto.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -32,6 +36,8 @@ import java.util.stream.Collectors;
  * @description:
  */
 public class DataPermissionServiceImpl implements DataPermissionService {
+
+    private final static Logger log = LoggerFactory.getLogger(DataPermissionServiceImpl.class);
 
     @Override
     public IPage<SysDpRole> rolePages(RolePagesDTO dto) {
@@ -57,7 +63,11 @@ public class DataPermissionServiceImpl implements DataPermissionService {
         SysDpRole role = new SysDpRole();
         role.setName(dto.getRoleName());
         role.setOpUser(dto.getOpUser());
-        sysDpRoleMapper.insert(role);
+        try {
+            sysDpRoleMapper.insert(role);
+        } catch (DuplicateKeyException e) {
+            throw new TonyException("角色已存在");
+        }
 
         dto.getResourceIds().forEach(resourceId -> {
             SysDpRoleResource roleResource = new SysDpRoleResource();
@@ -81,7 +91,11 @@ public class DataPermissionServiceImpl implements DataPermissionService {
         wrapper.eq(SysDpRole::getId, dto.getRoleId())
                 .set(SysDpRole::getOpUser, dto.getOpUser())
                 .set(SysDpRole::getName, dto.getRoleName());
-        sysDpRoleMapper.update(null, wrapper);
+        try {
+            sysDpRoleMapper.update(null, wrapper);
+        } catch (DuplicateKeyException e) {
+            throw new TonyException("角色已存在");
+        }
 
         //查询 角色->资源 的关系
         LambdaQueryWrapper<SysDpRoleResource> queryWrapper = new LambdaQueryWrapper<>();
@@ -139,11 +153,16 @@ public class DataPermissionServiceImpl implements DataPermissionService {
     public boolean addRoleUser(RoleUserAddDTO dto) {
         SysDpUserRoleMapper sysDpUserRoleMapper = ApplicationContextHolder.getBean(SysDpUserRoleMapper.class);
         dto.getUsers().forEach(user -> {
-            SysDpUserRole entity = new SysDpUserRole();
-            entity.setRoleId(dto.getRoleId());
-            entity.setUserId(user.getUserId());
-            entity.setOpUser(dto.getOpUser());
-            sysDpUserRoleMapper.insert(entity);
+            try {
+                SysDpUserRole entity = new SysDpUserRole();
+                entity.setRoleId(dto.getRoleId());
+                entity.setUserId(user.getUserId());
+                entity.setOpUser(dto.getOpUser());
+                sysDpUserRoleMapper.insert(entity);
+            } catch (DuplicateKeyException e) {
+                //忽略冲突
+                log.warn("角色({})-用户({})已经存在", dto.getRoleId(), user.getUserId());
+            }
         });
         return true;
     }

@@ -1,13 +1,13 @@
 /*
-*       Copyright© (2020).
-*/
+ *       Copyright© (2020).
+ */
 package com.tony.common.exception;
 
- /**
-   * @author tony
-   * @create 2021/9/19
-   * @description:
-   */
+/**
+ * @author tony
+ * @create 2021/9/19
+ * @description:
+ */
 public class TonyException extends RuntimeException {
 
     private static final long serialVersionUID = -4379801359412979859L;
@@ -112,26 +112,25 @@ public class TonyException extends RuntimeException {
      * @return
      */
     public String transform(String serviceName) {
-        if(serviceName != null){
+        if (serviceName != null) {
             serviceName = serviceName.replace(".", "-");
             return serviceName;
-        }else{
+        } else {
             return "LACK_SERVICE";
         }
     }
 
     public String getInterfaceName(Class<?> clazz) {
         Class<?>[] clazzs = clazz.getInterfaces();
-        if(clazzs.length > 0) {
+        if (clazzs.length > 0) {
             return clazzs[0].getName();
-        }
-        else {
+        } else {
             return clazz.getName();
         }
     }
 
     public String getKey() {
-        if(null == clazz) {
+        if (null == clazz) {
             return SVC + "." + ret;
         } else {
             return SVC + transform(clazz) + ERROR + ret;

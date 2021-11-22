@@ -4,18 +4,18 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * 相关的配置信息
- * @author tony
  *
+ * @author tony
  */
 @ConfigurationProperties(prefix = "j2cache")
 public class J2CacheConfig {
     private String configLocation = "/j2cache.properties";
-    
+
     /**
      * 是否开启spring cache缓存,注意:开启后需要添加spring.cache.type=GENERIC,将缓存类型设置为GENERIC
      */
     private Boolean openSpringCache = false;
-    
+
     /**
      * 缓存清除模式，
      * <ul>
@@ -25,12 +25,12 @@ public class J2CacheConfig {
      * </ul>
      */
     private String cacheCleanMode = "passive";
-    
+
     /**
      * 是否允许缓存空值,默认:false
      */
     private boolean allowNullValues = false;
-    
+
     /**
      * 使用哪种redis客户端,默认：lettuce
      * <ul>
@@ -39,13 +39,13 @@ public class J2CacheConfig {
      * </ul>
      */
     private String redisClient = "lettuce";
-    
+
     /**
      * 是否开启二级缓存
      */
     private boolean l2CacheOpen = true;
 
-    
+
     public String getConfigLocation() {
         return configLocation;
     }
@@ -54,44 +54,44 @@ public class J2CacheConfig {
         this.configLocation = configLocation;
     }
 
-	public Boolean getOpenSpringCache() {
-		return openSpringCache;
-	}
+    public Boolean getOpenSpringCache() {
+        return openSpringCache;
+    }
 
-	public void setOpenSpringCache(Boolean openSpringCache) {
-		this.openSpringCache = openSpringCache;
-	}
+    public void setOpenSpringCache(Boolean openSpringCache) {
+        this.openSpringCache = openSpringCache;
+    }
 
-	public String getCacheCleanMode() {
-		return cacheCleanMode;
-	}
+    public String getCacheCleanMode() {
+        return cacheCleanMode;
+    }
 
-	public void setCacheCleanMode(String cacheCleanMode) {
-		this.cacheCleanMode = cacheCleanMode;
-	}
+    public void setCacheCleanMode(String cacheCleanMode) {
+        this.cacheCleanMode = cacheCleanMode;
+    }
 
-	public boolean isAllowNullValues() {
-		return allowNullValues;
-	}
+    public boolean isAllowNullValues() {
+        return allowNullValues;
+    }
 
-	public void setAllowNullValues(boolean allowNullValues) {
-		this.allowNullValues = allowNullValues;
-	}
+    public void setAllowNullValues(boolean allowNullValues) {
+        this.allowNullValues = allowNullValues;
+    }
 
-	public String getRedisClient() {
-		return redisClient;
-	}
+    public String getRedisClient() {
+        return redisClient;
+    }
 
-	public void setRedisClient(String redisClient) {
-		this.redisClient = redisClient;
-	}
-	
-	public boolean getL2CacheOpen() {
-		return l2CacheOpen;
-	}
+    public void setRedisClient(String redisClient) {
+        this.redisClient = redisClient;
+    }
 
-	public void setL2CacheOpen(boolean l2CacheOpen) {
-		this.l2CacheOpen = l2CacheOpen;
-	}
+    public boolean getL2CacheOpen() {
+        return l2CacheOpen;
+    }
+
+    public void setL2CacheOpen(boolean l2CacheOpen) {
+        this.l2CacheOpen = l2CacheOpen;
+    }
 
 }

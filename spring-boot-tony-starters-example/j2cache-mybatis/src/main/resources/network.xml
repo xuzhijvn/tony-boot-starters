@@ -13,14 +13,14 @@
 
             thread_pool.min_threads="2"
             thread_pool.max_threads="8"
-            thread_pool.keep_alive_time="5000" />
+            thread_pool.keep_alive_time="5000"/>
 
-    <PING />
+    <PING/>
     <MERGE3 max_interval="30000"
             min_interval="10000"/>
     <FD_SOCK/>
     <FD_ALL/>
-    <VERIFY_SUSPECT timeout="1500"  />
+    <VERIFY_SUSPECT timeout="1500"/>
     <pbcast.NAKACK2 xmit_interval="500"
                     xmit_table_num_rows="100"
                     xmit_table_msgs_per_row="2000"
@@ -39,5 +39,5 @@
          min_threshold="0.4"/>
     <MFC max_credits="2M"
          min_threshold="0.4"/>
-    <FRAG2 frag_size="60K"  />
+    <FRAG2 frag_size="60K"/>
 </config>

@@ -20,8 +20,8 @@ import java.io.IOException;
 
 /**
  * 启动入口
- * @author tony
  *
+ * @author tony
  */
 @ConditionalOnClass(J2Cache.class)
 @EnableConfigurationProperties({J2CacheConfig.class})
@@ -34,23 +34,23 @@ public class J2CacheAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(J2CacheConfig.class)
-    public net.oschina.j2cache.J2CacheConfig j2CacheConfig() throws IOException{
-    	net.oschina.j2cache.J2CacheConfig cacheConfig = SpringJ2CacheConfigUtil.initFromConfig(standardEnvironment);
-    	return cacheConfig;
+    public net.oschina.j2cache.J2CacheConfig j2CacheConfig() throws IOException {
+        net.oschina.j2cache.J2CacheConfig cacheConfig = SpringJ2CacheConfigUtil.initFromConfig(standardEnvironment);
+        return cacheConfig;
     }
 
     @Bean
-    @DependsOn({"springUtil","j2CacheConfig"})
+    @DependsOn({"springUtil", "j2CacheConfig"})
     @ConditionalOnMissingBean(CacheChannel.class)
     public CacheChannel cacheChannel(net.oschina.j2cache.J2CacheConfig j2CacheConfig) throws IOException {
-    	J2CacheBuilder builder = J2CacheBuilder.init(j2CacheConfig);
+        J2CacheBuilder builder = J2CacheBuilder.init(j2CacheConfig);
         return builder.getChannel();
     }
 
     @Bean
     @ConditionalOnMissingBean(SpringUtil.class)
     public SpringUtil springUtil() {
-    	return new SpringUtil();
+        return new SpringUtil();
     }
 
 }

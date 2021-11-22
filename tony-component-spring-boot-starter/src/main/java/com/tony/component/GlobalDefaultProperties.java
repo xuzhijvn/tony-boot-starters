@@ -14,8 +14,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class GlobalDefaultProperties {
 
     private String pointcut;
-    private String excludeException;
-    private Feishu feishu;
+    private String excludeException = "";
+    private Lark lark;
     //private Boolean currentUser;
 
 //    public Boolean getCurrentUser() {
@@ -42,15 +42,15 @@ public class GlobalDefaultProperties {
         this.pointcut = pointcut;
     }
 
-    public Feishu getFeishu() {
-        return feishu;
+    public Lark getLark() {
+        return lark;
     }
 
-    public void setFeishu(Feishu feishu) {
-        this.feishu = feishu;
+    public void setLark(Lark lark) {
+        this.lark = lark;
     }
 
-    public static class Feishu {
+    public static class Lark {
         private String webhooks;
         private Kibana kibana;
 

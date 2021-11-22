@@ -11,7 +11,6 @@ public class TonyWebUtils extends WebUtils {
 
     /**
      * 获取 HttpServletRequest
-     *
      */
     public static HttpServletRequest getRequest() {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();

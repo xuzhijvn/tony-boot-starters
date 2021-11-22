@@ -2,11 +2,10 @@ package com.tony.log.enums;
 
 /**
  * 数据源
- * 
+ *
  * @author tony
  */
-public enum DataSourceType
-{
+public enum DataSourceType {
     /**
      * 主库
      */

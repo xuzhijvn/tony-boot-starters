@@ -1,10 +1,8 @@
-import cn.hutool.core.util.RandomUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
-import java.util.Random;
 
 /**
  * 测试入口
@@ -36,7 +34,7 @@ public class MybatisTester {
 //
 //            System.out.println("blog updated");
             session.commit();
-            for(int i=0;i<1000;i++) {
+            for (int i = 0; i < 1000; i++) {
                 SqlSession session1 = sqlSessionFactory.openSession();
                 Blog db = session1.selectOne("read", 136);
                 System.out.printf("id=%d,title=%s,body=%s,i=%s%n", db.getId(), db.getTitle(), db.getBody(), i);

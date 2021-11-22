@@ -5,7 +5,9 @@ package com.tony.dp;
 
 
 import com.tony.common.CommonContext;
+import com.tony.common.exception.TonyException;
 import com.tony.common.model.User;
+import com.tony.common.utils.LogUtils;
 import com.tony.dp.annotation.DataConvert;
 import com.tony.dp.annotation.DataPermission;
 import com.tony.dp.converter.IDataConverter;
@@ -17,6 +19,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.util.Assert;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -28,6 +31,7 @@ import java.util.Set;
  * @description:
  */
 @Aspect
+//@Order(-1)
 public class DataPermissionAspect {
 
     private final IUserConverter userConverter;
@@ -41,26 +45,27 @@ public class DataPermissionAspect {
 
         User currentUser = (User) CommonContext.get(User.class);
 
-        if (currentUser == null || currentUser.getId() == null){
-            throw new RuntimeException("when @DataPermission is configured, the User in the header cannot be empty");
-        }
+        Assert.isTrue(currentUser != null && currentUser.getId() != null,
+                "when @DataPermission is configured, the User in the header cannot be empty");
 
         Object[] params = joinPoint.getArgs();
-        if (params.length == 0) {
-            throw new RuntimeException("@DataPermission can't be used in no args method, " + joinPoint.getSignature().getName());
-        }
+
+        Assert.isTrue(params.length != 0,
+                "@DataPermission can't be used in no args method, " + joinPoint.getSignature().getName());
+
         Class<?> dataConvertUsing = dataPermission.dataConvertUsing();
-        if (dataConvertUsing == Void.class) {
-            throw new RuntimeException("dataConvertUsing must be configure in @DataPermission");
-        }
+
+        Assert.isTrue(dataConvertUsing != Void.class,
+                "dataConvertUsing must be configure in @DataPermission");
 
         //获取dataConverter
         IDataConverter dataConverter = (IDataConverter) getInstance(dataConvertUsing);
 
         Object convertData = getAnnotationParameter(joinPoint, DataConvert.class);
-        if (convertData == null) {
-            throw new RuntimeException("@DataConvert must be configure at least one to the method parameter when the method be annotated by @DataPermission");
-        }
+
+        Assert.notNull(convertData,
+                "@DataConvert must be configure at least one to the method parameter when the method be annotated by @DataPermission");
+
         Permission permission = dataConverter.convert(convertData);
 
         Class<?> permissionHandlerUsing = dataPermission.permissionHandlerUsing();
@@ -69,9 +74,12 @@ public class DataPermissionAspect {
         IPermissionHandler permissionHandler = (IPermissionHandler) getInstance(permissionHandlerUsing);
 
         Set<Permission> userPermissions = userConverter.convert(currentUser);
+
         if (!permissionHandler.hasPermission(userPermissions, permission)) {
-            throw new RuntimeException("The current user does not have data permissions, " + currentUser + ", " + permission);
+            LogUtils.ACCESS_LOG.warn("The current user does not have data permissions, " + currentUser + ", " + permission);
+            throw new TonyException("没有数据权限");
         }
+
     }
 
     private Object getInstance(Class<?> clazz) throws Exception {

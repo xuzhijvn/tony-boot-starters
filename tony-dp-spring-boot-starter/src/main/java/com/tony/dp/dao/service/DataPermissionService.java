@@ -1,6 +1,6 @@
 /*
-*       Copyright© (2020).
-*/
+ *       Copyright© (2020).
+ */
 package com.tony.dp.dao.service;
 
 
@@ -13,10 +13,10 @@ import com.tony.dp.dto.*;
 import java.util.List;
 
 /**
-* @author tony
-* @create 2021-09-07
-* @description:
-*/
+ * @author tony
+ * @create 2021-09-07
+ * @description:
+ */
 public interface DataPermissionService {
 
 

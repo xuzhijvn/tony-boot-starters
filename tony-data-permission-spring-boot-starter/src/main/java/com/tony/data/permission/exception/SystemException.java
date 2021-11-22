@@ -4,9 +4,9 @@ import com.tony.data.permission.enums.ResultCodeEnum;
 import lombok.Getter;
 
 /**
+ * @author tony
  * @ClassName: SystemException
  * @Description: 系统处理异常
- * @author tony
  * @date
  */
 @Getter

@@ -3,10 +3,12 @@
  */
 package com.tony.component.handler;
 
-import com.tony.component.annotation.Feishu;
-import com.tony.component.template.FeishuTemplate;
+import com.tony.component.annotation.Lark;
+import com.tony.component.template.LarkTemplate;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import java.util.Arrays;
 
@@ -16,12 +18,13 @@ import java.util.Arrays;
  * @create 2021-05-01
  * Description: 全局异常处理
  */
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalDefaultExceptionHandler implements MethodInterceptor {
 
-    private FeishuTemplate feishuTemplate;
+    private LarkTemplate larkTemplate;
 
-    public GlobalDefaultExceptionHandler(FeishuTemplate feishuTemplate) {
-        this.feishuTemplate = feishuTemplate;
+    public GlobalDefaultExceptionHandler(LarkTemplate larkTemplate) {
+        this.larkTemplate = larkTemplate;
     }
 
     @Override
@@ -29,12 +32,12 @@ public class GlobalDefaultExceptionHandler implements MethodInterceptor {
         try {
             return methodInvocation.proceed();
         } catch (Throwable ex) {
-            if (Arrays.stream(feishuTemplate.getGlobalDefaultProperties().getExcludeException().split(",")).anyMatch(e -> e.equals(ex.getClass().getName()))){
+            if (Arrays.stream(larkTemplate.getGlobalDefaultProperties().getExcludeException().split(",")).anyMatch(e -> e.equals(ex.getClass().getName()))) {
                 throw ex;
             }
-            Feishu feishu = methodInvocation.getMethod().getAnnotation(Feishu.class);
-            if (feishu == null){
-                feishuTemplate.send("全局异常", ex, ex.getMessage());
+            Lark lark = methodInvocation.getMethod().getAnnotation(Lark.class);
+            if (lark == null) {
+                larkTemplate.sendIfAbsent("全局异常", ex.getClass(), ex.getMessage());
             }
             throw ex;
         }
