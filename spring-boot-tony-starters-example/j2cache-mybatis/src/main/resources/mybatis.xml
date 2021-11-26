@@ -9,7 +9,7 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://gz-cdb-p32xf9yj.sql.tencentcdb.com:59582/test?useSSL=false"/>
+                <property name="url" value="jdbc:mysql://106.53.24.153:3306/test?useSSL=false"/>
                 <property name="username" value="root"/>
                 <property name="password" value="xuzhijun256"/>
             </dataSource>

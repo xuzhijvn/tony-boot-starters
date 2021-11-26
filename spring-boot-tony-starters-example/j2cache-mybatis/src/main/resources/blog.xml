@@ -5,7 +5,7 @@
 
 <mapper namespace="Blog">
 
-    <cache type="net.oschina.j2cache.mybatis.J2CacheAdapter"/>
+<!--    <cache type="net.oschina.j2cache.mybatis.J2CacheAdapter"/>-->
 
     <insert id="new" parameterType="Blog">
         INSERT INTO blogs (id, title, body)
