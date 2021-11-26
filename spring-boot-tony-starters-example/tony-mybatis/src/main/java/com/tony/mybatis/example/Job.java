@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 /**
- * @author tony121.xu@huolala.cn
+ * @author tony
  * @create 2021-07-01
  * @description: 职业
  */
