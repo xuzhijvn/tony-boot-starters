@@ -49,7 +49,7 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-extension</artifactId>
             <version>3.4.3.2</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

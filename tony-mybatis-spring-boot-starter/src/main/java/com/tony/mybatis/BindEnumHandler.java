@@ -27,6 +27,36 @@ public class BindEnumHandler<T> {
         this.clazz = clazz;
     }
 
+    public static <E extends Enum<E>> String toValue(Class<? extends Enum<?>> clazz, String keyField, Object key, String valueField) {
+        Enum<?> e = toType(clazz, keyField, key);
+        if (e == null) {
+            return null;
+        }
+        return ReflectUtil.getFieldValue(e, valueField).toString();
+    }
+
+    public static <E extends Enum<E>> String toValue(Class<E> clazz, Object key) {
+        return toValue(clazz, KEY_FIELD, key, VALUE_FIELD);
+    }
+
+    public static <E extends Enum<E>> E toType(Class<? extends Enum<?>> clazz, String keyField, Object key) {
+        final Enum<?>[] enums = clazz.getEnumConstants();
+        if (null == enums) {
+            return null;
+        }
+        for (Enum<?> e : enums) {
+            Object key2 = ReflectUtil.getFieldValue(e, keyField);
+            if (ReflectUtil.getFieldValue(e, keyField).toString().equals(key.toString())) {
+                return (E) e;
+            }
+        }
+        return null;
+    }
+
+    public static <E extends Enum<E>> E toType(Class<E> clazz, Object key) {
+        return toType(clazz, KEY_FIELD, key);
+    }
+
     public void handle(Object t) {
         // 得到类的所有field.
         Field[] allFields = clazz.getDeclaredFields();
@@ -67,36 +97,6 @@ public class BindEnumHandler<T> {
             }
 
         }
-    }
-
-    public static <E extends Enum<E>> String toValue(Class<? extends Enum<?>> clazz, String keyField, Object key, String valueField) {
-        Enum<?> e = toType(clazz, keyField, key);
-        if (e == null) {
-            return null;
-        }
-        return ReflectUtil.getFieldValue(e, valueField).toString();
-    }
-
-    public static <E extends Enum<E>> String toValue(Class<E> clazz, Object key) {
-        return toValue(clazz, KEY_FIELD, key, VALUE_FIELD);
-    }
-
-    public static <E extends Enum<E>> E toType(Class<? extends Enum<?>> clazz, String keyField, Object key) {
-        final Enum<?>[] enums = clazz.getEnumConstants();
-        if (null == enums) {
-            return null;
-        }
-        for (Enum<?> e : enums) {
-            Object key2  = ReflectUtil.getFieldValue(e, keyField);
-            if (ReflectUtil.getFieldValue(e, keyField).toString().equals(key.toString())) {
-                return (E) e;
-            }
-        }
-        return null;
-    }
-
-    public static <E extends Enum<E>> E toType(Class<E> clazz, Object key) {
-        return toType(clazz, KEY_FIELD, key);
     }
 
 

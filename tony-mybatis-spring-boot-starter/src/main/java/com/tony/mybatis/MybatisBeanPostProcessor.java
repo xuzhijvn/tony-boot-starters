@@ -5,7 +5,6 @@ package com.tony.mybatis;
 
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
@@ -21,11 +20,10 @@ public class MybatisBeanPostProcessor implements BeanPostProcessor {
             if (bean instanceof MybatisSqlSessionFactoryBean) {
                 MybatisSqlSessionFactoryBean sqlSessionFactory = (MybatisSqlSessionFactoryBean) bean;
                 sqlSessionFactory.getConfiguration().addInterceptor(new ResultSetPlugin());
-            }else {
+            } else {
                 SqlSessionFactory sqlSessionFactory = (SqlSessionFactory) bean;
                 sqlSessionFactory.getConfiguration().addInterceptor(new ResultSetPlugin());
             }
-            System.out.println("postProcessAfterInitialization");
         }
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }

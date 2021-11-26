@@ -5,6 +5,7 @@ package com.tony.mybatis.example;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 /**
  * @author tony121.xu@huolala.cn
@@ -13,6 +14,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
+@ToString
 public enum Job {
 
     CODER(8, "码农"),

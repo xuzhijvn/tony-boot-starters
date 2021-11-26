@@ -10,9 +10,7 @@ import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Signature;
 
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * @author tony
