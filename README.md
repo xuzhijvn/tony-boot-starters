@@ -94,16 +94,11 @@ Import the `spring-boot-tony-starter` to get started.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Based on the principle of least dependency, different sub-module may rely on the following
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [MyBatis](https://blog.mybatis.org/)
+* [PageHelper](https://pagehelper.github.io/)
+* [Redis](https://redis.io/)
 
 <p align="right"><a href="#top">back to top</a>👆</p>
 
@@ -112,33 +107,45 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* Java 1.8+
+* Maven 3.6+
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+1. Clone the repo
+   ```sh
+   git clone https://github.com/xuzhijvn/spring-boot-tony-starters.git
+   ```
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+2. Install the packages to your local maven repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   maven install
    ```
-3. Install NPM packages
-   ```sh
-   npm install
+
+3. Import dependencies
+
+   Import parent dependencies
+
+   ```java
+   <dependency>
+      <groupId>com.tony</groupId>
+      <artifactId>spring-boot-tony-starter</artifactId>
+      <version>1.0.2-SNAPSHOT</version>
+   </dependency>
    ```
-4. Enter your API in `config.js`
+
+   or import sub-dependencies you need
+
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   <dependency>
+      <groupId>com.tony</groupId>
+      <artifactId>tony-component-spring-boot-starter</artifactId>
+      <version>1.0.3-SNAPSHOT</version>
+   </dependency>
    ```
 
 <p align="right"><a href="#top">back to top</a>👆</p>
@@ -148,7 +155,7 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
 
 _For more examples, please refer to the [Documentation](https://github.com/xuzhijvn/spring-boot-tony-starters/wiki)_
 
@@ -165,7 +172,7 @@ _For more examples, please refer to the [Documentation](https://github.com/xuzhi
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
     - [ ] Chinese
-    - [ ] Spanish
+    - [ ] English
 
 See the [open issues](https://github.com/xuzhijvn/spring-boot-tony-starters/issues) for a full list of proposed features (and known issues).
 
@@ -204,15 +211,16 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Tony - [QQ](http://wpa.qq.com/msgrd?v=3&uin=783175223&site=qq&menu=yes) - zhaowoganmane@gmail.com
+ [QQ](http://wpa.qq.com/msgrd?v=3&uin=783175223&site=qq&menu=yes) 
 
-Project Link: [https://github.com/xuzhijvn/spring-boot-tony-starters](https://github.com/xuzhijvn/spring-boot-tony-starters)
+ zhaowoganmane@gmail.com
 
 <p align="right"><a href="#top">back to top</a>👆</p>
 
 
 
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
