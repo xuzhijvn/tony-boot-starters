@@ -3,9 +3,9 @@
  */
 package com.tony.component.handler;
 
+import com.tony.common.utils.spring.SpringUtils;
 import com.tony.component.annotation.Lark;
 import com.tony.component.template.LarkTemplate;
-import com.tony.component.util.BeanUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -34,12 +34,13 @@ public class LarkAspect {
         // 目标方法
         MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
+        Object[] args = point.getArgs();
         Lark lark = method.getAnnotation(Lark.class);
         Object result;
         try {
             result = point.proceed();
         } catch (Throwable ex) {
-            BeanUtil.getBean(LarkTemplate.class).send(lark.titleName(), ex, ex.getMessage(), lark.color());
+            SpringUtils.getBean(LarkTemplate.class).sendAsync(lark.titleName(), ex, method, args, lark.color());
             throw ex;
         }
         return result;

@@ -3,6 +3,8 @@
  */
 package com.tony.component.annotation;
 
+import com.tony.component.constant.Color;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -18,5 +20,5 @@ import java.lang.annotation.Target;
 public @interface Lark {
     String titleName() default "";
 
-    String color() default "";
+    Color color() default Color.BLUE;
 }

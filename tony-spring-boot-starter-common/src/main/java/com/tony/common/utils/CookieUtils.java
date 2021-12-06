@@ -10,7 +10,7 @@ import java.net.URLEncoder;
 /**
  * Cookie工具类
  *
- * @author ruoyi
+ * @author tony
  */
 public class CookieUtils {
     /**

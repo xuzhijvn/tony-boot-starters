@@ -10,6 +10,7 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 
@@ -35,9 +36,11 @@ public class GlobalDefaultExceptionHandler implements MethodInterceptor {
             if (Arrays.stream(larkTemplate.getGlobalDefaultProperties().getExcludeException().split(",")).anyMatch(e -> e.equals(ex.getClass().getName()))) {
                 throw ex;
             }
-            Lark lark = methodInvocation.getMethod().getAnnotation(Lark.class);
+            Method method = methodInvocation.getMethod();
+            Object[] args = methodInvocation.getArguments();
+            Lark lark = method.getAnnotation(Lark.class);
             if (lark == null) {
-                larkTemplate.sendIfAbsent("全局异常", ex.getClass(), ex.getMessage());
+                larkTemplate.sendIfAbsent("全局异常", ex, method, args);
             }
             throw ex;
         }

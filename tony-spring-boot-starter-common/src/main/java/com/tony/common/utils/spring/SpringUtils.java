@@ -12,7 +12,7 @@ import org.springframework.context.ApplicationContextAware;
 /**
  * spring工具类 方便在非spring管理环境中获取bean
  *
- * @author ruoyi
+ * @author tony
  */
 public final class SpringUtils implements BeanFactoryPostProcessor, ApplicationContextAware {
     /**

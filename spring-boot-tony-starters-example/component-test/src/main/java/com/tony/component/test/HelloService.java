@@ -24,4 +24,7 @@ public class HelloService {
         System.out.println("hello say8");
         throw new RuntimeException("rrrr");
     }
+    public void say2(String name) {
+        int a = 1 / 0;
+    }
 }

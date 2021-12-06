@@ -3,8 +3,10 @@
   */
  package com.tony.component.test;
 
+ import cn.hutool.core.util.ReflectUtil;
  import com.tony.component.annotation.Lark;
  import com.tony.component.annotation.ThreadLocalCache;
+ import com.tony.component.constant.Color;
  import com.tony.component.template.LarkTemplate;
  import org.slf4j.MDC;
  import org.springframework.beans.factory.annotation.Autowired;
@@ -30,16 +32,16 @@
 
      @GetMapping(value = "say")
      public void say() {
-         larkTemplate.send("测试", "测试内容", "测试异常");
+         larkTemplate.sendAsync("测试", new RuntimeException("ddd"), "测试异常");
      }
 
      @GetMapping(value = "say2")
-     public void say2() {
-         int a = 1 / 0;
+     public void say2(String name, Integer age) {
+         helloService.say2(name);
      }
 
      @GetMapping(value = "say3")
-     @Lark(titleName = "飞书注解测试", color = "green")
+     @Lark(titleName = "飞书注解测试", color = Color.GREEN)
      public void say3() {
          String hllTid = MDC.get("HLL_TID");
          String TRACE_ID = MDC.get("TRACE_ID");

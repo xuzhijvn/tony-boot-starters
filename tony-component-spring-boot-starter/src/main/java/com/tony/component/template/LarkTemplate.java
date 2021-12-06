@@ -8,17 +8,16 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.tony.common.ExpiryMap;
 import com.tony.component.GlobalDefaultProperties;
+import com.tony.component.constant.Color;
 import com.tony.component.model.LarkPostRequest;
 import com.tony.component.util.HttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
+import java.lang.reflect.Method;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -75,13 +74,31 @@ public class LarkTemplate {
                 "senv:" + logEnv + ",sname:" + sname + ",sort:!(\\),stype:" + stype + "\\)";
     }
 
-    public void send(String titleName, Object content, String ex, String color) {
 
+    public void send(String titleName, Class<? extends Throwable> clazz, Method method, Object[] args, Object msg, Color color) {
+
+        String content;
         try {
-            content = "**环境** 👉 " + getEnv() + "\n ---\n" + content + "\n ---\n**Exception** 👉 " + ex + "\n ---\n[**日志传送门🚪**](" + getLogUrl(getEnv()) + ")\n";
+            content = "**环境** 👉 " + getEnv();
+
+            if (method != null) {
+                content += "\n ---\n**Method** 👉 " + method;
+            }
+            if (args != null && args.length != 0) {
+                content += "\n ---\n**args** 👉 " + Arrays.toString(args);
+            }
+            if (clazz != null) {
+                content += "\n ---\n**Exception** 👉 " + clazz;
+            }
+            if (msg != null) {
+                content += "\n ---\n**Message** 👉 " + msg;
+            }
+
+            content += "\n ---\n[**日志传送门🚪**](" + getLogUrl(getEnv()) + ")\n";
+
             List<LarkPostRequest.Card.Element> elements = new ArrayList<>();
             LarkPostRequest.Card.Element element = new LarkPostRequest.Card.Element();
-            element.setContent(content.toString());
+            element.setContent(content);
             elements.add(element);
             LarkPostRequest.Card card = new LarkPostRequest.Card();
             card.setElements(elements);
@@ -89,7 +106,7 @@ public class LarkTemplate {
             LarkPostRequest.Card.Header.Title title = new LarkPostRequest.Card.Header.Title();
             title.setContent(titleName);
             header.setTitle(title);
-            header.setTemplate(color != null ? color : header.getTemplate());
+            header.setTemplate(color != null ? color.getValue() : header.getTemplate());
             card.setHeader(header);
             LarkPostRequest larkPostRequest = new LarkPostRequest();
             larkPostRequest.setCard(card);
@@ -100,11 +117,19 @@ public class LarkTemplate {
         }
     }
 
-    public void send(String titleName, Object content, String ex) {
-        send(titleName, content, ex, null);
+    public void sendAsync(String titleName, Throwable ex, Object msg) {
+        sendAsync(titleName, ex.getClass(), null, null, msg, null);
     }
 
-    public void sendAsync(String titleName, Object content, String ex) {
+    public void sendAsync(String titleName, Throwable ex, Object msg, Color color) {
+        sendAsync(titleName, ex.getClass(), null, null, msg, color);
+    }
+
+    public void sendAsync(String titleName, Throwable ex, Method method, Object[] args, Color color) {
+        sendAsync(titleName, ex.getClass(), method, args, null, color);
+    }
+
+    private void sendAsync(String titleName, Class<? extends Throwable> clazz, Method method, Object[] args, Object msg, Color color) {
         // 提交者的本地变量
         Map<String, String> contextMap = MDC.getCopyOfContextMap();
 
@@ -113,21 +138,21 @@ public class LarkTemplate {
                         // 如果提交者有本地变量，任务执行之前放入当前任务所在的线程的本地变量中
                         MDC.setContextMap(contextMap);
                     }
-                    send(titleName, content, ex);
+                    send(titleName, clazz, method, args, msg, color);
                     // 任务执行完，清除本地变量，以防对后续任务有影响
                     MDC.clear();
                 }
         );
     }
 
-    public void sendIfAbsent(String titleName, Object content, String ex) {
+    public void sendIfAbsent(String titleName, Throwable ex, Method method, Object[] args) {
         String key = MDC.get("HLL_TID");
         if (key == null) {
-            key = content.toString();
+            key = ex.getMessage();
         }
         if (!expiryMap.containsKey(key)) {
             expiryMap.put(key, 1);
-            sendAsync(titleName, content, ex);
+            sendAsync(titleName, ex.getClass(), method, args, ex.getMessage(), null);
         }
     }
 

@@ -1,6 +1,6 @@
 package com.tony.common.utils;
 
-import com.ruoyi.common.utils.spring.SpringUtils;
+import com.tony.common.utils.spring.SpringUtils;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * Cache工具类
  * 
- * @author ruoyi
+ * @author tony
  */
 public class CacheUtils
 {
