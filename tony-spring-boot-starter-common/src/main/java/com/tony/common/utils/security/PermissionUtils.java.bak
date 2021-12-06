@@ -1,7 +1,7 @@
 package com.tony.common.utils.security;
 
-import com.ruoyi.common.constant.PermissionConstants;
-import com.ruoyi.common.utils.MessageUtils;
+import com.tony.common.constant.PermissionConstants;
+import com.tony.common.utils.MessageUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
@@ -15,7 +15,7 @@ import java.beans.PropertyDescriptor;
 /**
  * permission 工具类
  * 
- * @author ruoyi
+ * @author tony
  */
 public class PermissionUtils
 {

@@ -1,7 +1,7 @@
 package com.tony.common.utils;
 
-import com.ruoyi.common.core.domain.entity.SysUser;
-import com.ruoyi.common.utils.bean.BeanUtils;
+import com.tony.common.core.domain.entity.SysUser;
+import com.tony.common.utils.bean.BeanUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.session.Session;
@@ -12,7 +12,7 @@ import org.apache.shiro.subject.Subject;
 /**
  * shiro 工具类
  * 
- * @author ruoyi
+ * @author tony
  */
 public class ShiroUtils
 {

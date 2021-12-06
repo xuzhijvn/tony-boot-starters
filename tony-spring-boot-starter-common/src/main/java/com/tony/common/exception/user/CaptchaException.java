@@ -3,7 +3,7 @@ package com.tony.common.exception.user;
 /**
  * 验证码错误异常类
  *
- * @author ruoyi
+ * @author tony
  */
 public class CaptchaException extends UserException {
     private static final long serialVersionUID = 1L;

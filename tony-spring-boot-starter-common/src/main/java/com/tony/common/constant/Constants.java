@@ -3,7 +3,7 @@ package com.tony.common.constant;
 /**
  * 通用常量信息
  *
- * @author ruoyi
+ * @author tony
  */
 public class Constants {
     /**

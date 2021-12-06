@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * 字典工具类
  *
- * @author ruoyi
+ * @author tony
  */
 @Component
 public class DictUtils {

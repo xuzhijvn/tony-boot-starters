@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * 处理并记录日志文件
  *
- * @author ruoyi
+ * @author tony
  */
 public class LogUtils {
     public static final Logger ERROR_LOG = LoggerFactory.getLogger("sys-error");

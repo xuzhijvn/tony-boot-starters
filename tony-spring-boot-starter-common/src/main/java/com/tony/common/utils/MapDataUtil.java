@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 /**
  * Map通用处理方法
  *
- * @author ruoyi
+ * @author tony
  */
 public class MapDataUtil {
     public static Map<String, Object> convertDataMap(HttpServletRequest request) {
