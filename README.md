@@ -123,7 +123,7 @@ To get a local copy up and running follow these simple example steps.
 
 2. Install the packages to your local maven repo
    ```sh
-   maven install
+   mvn install
    ```
 
 3. Import dependencies
@@ -144,7 +144,7 @@ To get a local copy up and running follow these simple example steps.
    <dependency>
       <groupId>com.tony</groupId>
       <artifactId>tony-component-spring-boot-starter</artifactId>
-      <version>1.0.3-SNAPSHOT</version>
+      <version>1.0.4-SNAPSHOT</version>
    </dependency>
    ```
 
