@@ -117,6 +117,10 @@ public class LarkTemplate {
         }
     }
 
+    public void sendAsync(String titleName, Throwable ex) {
+        sendAsync(titleName, ex, ex.getMessage());
+    }
+
     public void sendAsync(String titleName, Throwable ex, Object msg) {
         sendAsync(titleName, ex.getClass(), null, null, msg, null);
     }
