@@ -85,13 +85,13 @@ public class LarkTemplate {
                 content += "\n ---\n**Method** 👉 " + method;
             }
             if (args != null && args.length != 0) {
-                content += "\n ---\n**args** 👉 " + Arrays.toString(args);
+                content += "\n ---\n**Args** 👉 " + Arrays.toString(args);
             }
             if (clazz != null) {
                 content += "\n ---\n**Exception** 👉 " + clazz;
             }
             if (msg != null) {
-                content += "\n ---\n**Message** 👉 " + msg;
+                content += "\n ---\n**Msg** 👉 " + msg;
             }
 
             content += "\n ---\n[**日志传送门🚪**](" + getLogUrl(getEnv()) + ")\n";
