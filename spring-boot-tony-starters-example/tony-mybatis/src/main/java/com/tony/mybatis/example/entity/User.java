@@ -1,9 +1,11 @@
 package com.tony.mybatis.example.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.tony.common.json.FastJsonEnumSerializer;
 import com.tony.mybatis.BindEnum;
 import com.tony.mybatis.BindEnumValue;
 import com.tony.mybatis.example.Job;
@@ -67,7 +69,8 @@ public class User implements Serializable {
      * 枚举
      */
     @TableField(exist = false)
-    @BindEnum(key = "jobId", enumClass = Job.class)
+    @BindEnum(key = "jobId")
+    @JSONField(serializeUsing = FastJsonEnumSerializer.class)
     private Job jobEnum;
     /**
      * 创建日期
