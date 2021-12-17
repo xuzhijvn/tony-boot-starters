@@ -81,7 +81,7 @@ public class BindEnumHandler<T> {
             }
 
             BindEnum attr2 = field.getAnnotation(BindEnum.class);
-            if (attr2 != null && attr2.enumClass() != Void.class && StrUtil.isNotBlank(attr2.key())) {
+            if (attr2 != null && StrUtil.isNotBlank(attr2.key())) {
                 String keyField = StrUtil.isBlank(attr2.keyField()) ? KEY_FIELD : attr2.keyField();
 
                 Object key = ReflectUtil.getFieldValue(t, attr2.key());
@@ -90,7 +90,7 @@ public class BindEnumHandler<T> {
                 field.setAccessible(true);
 
                 try {
-                    field.set(t, toType((Class<? extends Enum<?>>) attr2.enumClass(), keyField, key));
+                    field.set(t, toType((Class<? extends Enum<?>>) field.getType(), keyField, key));
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
