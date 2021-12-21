@@ -3,8 +3,10 @@ package com.tony.component.handler;
 
 import com.alibaba.fastjson.JSON;
 import com.tony.component.annotation.ThreadLocalCache;
+import com.tony.component.annotation.ThreadLocalCleaner;
 import com.tony.component.context.ThreadLocalCacheManager;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -26,6 +28,13 @@ import java.util.Map;
  */
 @Aspect
 public class ThreadLocalCacheAspect {
+
+
+    @AfterReturning(value = "@annotation(cleaner)")
+    public void clean(ThreadLocalCleaner cleaner){
+        //clean thread local
+        ThreadLocalCacheManager.removeCache();
+    }
 
     @Around(value = "@annotation(localCache)")
     public Object aroundAdvice(ProceedingJoinPoint joinpoint, ThreadLocalCache localCache) throws Throwable {

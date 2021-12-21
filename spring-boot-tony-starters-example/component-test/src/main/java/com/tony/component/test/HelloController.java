@@ -26,6 +26,8 @@
 
      @Autowired
      HelloService helloService;
+     @Autowired
+     HelloService2 helloService2;
 
      @Autowired
      private LarkTemplate larkTemplate;
@@ -56,7 +58,7 @@
              res = helloService.say("tony");
              mySay();
              mySay2();
-
+             helloService2.handle();
          }
          return res;
      }
