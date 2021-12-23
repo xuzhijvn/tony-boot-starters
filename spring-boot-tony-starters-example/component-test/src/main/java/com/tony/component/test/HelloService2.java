@@ -3,8 +3,7 @@
  */
 package com.tony.component.test;
 
-import com.tony.component.annotation.ThreadLocalCache;
-import com.tony.component.annotation.ThreadLocalCleaner;
+import com.tony.component.annotation.ThreadLocalCleanAfter;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class HelloService2 {
 
-    @ThreadLocalCleaner
+    @ThreadLocalCleanAfter
     public void handle(){
         System.out.println("定时处理");
     }
