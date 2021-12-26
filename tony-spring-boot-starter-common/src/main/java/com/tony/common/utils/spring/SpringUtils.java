@@ -22,16 +22,6 @@ public final class SpringUtils implements BeanFactoryPostProcessor, ApplicationC
 
     private static ApplicationContext applicationContext;
 
-    @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        SpringUtils.beanFactory = beanFactory;
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        SpringUtils.applicationContext = applicationContext;
-    }
-
     /**
      * 获取对象
      *
@@ -125,5 +115,34 @@ public final class SpringUtils implements BeanFactoryPostProcessor, ApplicationC
     public static String getActiveProfile() {
         final String[] activeProfiles = getActiveProfiles();
         return StringUtils.isNotEmpty(activeProfiles) ? activeProfiles[0] : null;
+    }
+
+    /**
+     * 得到一个对象，spring容器里找不到，则new一个对象
+     *
+     * @param clazz
+     * @return
+     * @throws Exception
+     */
+    public static Object getInstance(Class<?> clazz) throws Exception {
+        Object object = null;
+        try {
+            object = getBean(clazz);
+        } catch (NoSuchBeanDefinitionException e) {
+        }
+        if (object == null) {
+            return clazz.getDeclaredConstructor().newInstance();
+        }
+        return object;
+    }
+
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        SpringUtils.beanFactory = beanFactory;
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        SpringUtils.applicationContext = applicationContext;
     }
 }

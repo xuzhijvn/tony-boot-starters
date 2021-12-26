@@ -10,7 +10,7 @@ import com.tony.common.ExpiryMap;
 import com.tony.component.GlobalDefaultProperties;
 import com.tony.component.constant.Color;
 import com.tony.component.model.LarkPostRequest;
-import com.tony.component.util.HttpClient;
+import com.tony.component.HttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;

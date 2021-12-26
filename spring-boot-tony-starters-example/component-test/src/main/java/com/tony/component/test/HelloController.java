@@ -3,7 +3,6 @@
   */
  package com.tony.component.test;
 
- import cn.hutool.core.util.ReflectUtil;
  import com.tony.component.annotation.Lark;
  import com.tony.component.annotation.ThreadLocalCache;
  import com.tony.component.constant.Color;
@@ -88,6 +87,16 @@
      @GetMapping(value = "say8")
      public String say8() {
          return helloService.say8();
+     }
+
+     @GetMapping(value = "say9")
+     public String say9() {
+         return helloService.say9("ff");
+     }
+
+     @GetMapping(value = "say10")
+     public String say10() {
+         return helloService.say10("tony");
      }
 
 //     @GetMapping(value = "say7")
