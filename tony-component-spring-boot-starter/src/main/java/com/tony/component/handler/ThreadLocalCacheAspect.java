@@ -4,7 +4,7 @@ package com.tony.component.handler;
 import com.alibaba.fastjson.JSON;
 import com.tony.component.annotation.ThreadLocalCache;
 import com.tony.component.annotation.ThreadLocalCleanAfter;
-import com.tony.component.context.ThreadLocalCacheManager;
+import com.tony.component.ThreadLocalCacheManager;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;

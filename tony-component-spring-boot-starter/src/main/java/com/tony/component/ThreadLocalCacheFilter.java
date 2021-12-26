@@ -1,6 +1,4 @@
-package com.tony.component.filter;
-
-import com.tony.component.context.ThreadLocalCacheManager;
+package com.tony.component;
 
 import javax.servlet.*;
 import java.io.IOException;

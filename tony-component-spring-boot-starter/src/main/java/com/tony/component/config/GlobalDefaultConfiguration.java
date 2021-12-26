@@ -5,7 +5,8 @@ package com.tony.component.config;
 
 import com.tony.component.GlobalDefaultProperties;
 import com.tony.component.LarkCustomizer;
-import com.tony.component.filter.ThreadLocalCacheFilter;
+import com.tony.component.advice.AdvisorAspect;
+import com.tony.component.ThreadLocalCacheFilter;
 import com.tony.component.handler.GlobalDefaultExceptionHandler;
 import com.tony.component.handler.LarkAspect;
 import com.tony.component.handler.ThreadLocalCacheAspect;
@@ -78,5 +79,11 @@ public class GlobalDefaultConfiguration {
     @ConditionalOnMissingBean(ThreadLocalCacheAspect.class)
     public ThreadLocalCacheAspect threadLocalCacheAspect() {
         return new ThreadLocalCacheAspect();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(AdvisorAspect.class)
+    public AdvisorAspect advisorAspect() {
+        return new AdvisorAspect();
     }
 }

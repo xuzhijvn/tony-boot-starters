@@ -1,7 +1,7 @@
 /*
  *       Copyright© (2020).
  */
-package com.tony.component.base;
+package com.tony.component;
 
 /**
  * @author tony
