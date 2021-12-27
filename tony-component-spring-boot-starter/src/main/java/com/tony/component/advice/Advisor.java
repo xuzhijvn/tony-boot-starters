@@ -5,6 +5,9 @@ package com.tony.component.advice;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.reflect.MethodSignature;
+
+import java.lang.reflect.Method;
 
 /**
  * @author tony
@@ -53,4 +56,28 @@ public interface Advisor {
      * @param ex
      */
     void afterThrowing(JoinPoint jp, Throwable ex);
+
+    /**
+     * 得到方法
+     *
+     * @param t
+     * @param <T>
+     * @return
+     */
+    default <T extends JoinPoint> Method getMethod(T t) {
+        MethodSignature signature = (MethodSignature) t.getSignature();
+        return signature.getMethod();
+    }
+
+    /**
+     * 是否同一个方法
+     *
+     * @param t
+     * @param method
+     * @param <T>
+     * @return
+     */
+    default <T extends JoinPoint> boolean equalMethod(T t, Method method) {
+        return getMethod(t).equals(method);
+    }
 }

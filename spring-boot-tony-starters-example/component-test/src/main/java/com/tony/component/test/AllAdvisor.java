@@ -3,10 +3,12 @@
  */
 package com.tony.component.test;
 
+import cn.hutool.core.util.ReflectUtil;
 import com.tony.component.advice.Advisor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.springframework.core.annotation.Order;
+
+import java.lang.reflect.Method;
 
 /**
  * @author tony
@@ -27,6 +29,15 @@ public class AllAdvisor implements Advisor {
 
     @Override
     public void after(JoinPoint jp) {
+
+        Method method1 = getMethod(jp);
+        Method method2 = ReflectUtil.getMethodByName(HelloService.class, "say10");
+
+        //true
+        System.out.println(method1.equals(method2));
+
+        //true
+        System.out.println(equalMethod(jp,method2));
 
         System.out.println("after... " + jp.getSignature());
     }
