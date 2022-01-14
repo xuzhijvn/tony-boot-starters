@@ -33,7 +33,7 @@ class ComponentTestApplicationTests {
         System.out.println(user);
 
 
-        boolean f = ReUtil.contains("com.huolala.risk.*", "com.huolala.risk.tony.MyException");
+        boolean f = ReUtil.contains("com.tony.risk.*", "com.tony.risk.tony.MyException");
 
         String amount = "";
 
