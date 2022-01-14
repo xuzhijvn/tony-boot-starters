@@ -16,15 +16,24 @@ public class GlobalDefaultProperties {
     private String pointcut;
     private String excludeException = "";
     private Lark lark;
-    //private Boolean currentUser;
+    private String excludePackages = "";
+    private String limitPackages = "";
 
-//    public Boolean getCurrentUser() {
-//        return currentUser;
-//    }
+    public String getExcludePackages() {
+        return excludePackages;
+    }
 
-//    public void setCurrentUser(Boolean currentUser) {
-//        this.currentUser = currentUser;
-//    }
+    public void setExcludePackages(String excludePackages) {
+        this.excludePackages = excludePackages;
+    }
+
+    public String getLimitPackages() {
+        return limitPackages;
+    }
+
+    public void setLimitPackages(String limitPackages) {
+        this.limitPackages = limitPackages;
+    }
 
     public String getExcludeException() {
         return excludeException;
