@@ -12,7 +12,7 @@
     <artifactId>tony-component-spring-boot-starter</artifactId>
     <name>tony-component-spring-boot-starter</name>
     <description>tony component starter</description>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.5-SNAPSHOT</version>
 
     <properties>
         <alibaba-fastjson.version>1.2.59</alibaba-fastjson.version>

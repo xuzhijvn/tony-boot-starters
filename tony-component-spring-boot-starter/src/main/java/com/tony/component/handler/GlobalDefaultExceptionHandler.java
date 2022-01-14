@@ -3,6 +3,9 @@
  */
 package com.tony.component.handler;
 
+import cn.hutool.core.util.ReUtil;
+import cn.hutool.core.util.StrUtil;
+import com.tony.component.GlobalDefaultProperties;
 import com.tony.component.annotation.Lark;
 import com.tony.component.template.LarkTemplate;
 import org.aopalliance.intercept.MethodInterceptor;
@@ -33,10 +36,15 @@ public class GlobalDefaultExceptionHandler implements MethodInterceptor {
         try {
             return methodInvocation.proceed();
         } catch (Throwable ex) {
-            if (Arrays.stream(larkTemplate.getGlobalDefaultProperties().getExcludeException().split(",")).anyMatch(e -> e.equals(ex.getClass().getName()))) {
+            if (isNeedExclude(ex)) {
                 throw ex;
             }
             Method method = methodInvocation.getMethod();
+
+            if (isNeedExclude(method)) {
+                throw ex;
+            }
+
             Object[] args = methodInvocation.getArguments();
             Lark lark = method.getAnnotation(Lark.class);
             if (lark == null) {
@@ -45,4 +53,36 @@ public class GlobalDefaultExceptionHandler implements MethodInterceptor {
             throw ex;
         }
     }
+
+
+    private boolean isNeedExclude(Method method) {
+
+        GlobalDefaultProperties properties = larkTemplate.getGlobalDefaultProperties();
+
+        String clazz = method.getDeclaringClass().getName();
+
+        if (Arrays.stream(properties.getExcludePackages().split(",")).anyMatch(e -> ReUtil.contains(e, clazz))) {
+            return true;
+        }
+
+        if (StrUtil.isNotBlank(properties.getLimitPackages()) &&
+                Arrays.stream(properties.getLimitPackages().split(",")).noneMatch(e -> ReUtil.contains(e, clazz))
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isNeedExclude(Throwable ex) {
+
+        GlobalDefaultProperties properties = larkTemplate.getGlobalDefaultProperties();
+
+        String clazz = ex.getClass().getName();
+
+        if (Arrays.stream(properties.getExcludeException().split(",")).anyMatch(e -> e.equals(clazz))) {
+            return true;
+        }
+        return false;
+    }
+
 }
