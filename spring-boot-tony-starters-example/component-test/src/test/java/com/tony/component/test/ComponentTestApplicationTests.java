@@ -30,7 +30,7 @@ class ComponentTestApplicationTests {
 //        System.out.println(job);
 
         User user = new User(1004);
-        System.out.println(user);
+        //System.out.println(user);
 
 
         boolean f = ReUtil.contains("com.huolala.risk.*", "com.huolala.risk.tony.MyException");
@@ -52,13 +52,22 @@ class ComponentTestApplicationTests {
 
         boolean hitHandleType = Arrays.stream(a.split(",")).anyMatch(e -> e.equals(b));
 
-        System.out.println(hitHandleType);
+        //System.out.println(hitHandleType);
 
         Integer c = null;
 
         Integer payType = Optional.ofNullable(c).map(e -> e == 0 ? 0 : 1).orElse(null);
 
-        System.out.println(payType);
+        //System.out.println(payType);
+
+        String str = "";
+        String i = "";
+
+        System.out.println(str.split(",").length);
+
+        boolean res = Arrays.asList(str.split(",")).contains(i);
+
+        System.out.println(res);
 
 
     }
