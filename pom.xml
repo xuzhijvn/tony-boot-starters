@@ -18,6 +18,7 @@
         <module>tony-spring-boot-starter-common</module>
         <module>tony-page-spring-boot-starter</module>
         <module>tony-mybatis-spring-boot-starter</module>
+        <module>tony-mybatis-plus-spring-boot-starter</module>
     </modules>
 
     <name>spring-boot-tony-starters</name>
