@@ -6,7 +6,7 @@ import com.tony.component.annotation.ThreadLocalCache;
 import com.tony.component.annotation.ThreadLocalCleanAfter;
 import com.tony.component.ThreadLocalCacheManager;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -30,7 +30,7 @@ import java.util.Map;
 public class ThreadLocalCacheAspect {
 
 
-    @AfterReturning(value = "@annotation(cleanAfter)")
+    @After(value = "@annotation(cleanAfter)")
     public void clean(ThreadLocalCleanAfter cleanAfter){
         //clean thread local
         ThreadLocalCacheManager.removeCache();
