@@ -26,6 +26,14 @@
             <version>5.2.5.RELEASE</version>
             <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.2.5.RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+
 
     </dependencies>
 

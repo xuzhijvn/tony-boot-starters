@@ -6,7 +6,9 @@ package com.tony.mybatis.plus.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.tony.mybatis.plus.method.InsertIgnore;
 import com.tony.mybatis.plus.method.Replace;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -22,16 +24,41 @@ public interface ITonyService<T> extends IService<T> {
      * @param entity 实体类
      * @return 影响条数
      */
-    int saveIgnore(T entity);
+    int insertIgnore(T entity);
 
     /**
      * 批量插入数据，如果中已经存在相同的记录，则忽略当前新数据
+     * <p>
+     * 注意：这种实现方式要 特别注意数据库SQL语句的长度限制，在进行数据合并在同一SQL中务必不能超过SQL长度限制，通过 max_allowed_packet 配置可以修改，默认是1M。
+     * <p/>
      * {@link InsertIgnore}
      *
      * @param entityList 实体类列表
      * @return 影响条数
      */
-    int saveIgnoreBatch(List<T> entityList);
+    @Deprecated
+    int insertIgnoreBatch(List<T> entityList);
+
+
+    /**
+     * 插入（批量），如果中已经存在相同的记录，则忽略当前新数据
+     *
+     * @param entityList 实体对象集合
+     * @return true/false
+     */
+    @Transactional(rollbackFor = Exception.class)
+    default boolean saveIgnoreBatch(Collection<T> entityList) {
+        return saveIgnoreBatch(entityList, DEFAULT_BATCH_SIZE);
+    }
+
+    /**
+     * 插入（批量），如果中已经存在相同的记录，则忽略当前新数据
+     *
+     * @param entityList 实体对象集合
+     * @param batchSize  插入批次数量
+     * @return true/false
+     */
+    boolean saveIgnoreBatch(Collection<T> entityList, int batchSize);
 
     /**
      * 替换数据

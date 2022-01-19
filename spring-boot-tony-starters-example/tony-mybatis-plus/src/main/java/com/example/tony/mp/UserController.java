@@ -38,7 +38,7 @@ public class UserController {
         User user = new User();
         user.setUsername("tony");
         user.setEmail(email);
-        return userService.saveIgnore(user);
+        return userService.insertIgnore(user);
     }
 
     @GetMapping("/saveIgnoreBatch")
@@ -66,6 +66,34 @@ public class UserController {
         user.setUsername("tony");
         user.setEmail(email);
         return userService.replace(user);
+    }
+
+    @GetMapping("/saveNull")
+    public Object saveNull(@RequestParam String email) {
+        return userService.save(null);
+    }
+
+    @GetMapping("/insertIgnoreNull")
+    public Object insertIgnoreNull(@RequestParam String email) {
+        return userService.insertIgnore(null);
+    }
+
+    @GetMapping("/saveBatchNull")
+    public Object saveBatchNull(@RequestParam String email) {
+        List<User> list = new ArrayList<>();
+        return userService.saveBatch(list);
+    }
+
+    @GetMapping("/insertIgnoreBatchNull")
+    public Object insertIgnoreBatchNull(@RequestParam String email) {
+        List<User> list = new ArrayList<>();
+        return userService.insertIgnoreBatch(list);
+    }
+
+    @GetMapping("/saveIgnoreBatchNull")
+    public Object saveIgnoreBatchNull(@RequestParam String email) {
+        List<User> list = new ArrayList<>();
+        return userService.saveIgnoreBatch(list);
     }
 
 }
