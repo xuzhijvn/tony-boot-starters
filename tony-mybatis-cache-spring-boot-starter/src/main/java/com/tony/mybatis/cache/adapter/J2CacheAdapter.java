@@ -15,7 +15,7 @@
  */
 package com.tony.mybatis.cache.adapter;
 
-import com.tony.mybatis.cache.ApplicationContextHolder;
+import com.tony.mybatis.cache.util.SpringUtil;
 import net.oschina.j2cache.CacheChannel;
 import org.apache.ibatis.cache.Cache;
 
@@ -49,7 +49,7 @@ public class J2CacheAdapter implements Cache {
 
     private CacheChannel getCacheChannel() {
         if (null == cache) {
-            cache = ApplicationContextHolder.getBean("cacheChannel", CacheChannel.class);
+            cache = SpringUtil.getBean("cacheChannel", CacheChannel.class);
         }
         return cache;
     }

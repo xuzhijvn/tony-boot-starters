@@ -3,7 +3,10 @@ package com.tony.component.test;
 import cn.hutool.core.util.EnumUtil;
 import cn.hutool.core.util.ReUtil;
 import cn.hutool.core.util.ReflectUtil;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.tony.component.template.LarkTemplate;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
@@ -47,27 +50,36 @@ class ComponentTestApplicationTests {
 //        System.out.println(method.getDeclaringClass());
 //        System.out.println(method.getDeclaringClass().getName());
 
-        String a = "f";
-        String b = "";
+//        String a = "f";
+//        String b = "";
+//
+//        boolean hitHandleType = Arrays.stream(a.split(",")).anyMatch(e -> e.equals(b));
+//
+//        //System.out.println(hitHandleType);
+//
+//        Integer c = null;
+//
+//        Integer payType = Optional.ofNullable(c).map(e -> e == 0 ? 0 : 1).orElse(null);
+//
+//        //System.out.println(payType);
+//
+//        String str = "";
+//        String i = "";
+//
+//        System.out.println(str.split(",").length);
+//
+//        boolean res = Arrays.asList(str.split(",")).contains(i);
+//
+//        System.out.println(res);
 
-        boolean hitHandleType = Arrays.stream(a.split(",")).anyMatch(e -> e.equals(b));
-
-        //System.out.println(hitHandleType);
-
-        Integer c = null;
-
-        Integer payType = Optional.ofNullable(c).map(e -> e == 0 ? 0 : 1).orElse(null);
-
-        //System.out.println(payType);
-
-        String str = "";
-        String i = "";
-
-        System.out.println(str.split(",").length);
-
-        boolean res = Arrays.asList(str.split(",")).contains(i);
-
-        System.out.println(res);
+        String s = "_";
+        System.out.println(StringUtils.isEmpty(s));
+        JSONArray output = new JSONArray();
+        JSONObject jb = new JSONObject();
+        jb.put("key", "_this");
+        jb.put("type", "Object");
+        output.add(jb);
+        System.out.println(output.toJSONString());
 
 
     }
