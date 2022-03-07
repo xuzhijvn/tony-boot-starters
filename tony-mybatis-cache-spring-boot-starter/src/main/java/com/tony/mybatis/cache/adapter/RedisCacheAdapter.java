@@ -1,7 +1,7 @@
 package com.tony.mybatis.cache.adapter;
 
 
-import com.tony.mybatis.cache.ApplicationContextHolder;
+import com.tony.mybatis.cache.util.SpringUtil;
 import org.apache.ibatis.cache.Cache;
 import org.springframework.data.redis.core.RedisTemplate;
 
@@ -49,7 +49,7 @@ public class RedisCacheAdapter implements Cache {
 
     private RedisTemplate getRedisTemplate() {
         if (null == redisTemplate) {
-            redisTemplate = ApplicationContextHolder.getBean("redisTemplate", RedisTemplate.class);
+            redisTemplate = SpringUtil.getBean("redisTemplate", RedisTemplate.class);
         }
         return redisTemplate;
     }

@@ -3,10 +3,13 @@
  */
 package com.tony.mybatis.plus.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.tony.mybatis.plus.TonySqlMethod;
 import com.tony.mybatis.plus.mapper.TonyMapper;
 import com.tony.mybatis.plus.service.ITonyService;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -19,13 +22,22 @@ import java.util.List;
 public class TonyServiceImpl<M extends TonyMapper<T>, T> extends ServiceImpl<TonyMapper<T>, T> implements ITonyService<T> {
 
     @Override
-    public int saveIgnore(T entity) {
+    public int insertIgnore(T entity) {
         return baseMapper.insertIgnore(entity);
     }
 
     @Override
-    public int saveIgnoreBatch(List<T> entityList) {
+    public int insertIgnoreBatch(List<T> entityList) {
+        if (entityList == null || entityList.size() == 0) {
+            return 0;
+        }
         return baseMapper.insertIgnoreBatch(entityList);
+    }
+
+    @Override
+    public boolean saveIgnoreBatch(Collection<T> entityList, int batchSize) {
+        String sqlStatement = mapperClass.getName() + StringPool.DOT + TonySqlMethod.INSERT_IGNORE_ONE.getMethod();
+        return executeBatch(entityList, batchSize, (sqlSession, entity) -> sqlSession.insert(sqlStatement, entity));
     }
 
     @Override

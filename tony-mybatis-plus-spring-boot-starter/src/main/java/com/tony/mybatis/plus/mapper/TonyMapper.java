@@ -26,11 +26,15 @@ public interface TonyMapper<T> extends BaseMapper<T> {
 
     /**
      * 批量插入数据，如果中已经存在相同的记录，则忽略当前新数据
+     * <p>
+     * 注意：这种实现方式要 特别注意数据库SQL语句的长度限制，在进行数据合并在同一SQL中务必不能超过SQL长度限制，通过 max_allowed_packet 配置可以修改，默认是1M。
+     * <p/>
      * {@link InsertIgnore}
      *
      * @param entityList 实体类列表
      * @return 影响条数
      */
+    @Deprecated
     int insertIgnoreBatch(List<T> entityList);
 
     /**

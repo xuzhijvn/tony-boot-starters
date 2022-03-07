@@ -25,9 +25,16 @@ import java.util.function.Predicate;
 
 /**
  * 批量新增数据,自选字段 insert ignore
- *
+ * <p>
+ * 注意：这种实现方式要 特别注意数据库SQL语句的长度限制，在进行数据合并在同一SQL中务必不能超过SQL长度限制，通过 max_allowed_packet 配置可以修改，默认是1M。
+ * </p>
+ * <p>
+ * 并且单entity list size=0的时候sql拼接错误:
+ * INSERT IGNORE INTO table_name (field1,field2,field3) VALUES
+ * </p>
  * @author tony
  */
+@Deprecated
 public class InsertIgnoreBatch extends AbstractMethod {
 
     /**
