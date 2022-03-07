@@ -1,6 +1,6 @@
 /*
-*       Copyright© (2020).
-*/
+ *       Copyright© (2020).
+ */
 package com.tony.common.json;
 
 import com.alibaba.fastjson.serializer.JSONSerializer;
@@ -10,10 +10,11 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 
 /**
-* @author tony
-* @create 2021-12-17
-* @description:
-*/
+ * @author tony
+ * @create 2021-12-17
+ * @description:
+ * @// TODO: 2022/3/7 有性能问题 
+ */
 public class FastJsonEnumSerializer implements ObjectSerializer {
 
     @Override
