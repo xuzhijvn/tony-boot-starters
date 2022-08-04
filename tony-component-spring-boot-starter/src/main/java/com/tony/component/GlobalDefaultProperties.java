@@ -10,7 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @create 2021-07-28
  * @description:
  */
-@ConfigurationProperties(prefix = "risk.tony.component")
+@ConfigurationProperties(prefix = "tony.component.ex-handle")
 public class GlobalDefaultProperties {
 
     private String pointcut;

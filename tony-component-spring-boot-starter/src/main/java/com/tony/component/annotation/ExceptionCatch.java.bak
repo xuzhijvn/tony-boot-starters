@@ -17,8 +17,8 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Lark {
-    String titleName() default "";
+public @interface ExceptionCatch {
 
-    Color color() default Color.BLUE;
+    Class<?> handleUsing() default Void.class;
+
 }

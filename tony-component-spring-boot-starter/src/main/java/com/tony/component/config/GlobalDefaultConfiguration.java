@@ -3,12 +3,12 @@
  */
 package com.tony.component.config;
 
-import com.tony.component.GlobalDefaultProperties;
-import com.tony.component.LarkCustomizer;
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.ClassUtil;
+import cn.hutool.core.util.ObjectUtil;
+import com.tony.component.*;
 import com.tony.component.advice.AdvisorAspect;
-import com.tony.component.ThreadLocalCacheFilter;
-import com.tony.component.handler.GlobalDefaultExceptionHandler;
-import com.tony.component.handler.LarkAspect;
+import com.tony.component.handler.GlobalExceptionMethodInterceptor;
 import com.tony.component.handler.ThreadLocalCacheAspect;
 import com.tony.component.template.LarkTemplate;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
@@ -19,6 +19,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author tony
@@ -41,25 +44,37 @@ public class GlobalDefaultConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(LarkTemplate.class)
-    @ConditionalOnProperty(prefix = "risk.tony.component.lark", name = "webhooks")
-    public LarkTemplate larkApi(GlobalDefaultProperties globalDefaultProperties, ObjectProvider<LarkCustomizer> customizers) {
+    @ConditionalOnProperty(prefix = "tony.component.ex-handle.lark", name = "webhooks")
+    public LarkTemplate larkTemplate(GlobalDefaultProperties globalDefaultProperties, ObjectProvider<LarkCustomizer> customizers) {
         LarkTemplate larkTemplate = new LarkTemplate(globalDefaultProperties);
         customizers.orderedStream().forEach(customizer -> customizer.customize(larkTemplate));
         return new LarkTemplate(globalDefaultProperties);
     }
 
-    @Bean
-    @ConditionalOnMissingBean(LarkAspect.class)
-    public LarkAspect larkAspect() {
-        return new LarkAspect();
-    }
+//    @Bean
+//    @ConditionalOnMissingBean(ExceptionCatchAspect.class)
+//    public ExceptionCatchAspect larkAspect() {
+//        return new ExceptionCatchAspect();
+//    }
 
     @Bean(name = "globalAspectJExpressionPointcutAdvisor")
-    @ConditionalOnProperty(prefix = "risk.tony.component", name = "pointcut")
+    @ConditionalOnProperty(prefix = "tony.component.ex-handle", name = "pointcut")
     public AspectJExpressionPointcutAdvisor pointcutAdvisor(GlobalDefaultProperties globalDefaultProperties) {
         AspectJExpressionPointcutAdvisor advisor = new AspectJExpressionPointcutAdvisor();
         advisor.setExpression(globalDefaultProperties.getPointcut());
-        advisor.setAdvice(new GlobalDefaultExceptionHandler(new LarkTemplate(globalDefaultProperties)));
+        Set<Class<?>> classes = ClassUtil.scanPackageBySuper("", ExceptionHandler.class);
+        Set<ExceptionHandler> exceptionHandlers = classes.stream()
+                .filter(clazz -> !ClassUtil.isAbstract(clazz))
+                .map(clazz -> {
+                    ExceptionHandler exceptionHandler;
+                    try {
+                        exceptionHandler = (ExceptionHandler) clazz.newInstance();
+                    } catch (InstantiationException | IllegalAccessException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    return exceptionHandler;
+                }).collect(Collectors.toSet());
+        advisor.setAdvice(new GlobalExceptionMethodInterceptor(exceptionHandlers, globalDefaultProperties));
         return advisor;
     }
 

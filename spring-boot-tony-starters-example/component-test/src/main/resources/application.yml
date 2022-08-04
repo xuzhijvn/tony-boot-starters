@@ -1,14 +1,14 @@
 server:
   port: 9999
-risk:
-  tony:
-    component:
+tony:
+  component:
+    ex-handle:
       pointcut: execution(* com.tony.component.test..*.*(..))
       exclude-exception: com.tony.component.test.BizException
-      feishu:
-        webhooks: https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxxxxxxxx
-        kibana:
-          url: https://127.0.0.1/app/kibana#/discover
-          sname: tony-buyboy-svc
-          stype: javadaemon
-#      current-user: true
+#      lark:
+#        webhooks: https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxxxxxxxx
+#        kibana:
+#          url: https://127.0.0.1/app/kibana#/discover
+#          sname: tony-buyboy-svc
+#          stype: javadaemon
+

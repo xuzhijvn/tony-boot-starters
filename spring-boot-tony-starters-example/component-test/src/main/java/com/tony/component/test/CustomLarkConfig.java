@@ -3,6 +3,7 @@
  */
 package com.tony.component.test;
 
+import cn.hutool.core.util.ClassUtil;
 import com.tony.component.LarkCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 public class CustomLarkConfig {
 
     @Bean
-    public LarkCustomizer larkConstomizer() {
+    public LarkCustomizer larkCustomizer() {
         return larkTemplate -> larkTemplate.getGlobalDefaultProperties().setPointcut("tony自定义Pointcut");
     }
 }

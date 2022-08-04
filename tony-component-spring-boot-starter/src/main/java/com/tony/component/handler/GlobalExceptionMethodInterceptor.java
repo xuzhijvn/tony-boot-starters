@@ -5,9 +5,9 @@ package com.tony.component.handler;
 
 import cn.hutool.core.util.ReUtil;
 import cn.hutool.core.util.StrUtil;
+import com.tony.component.Alert;
+import com.tony.component.ExceptionHandler;
 import com.tony.component.GlobalDefaultProperties;
-import com.tony.component.annotation.Lark;
-import com.tony.component.template.LarkTemplate;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.core.Ordered;
@@ -15,6 +15,7 @@ import org.springframework.core.annotation.Order;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.Set;
 
 
 /**
@@ -23,12 +24,15 @@ import java.util.Arrays;
  * Description: 全局异常处理
  */
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class GlobalDefaultExceptionHandler implements MethodInterceptor {
+public class GlobalExceptionMethodInterceptor implements MethodInterceptor {
 
-    private LarkTemplate larkTemplate;
+    private final Set<ExceptionHandler> exceptionHandlers;
 
-    public GlobalDefaultExceptionHandler(LarkTemplate larkTemplate) {
-        this.larkTemplate = larkTemplate;
+    private final GlobalDefaultProperties globalDefaultProperties;
+
+    public GlobalExceptionMethodInterceptor(Set<ExceptionHandler> exceptionHandlers, GlobalDefaultProperties globalDefaultProperties) {
+        this.exceptionHandlers = exceptionHandlers;
+        this.globalDefaultProperties = globalDefaultProperties;
     }
 
     @Override
@@ -46,10 +50,8 @@ public class GlobalDefaultExceptionHandler implements MethodInterceptor {
             }
 
             Object[] args = methodInvocation.getArguments();
-            Lark lark = method.getAnnotation(Lark.class);
-            if (lark == null) {
-                larkTemplate.sendIfAbsent("全局异常", ex, method, args);
-            }
+
+            exceptionHandlers.forEach(exceptionHandler -> exceptionHandler.handle(method, args, ex));
             throw ex;
         }
     }
@@ -57,16 +59,19 @@ public class GlobalDefaultExceptionHandler implements MethodInterceptor {
 
     private boolean isNeedExclude(Method method) {
 
-        GlobalDefaultProperties properties = larkTemplate.getGlobalDefaultProperties();
 
         String clazz = method.getDeclaringClass().getName();
 
-        if (Arrays.stream(properties.getExcludePackages().split(",")).anyMatch(e -> ReUtil.contains(e, clazz))) {
+        if (Arrays.stream(globalDefaultProperties.getExcludePackages().split(","))
+                .filter(StrUtil::isNotBlank)
+                .anyMatch(e -> ReUtil.contains(e, clazz))) {
             return true;
         }
 
-        if (StrUtil.isNotBlank(properties.getLimitPackages()) &&
-                Arrays.stream(properties.getLimitPackages().split(",")).noneMatch(e -> ReUtil.contains(e, clazz))
+        if (StrUtil.isNotBlank(globalDefaultProperties.getLimitPackages()) &&
+                Arrays.stream(globalDefaultProperties.getLimitPackages().split(","))
+                        .filter(StrUtil::isNotBlank)
+                        .noneMatch(e -> ReUtil.contains(e, clazz))
         ) {
             return true;
         }
@@ -75,11 +80,10 @@ public class GlobalDefaultExceptionHandler implements MethodInterceptor {
 
     private boolean isNeedExclude(Throwable ex) {
 
-        GlobalDefaultProperties properties = larkTemplate.getGlobalDefaultProperties();
 
         String clazz = ex.getClass().getName();
 
-        if (Arrays.stream(properties.getExcludeException().split(",")).anyMatch(e -> e.equals(clazz))) {
+        if (Arrays.asList(globalDefaultProperties.getExcludeException().split(",")).contains(clazz)) {
             return true;
         }
         return false;

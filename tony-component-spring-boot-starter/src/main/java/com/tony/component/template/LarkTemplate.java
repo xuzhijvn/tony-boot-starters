@@ -7,6 +7,7 @@ package com.tony.component.template;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.tony.common.ExpiryMap;
+import com.tony.component.AbstractAlert;
 import com.tony.component.GlobalDefaultProperties;
 import com.tony.component.constant.Color;
 import com.tony.component.model.LarkPostRequest;
@@ -26,7 +27,7 @@ import java.util.concurrent.CompletableFuture;
  * @description:
  */
 
-public class LarkTemplate {
+public class LarkTemplate extends AbstractAlert {
 
     private static final Logger log = LoggerFactory.getLogger(LarkTemplate.class);
 
@@ -149,7 +150,8 @@ public class LarkTemplate {
         );
     }
 
-    public void sendIfAbsent(String titleName, Throwable ex, Method method, Object[] args) {
+    @Override
+    public void sendIfAbsent(String titleName, Method method, Object[] args, Throwable ex) {
         String key = MDC.get("HLL_TID");
         if (key == null) {
             key = ex.getMessage();

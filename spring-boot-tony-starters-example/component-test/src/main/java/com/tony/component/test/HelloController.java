@@ -3,7 +3,6 @@
   */
  package com.tony.component.test;
 
- import com.tony.component.annotation.Lark;
  import com.tony.component.annotation.ThreadLocalCache;
  import com.tony.component.constant.Color;
  import com.tony.component.template.LarkTemplate;
@@ -28,12 +27,12 @@
      @Autowired
      HelloService2 helloService2;
 
-     @Autowired
-     private LarkTemplate larkTemplate;
+//     @Autowired
+//     private LarkTemplate larkTemplate;
 
      @GetMapping(value = "say")
      public void say() {
-         larkTemplate.sendAsync("测试", new RuntimeException("ddd"), "测试异常");
+         //larkTemplate.sendAsync("测试", new RuntimeException("ddd"), "测试异常");
      }
 
      @GetMapping(value = "say2")
@@ -42,7 +41,7 @@
      }
 
      @GetMapping(value = "say3")
-     @Lark(titleName = "飞书注解测试", color = Color.GREEN)
+     //@ExceptionCatch(title = "飞书注解测试", color = Color.GREEN)
      public void say3() {
          String hllTid = MDC.get("HLL_TID");
          String TRACE_ID = MDC.get("TRACE_ID");
