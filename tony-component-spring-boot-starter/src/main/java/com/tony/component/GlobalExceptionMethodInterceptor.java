@@ -1,13 +1,11 @@
 /*
  *       Copyright© (2020).
  */
-package com.tony.component.handler;
+package com.tony.component;
 
 import cn.hutool.core.util.ReUtil;
 import cn.hutool.core.util.StrUtil;
-import com.tony.component.Alert;
-import com.tony.component.ExceptionHandler;
-import com.tony.component.GlobalDefaultProperties;
+import com.tony.common.ExpiryMap;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.core.Ordered;
@@ -30,9 +28,12 @@ public class GlobalExceptionMethodInterceptor implements MethodInterceptor {
 
     private final GlobalDefaultProperties globalDefaultProperties;
 
+    private final ExpiryMap<Object, Object> EXPIRY_CACHE;
+
     public GlobalExceptionMethodInterceptor(Set<ExceptionHandler> exceptionHandlers, GlobalDefaultProperties globalDefaultProperties) {
         this.exceptionHandlers = exceptionHandlers;
         this.globalDefaultProperties = globalDefaultProperties;
+        this.EXPIRY_CACHE = new ExpiryMap<>(1000 * 5);
     }
 
     @Override
@@ -51,7 +52,10 @@ public class GlobalExceptionMethodInterceptor implements MethodInterceptor {
 
             Object[] args = methodInvocation.getArguments();
 
-            exceptionHandlers.forEach(exceptionHandler -> exceptionHandler.handle(method, args, ex));
+            if (!EXPIRY_CACHE.containsKey(ex)) {
+                EXPIRY_CACHE.put(ex, 1);
+                exceptionHandlers.forEach(exceptionHandler -> exceptionHandler.handle(method, args, ex));
+            }
             throw ex;
         }
     }

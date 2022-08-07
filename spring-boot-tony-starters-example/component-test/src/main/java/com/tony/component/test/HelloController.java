@@ -4,8 +4,6 @@
  package com.tony.component.test;
 
  import com.tony.component.annotation.ThreadLocalCache;
- import com.tony.component.constant.Color;
- import com.tony.component.template.LarkTemplate;
  import org.slf4j.MDC;
  import org.springframework.beans.factory.annotation.Autowired;
  import org.springframework.web.bind.annotation.GetMapping;
@@ -95,7 +93,7 @@
 
      @GetMapping(value = "say10")
      public String say10() {
-         return helloService.say10("tony");
+         return helloService.say11("tony");
      }
 
 //     @GetMapping(value = "say7")
@@ -104,5 +102,10 @@
 //         User user = (User) TonyContext.get(User.class);
 //         return user.toString();
 //     }
+
+     @GetMapping(value = "say11")
+     public void say11() {
+          helloService.say11();
+     }
 
  }

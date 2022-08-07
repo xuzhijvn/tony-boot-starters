@@ -7,6 +7,8 @@ import com.tony.component.advice.*;
 import com.tony.component.annotation.ThreadLocalCache;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * @author tony
  * @create 2021-07-29
@@ -14,6 +16,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class HelloService {
+
+    @Resource
+    private HelloService2 helloService2;
 
     @ThreadLocalCache
     public String say(String name) {
@@ -49,8 +54,13 @@ public class HelloService {
     @AfterReturning(adviceUsing = AllAdvisor.class)
     @AfterThrowing(adviceUsing = AllAdvisor.class)
     @AfterReturning(adviceUsing = AfterReturningAdvisor.class)
-    public String say10(String name) {
+    public String say11(String name) {
         System.out.println("测试: " + name);
         return "hello " + name;
+    }
+
+    public void say11() {
+        System.out.println("hello service:");
+        helloService2.say11();
     }
 }

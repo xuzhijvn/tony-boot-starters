@@ -18,4 +18,9 @@ public class HelloService2 {
     public void handle(){
         System.out.println("定时处理");
     }
+
+    public void say11(){
+        System.out.println("hello service2:");
+        int a = 1/0;
+    }
 }

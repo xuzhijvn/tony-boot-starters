@@ -1,4 +1,4 @@
-package com.tony.component.handler;
+package com.tony.component;
 
 
 import com.alibaba.fastjson.JSON;
