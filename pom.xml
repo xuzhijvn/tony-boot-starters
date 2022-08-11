@@ -99,7 +99,6 @@
 
     <dependencyManagement>
         <dependencies>
-
             <!-- Spring Boot -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

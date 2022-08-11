@@ -4,6 +4,7 @@
 package com.tony.component.config;
 
 import cn.hutool.core.util.ClassUtil;
+import com.tony.common.utils.spring.SpringUtils;
 import com.tony.component.*;
 import com.tony.component.advice.AdvisorAspect;
 import com.tony.component.GlobalExceptionMethodInterceptor;
@@ -17,6 +18,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -57,6 +59,7 @@ public class GlobalDefaultConfiguration {
 
     @Bean(name = "globalAspectJExpressionPointcutAdvisor")
     @ConditionalOnProperty(prefix = "tony.component.ex-handle", name = "pointcut")
+    @Order
     public AspectJExpressionPointcutAdvisor pointcutAdvisor(GlobalDefaultProperties globalDefaultProperties) {
         AspectJExpressionPointcutAdvisor advisor = new AspectJExpressionPointcutAdvisor();
         advisor.setExpression(globalDefaultProperties.getPointcut());
@@ -66,9 +69,9 @@ public class GlobalDefaultConfiguration {
                 .map(clazz -> {
                     ExceptionHandler exceptionHandler;
                     try {
-                        exceptionHandler = (ExceptionHandler) clazz.newInstance();
-                    } catch (InstantiationException | IllegalAccessException ex) {
-                        throw new RuntimeException(ex);
+                        exceptionHandler = (ExceptionHandler) SpringUtils.getInstance(clazz);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
                     }
                     return exceptionHandler;
                 }).collect(Collectors.toSet());
