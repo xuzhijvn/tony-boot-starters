@@ -4,6 +4,7 @@
 package com.tony.component.config;
 
 import cn.hutool.core.util.ClassUtil;
+import com.tony.common.BootUtil;
 import com.tony.common.utils.spring.SpringUtils;
 import com.tony.component.*;
 import com.tony.component.advice.AdvisorAspect;
@@ -19,7 +20,9 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.util.StringUtils;
 
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -58,11 +61,17 @@ public class GlobalDefaultConfiguration {
 //    }
 
     @Bean(name = "globalAspectJExpressionPointcutAdvisor")
-    @ConditionalOnProperty(prefix = "tony.component.ex-handle", name = "pointcut")
+    //@ConditionalOnProperty(prefix = "tony.component.ex-handle", name = "pointcut")
     @Order
     public AspectJExpressionPointcutAdvisor pointcutAdvisor(GlobalDefaultProperties globalDefaultProperties) {
         AspectJExpressionPointcutAdvisor advisor = new AspectJExpressionPointcutAdvisor();
-        advisor.setExpression(globalDefaultProperties.getPointcut());
+        String pointcut = globalDefaultProperties.getPointcut();
+        if (StringUtils.isEmpty(pointcut)) {
+            String mainClass = Objects.requireNonNull(BootUtil.getMainClass()).getName();
+            String pk = mainClass.substring(0, mainClass.lastIndexOf("."));
+            pointcut = "execution(* " + pk + "..*.*(..))";
+        }
+        advisor.setExpression(pointcut);
         Set<Class<?>> classes = ClassUtil.scanPackageBySuper("", ExceptionHandler.class);
         Set<ExceptionHandler> exceptionHandlers = classes.stream()
                 .filter(clazz -> !ClassUtil.isAbstract(clazz))

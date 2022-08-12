@@ -52,7 +52,9 @@ public class GlobalExceptionMethodInterceptor implements MethodInterceptor {
 
             Object[] args = methodInvocation.getArguments();
 
-            if (!EXPIRY_CACHE.containsKey(ex)) {
+            if (exceptionHandlers != null
+                    && exceptionHandlers.size() > 0
+                    && !EXPIRY_CACHE.containsKey(ex)) {
                 EXPIRY_CACHE.put(ex, 1);
                 exceptionHandlers.forEach(exceptionHandler -> exceptionHandler.handle(method, args, ex));
             }
