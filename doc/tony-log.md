@@ -5,7 +5,7 @@
 ```XML
 <dependency>
     <groupId>com.tony</groupId>
-    <artifactId>tony-log-spring-boot-starter</artifactId>
+    <artifactId>tony-boot-starter-log</artifactId>
     <version>${tony-starter.version}</version>
 </dependency>
 ```

@@ -30,21 +30,21 @@
 <br />
 
 <div align="center">
-  <a href="https://github.com/xuzhijvn/spring-boot-tony-starters">
+  <a href="https://github.com/xuzhijvn/tony-boot-starters">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">spring-boot-tony-starter</h3>
   <p align="center">
     An awesome Spring Boot Starter!
     <br />
-    <a href="https://github.com/xuzhijvn/spring-boot-tony-starters/wiki"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/xuzhijvn/tony-boot-starters/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/xuzhijvn/spring-boot-tony-starters/tree/master/spring-boot-tony-starters-example">View Demo</a>
+    <a href="https://github.com/xuzhijvn/tony-boot-starters/tree/master/tony-boot-starters-example">View Demo</a>
     ·
-    <a href="https://github.com/xuzhijvn/spring-boot-tony-starters/issues">Report Bug</a>
+    <a href="https://github.com/xuzhijvn/tony-boot-starters/issues">Report Bug</a>
     ·
-    <a href="https://github.com/xuzhijvn/spring-boot-tony-starters/issues">Request Feature</a>
+    <a href="https://github.com/xuzhijvn/tony-boot-starters/issues">Request Feature</a>
   </p>
 
 </div>
@@ -118,7 +118,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/xuzhijvn/spring-boot-tony-starters.git
+   git clone https://github.com/xuzhijvn/tony-boot-starters.git
    ```
 
 2. Install the packages to your local maven repo
@@ -143,7 +143,7 @@ To get a local copy up and running follow these simple example steps.
    ```js
    <dependency>
       <groupId>com.tony</groupId>
-      <artifactId>tony-component-spring-boot-starter</artifactId>
+      <artifactId>tony-boot-starter-component</artifactId>
       <version>1.0.4-SNAPSHOT</version>
    </dependency>
    ```
@@ -157,7 +157,7 @@ To get a local copy up and running follow these simple example steps.
 
 
 
-_For more examples, please refer to the [Documentation](https://github.com/xuzhijvn/spring-boot-tony-starters/wiki)_
+_For more examples, please refer to the [Documentation](https://github.com/xuzhijvn/tony-boot-starters/wiki)_
 
 <p align="right"><a href="#top">back to top</a>👆</p>
 
@@ -174,7 +174,7 @@ _For more examples, please refer to the [Documentation](https://github.com/xuzhi
     - [ ] Chinese
     - [ ] English
 
-See the [open issues](https://github.com/xuzhijvn/spring-boot-tony-starters/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/xuzhijvn/tony-boot-starters/issues) for a full list of proposed features (and known issues).
 
 <p align="right"><a href="#top">back to top</a>👆</p>
 
@@ -240,16 +240,16 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/xuzhijvn/spring-boot-tony-starters.svg?style=for-the-badge
-[contributors-url]: https://github.com/xuzhijvn/spring-boot-tony-starters/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/xuzhijvn/spring-boot-tony-starters.svg?style=for-the-badge
-[forks-url]: https://github.com/xuzhijvn/spring-boot-tony-starters/network/members
-[stars-shield]: https://img.shields.io/github/stars/xuzhijvn/spring-boot-tony-starters.svg?style=for-the-badge
-[stars-url]: https://github.com/xuzhijvn/spring-boot-tony-starters/stargazers
-[issues-shield]: https://img.shields.io/github/issues/xuzhijvn/spring-boot-tony-starters.svg?style=for-the-badge
-[issues-url]: https://github.com/xuzhijvn/spring-boot-tony-starters/issues
-[license-shield]: https://img.shields.io/github/license/xuzhijvn/spring-boot-tony-starters.svg?style=for-the-badge
-[license-url]: https://github.com/xuzhijvn/spring-boot-tony-starters/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/xuzhijvn/tony-boot-starters.svg?style=for-the-badge
+[contributors-url]: https://github.com/xuzhijvn/tony-boot-starters/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/xuzhijvn/tony-boot-starters.svg?style=for-the-badge
+[forks-url]: https://github.com/xuzhijvn/tony-boot-starters/network/members
+[stars-shield]: https://img.shields.io/github/stars/xuzhijvn/tony-boot-starters.svg?style=for-the-badge
+[stars-url]: https://github.com/xuzhijvn/tony-boot-starters/stargazers
+[issues-shield]: https://img.shields.io/github/issues/xuzhijvn/tony-boot-starters.svg?style=for-the-badge
+[issues-url]: https://github.com/xuzhijvn/tony-boot-starters/issues
+[license-shield]: https://img.shields.io/github/license/xuzhijvn/tony-boot-starters.svg?style=for-the-badge
+[license-url]: https://github.com/xuzhijvn/tony-boot-starters/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png

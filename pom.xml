@@ -4,24 +4,24 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.tony</groupId>
-    <artifactId>spring-boot-tony-starters</artifactId>
+    <artifactId>tony-boot-starters</artifactId>
     <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>global-handle-spring-boot-starter</module>
-        <module>tony-component-spring-boot-starter</module>
-        <module>tony-mybatis-cache-spring-boot-starter</module>
-        <module>tony-data-permission-spring-boot-starter</module>
-        <module>tony-dp-spring-boot-starter</module>
-        <module>tony-log-spring-boot-starter</module>
-        <module>tony-spring-boot-starter-common</module>
-        <module>tony-page-spring-boot-starter</module>
-        <module>tony-mybatis-spring-boot-starter</module>
-        <module>tony-mybatis-plus-spring-boot-starter</module>
+        <module>tony-boot-starter-global-handle</module>
+        <module>tony-boot-starter-component</module>
+        <module>tony-boot-starter-mybatis-cache</module>
+        <module>tony-boot-starter-data-permission</module>
+        <module>tony-boot-starter-dp</module>
+        <module>tony-boot-starter-log</module>
+        <module>tony-boot-starter-common</module>
+        <module>tony-boot-starter-page</module>
+        <module>tony-boot-starter-mybatis</module>
+        <module>tony-boot-starter-mybatis-plus</module>
     </modules>
 
-    <name>spring-boot-tony-starters</name>
+    <name>tony-boot-starters</name>
     <description>SpringBoot Tony Starter</description>
     <url>https://github.com/xuzhijvn</url>
 
@@ -134,14 +134,14 @@
 
     <distributionManagement>
         <repository>
-            <id>nexus-releases</id>
+            <id>xgjk</id>
             <name>Nexus Release Repository</name>
-            <url>http://maven.xxxx.cn/repository/risk-releases/</url>
+            <url>http://repo.htzq.htsc.com.cn/repository/xgjk/</url>
         </repository>
         <snapshotRepository>
-            <id>nexus-snapshots</id>
+            <id>xgjk_snapshot</id>
             <name>Nexus Snapshot Repository</name>
-            <url>http://maven.xxxxx.cn/repository/risk-snapshots/</url>
+            <url>http://repo.htzq.htsc.com.cn/repository/xgjk_snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>

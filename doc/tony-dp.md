@@ -11,7 +11,7 @@
 ```XML
 <dependency>
     <groupId>com.tony</groupId>
-    <artifactId>tony-dp-spring-boot-starter</artifactId>
+    <artifactId>tony-boot-starter-dp</artifactId>
     <version>${tony-starter.version}</version>
 </dependency>
 ```

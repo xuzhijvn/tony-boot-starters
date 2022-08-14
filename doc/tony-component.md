@@ -10,7 +10,7 @@
 ```xml
 <dependency>
    <groupId>com.tony</groupId>
-   <artifactId>tony-component-spring-boot-starter</artifactId>
+   <artifactId>tony-boot-starter-component</artifactId>
    <version>1.0.4-SNAPSHOT</version>
 </dependency>
 ```

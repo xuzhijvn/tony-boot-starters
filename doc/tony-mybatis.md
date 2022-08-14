@@ -7,7 +7,7 @@ tony-mybatis是对mybatis的增强。
 ```XML
 <dependency>
     <groupId>com.tony</groupId>
-    <artifactId>tony-mybatis-spring-boot-starter</artifactId>
+    <artifactId>tony-boot-starter-mybatis</artifactId>
     <version>${tony-starter.version}</version>
 </dependency>
 ```
