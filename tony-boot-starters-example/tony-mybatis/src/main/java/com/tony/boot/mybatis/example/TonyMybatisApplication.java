@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
 
 @SpringBootApplication
-@MapperScan(value = {"com.tony.mybatis.example.mapper"})
+@MapperScan(value = {"com.tony.boot.mybatis.example.mapper"})
 public class TonyMybatisApplication {
 
     public static void main(String[] args) {

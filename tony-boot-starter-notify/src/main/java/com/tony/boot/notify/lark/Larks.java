@@ -1,9 +1,7 @@
 /*
  *       Copyright© (2020) TONY Co., Ltd.
  */
-package com.tony.boot.component.annotation;
-
-import Color;
+package com.tony.boot.notify.lark;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -17,8 +15,8 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ExceptionCatch {
+public @interface Larks {
 
-    Class<?> handleUsing() default Void.class;
+    Lark[] value();
 
 }

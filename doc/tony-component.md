@@ -22,7 +22,7 @@ risk:
   tony:
     component:
       pointcut: execution(* cn.tony.component.test..*.*(..))
-      exceptionCatch:
+      lark:
         webhooks: https://open.feishu.cn/open-apis/bot/v2/hook/xxxx-xxxxx
         kibana:
           url: https://kibana域名/app/kibana#/discover

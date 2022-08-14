@@ -1,4 +1,4 @@
-package com.tony.boot.component.constant;
+package com.tony.boot.notify.lark;
 
 import java.util.stream.Stream;
 

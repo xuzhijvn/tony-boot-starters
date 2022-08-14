@@ -25,6 +25,7 @@
         <module>tony-mybatis</module>
         <module>tony-mybatis-plus</module>
         <module>tony-page</module>
+        <module>tony-notify</module>
     </modules>
 
 

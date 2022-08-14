@@ -1,18 +1,14 @@
 /*
  *       Copyright© (2020).
  */
-package com.tony.boot.component.config;
+package com.tony.boot.component;
 
 import cn.hutool.core.util.ClassUtil;
 import com.tony.boot.common.BootUtil;
 import com.tony.boot.common.utils.spring.SpringUtils;
-import com.tony.boot.component.*;
 import com.tony.boot.component.advice.AdvisorAspect;
-import com.tony.boot.component.template.LarkTemplate;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -32,16 +28,6 @@ import java.util.stream.Collectors;
 @Configuration
 @EnableConfigurationProperties(GlobalDefaultProperties.class)
 public class GlobalDefaultConfiguration {
-
-    @Bean
-    @ConditionalOnMissingBean(LarkTemplate.class)
-    @ConditionalOnProperty(prefix = "tony.component.ex-handle.lark", name = "webhooks")
-    public LarkTemplate larkTemplate(GlobalDefaultProperties globalDefaultProperties, ObjectProvider<LarkCustomizer> customizers) {
-        LarkTemplate larkTemplate = new LarkTemplate(globalDefaultProperties);
-        customizers.orderedStream().forEach(customizer -> customizer.customize(larkTemplate));
-        return new LarkTemplate(globalDefaultProperties);
-    }
-
 
     @Bean(name = "tonyGlobalAspectJExpressionPointcutAdvisor")
     //@ConditionalOnProperty(prefix = "tony.component.ex-handle", name = "pointcut")

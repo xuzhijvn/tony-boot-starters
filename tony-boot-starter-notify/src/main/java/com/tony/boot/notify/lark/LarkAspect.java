@@ -1,11 +1,10 @@
 /*
  *       Copyright© (2020) TONY Co., Ltd.
  */
-package com.tony.boot.component.handler;
+package com.tony.boot.notify.lark;
 
-import SpringUtils;
-import Alert;
-import com.tony.boot.component.annotation.ExceptionCatch;
+
+import com.tony.boot.common.utils.spring.SpringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -23,24 +22,29 @@ import java.lang.reflect.Method;
  */
 @Aspect
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class ExceptionCatchAspect {
+public class LarkAspect {
 
-    @Pointcut("@annotation(com.tony.boot.component.annotation.ExceptionCatch)")
-    public void exceptionCatch() {
+    @Pointcut("@annotation(com.tony.boot.notify.lark.Lark)")
+    public void lark() {
     }
 
-    @Around("exceptionCatch()")
+    @Around("lark()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         // 目标方法
         MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
-        Object[] args = point.getArgs();
-        ExceptionCatch exceptionCatch = method.getAnnotation(ExceptionCatch.class);
+        Object[] objects = point.getArgs();
+        Lark lark = method.getAnnotation(Lark.class);
         Object result;
         try {
             result = point.proceed();
         } catch (Throwable ex) {
-            SpringUtils.getBean(Alert.class).sendAsync(exceptionCatch.title(), method, args, ex);
+            LarkTemplate larkTemplate = SpringUtils.getBean(LarkTemplate.class);
+            Color color = lark.color();
+            String title = lark.title();
+            String content = LarkRequest.buildDefaultContent(ex.getMessage(), null, ex, method, objects);
+            LarkRequest request = LarkRequest.build(title, content, color);
+            larkTemplate.notify(request);
             throw ex;
         }
         return result;

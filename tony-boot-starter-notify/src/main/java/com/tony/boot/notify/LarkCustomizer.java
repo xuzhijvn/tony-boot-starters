@@ -1,9 +1,10 @@
 /*
  *       Copyright© (2020).
  */
-package com.tony.boot.component;
+package com.tony.boot.notify;
 
-import com.tony.boot.component.template.LarkTemplate;
+
+import com.tony.boot.notify.lark.LarkTemplate;
 
 /**
  * @author tony
