@@ -33,7 +33,7 @@
   <a href="https://github.com/xuzhijvn/tony-boot-starters">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
-  <h3 align="center">spring-boot-tony-starter</h3>
+  <h3 align="center">tony-boot-starter</h3>
   <p align="center">
     An awesome Spring Boot Starter!
     <br />
@@ -86,7 +86,7 @@
 
 An awesome Spring Boot Starter!
 
-Import the `spring-boot-tony-starter` to get started.
+Import the `tony-boot-starter` to get started.
 
 <p align="right"><a href="#top">back to top</a>👆</p>
 
@@ -133,7 +133,7 @@ To get a local copy up and running follow these simple example steps.
    ```java
    <dependency>
       <groupId>com.tony</groupId>
-      <artifactId>spring-boot-tony-starter</artifactId>
+      <artifactId>tony-boot-starter</artifactId>
       <version>1.0.2-SNAPSHOT</version>
    </dependency>
    ```
