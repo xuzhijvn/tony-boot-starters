@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>tony-boot-starters-example</module>
         <module>tony-boot-starter-global-handle</module>
         <module>tony-boot-starter-component</module>
         <module>tony-boot-starter-mybatis-cache</module>
@@ -19,7 +20,7 @@
         <module>tony-boot-starter-page</module>
         <module>tony-boot-starter-mybatis</module>
         <module>tony-boot-starter-mybatis-plus</module>
-        <module>tony-boot-starters-example</module>
+        <module>tony-boot-starter-notify</module>
     </modules>
 
     <name>tony-boot-starters</name>
