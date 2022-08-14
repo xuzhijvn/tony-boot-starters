@@ -4,7 +4,7 @@
 
 
     <parent>
-        <groupId>com.tony</groupId>
+        <groupId>com.tony.boot</groupId>
         <artifactId>tony-boot-starters-example</artifactId>
         <version>1.0.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -65,7 +65,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.tony</groupId>
+            <groupId>com.tony.boot</groupId>
             <artifactId>tony-boot-starter-page</artifactId>
             <version>1.0.2-SNAPSHOT</version>
             <scope>compile</scope>
@@ -105,7 +105,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.tony.page.test.TonyPageApplication</mainClass>
+                    <mainClass>com.tony.boot.page.test.TonyPageApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

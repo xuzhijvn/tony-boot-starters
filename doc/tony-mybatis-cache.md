@@ -6,7 +6,7 @@ mybatis的二级缓存快速启动器，目前实现了redis和j2cache，未来�
 
 ```XML
 <dependency>
-    <groupId>com.tony</groupId>
+    <groupId>com.tony.boot</groupId>
     <artifactId>tony-boot-starter-mybatis-cache</artifactId>
     <version>${tony-starter.version}</version>
 </dependency>

@@ -10,7 +10,7 @@
 
 ```XML
 <dependency>
-    <groupId>com.tony</groupId>
+    <groupId>com.tony.boot</groupId>
     <artifactId>tony-boot-starter-dp</artifactId>
     <version>${tony-starter.version}</version>
 </dependency>

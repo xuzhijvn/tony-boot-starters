@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.tony</groupId>
+        <groupId>com.tony.boot</groupId>
         <artifactId>tony-boot-starters-example</artifactId>
         <version>1.0.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -22,7 +22,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.tony</groupId>
+            <groupId>com.tony.boot</groupId>
             <artifactId>tony-boot-starter-mybatis-cache</artifactId>
             <version>1.0.3-SNAPSHOT</version>
         </dependency>

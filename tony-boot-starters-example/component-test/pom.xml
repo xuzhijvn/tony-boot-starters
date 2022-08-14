@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.tony</groupId>
+        <groupId>com.tony.boot</groupId>
         <artifactId>tony-boot-starters-example</artifactId>
         <version>1.0.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -30,7 +30,7 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.tony</groupId>
+            <groupId>com.tony.boot</groupId>
             <artifactId>tony-boot-starter-component</artifactId>
             <version>1.0.5-SNAPSHOT</version>
         </dependency>
@@ -81,7 +81,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.tony.component.test.ComponentTestApplication</mainClass>
+                    <mainClass>com.tony.boot.component.test.ComponentTestApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

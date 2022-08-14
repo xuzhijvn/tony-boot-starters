@@ -3,8 +3,8 @@ server:
 tony:
   component:
     ex-handle:
-      pointcut: execution(* com.tony.component.test..*.*(..))
-      exclude-exception: com.tony.component.test.BizException
+      pointcut: execution(* com.tony.boot.component.test..*.*(..))
+      exclude-exception: com.tony.boot.component.test.BizException
 #      lark:
 #        webhooks: https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxxxxxxxx
 #        kibana:

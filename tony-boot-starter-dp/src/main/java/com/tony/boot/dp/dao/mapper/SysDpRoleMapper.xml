@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tony.boot.dp.dao.mapper.SysDpRoleMapper">
+
+    <!--    <cache-ref namespace="SysDpUserRoleMapper"/>-->
+
+
+    <resultMap id="BaseResultMap" type="com.tony.boot.dp.dao.entity.SysDpRole">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="opUser" column="op_user" jdbcType="VARCHAR"/>
+        <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+        <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,name,op_user,
+        updated_at,created_at
+    </sql>
+
+    <!-- 定义数据库字段与实体对象的映射关系 -->
+    <!--    <resultMap id="RolePagesResultMap" type="SysDpRole">-->
+    <!--        <id column="role_id" property="id"/>-->
+    <!--        <result column="role_name" property="name"/>-->
+    <!--        &lt;!&ndash; 一对多的关系 &ndash;&gt;-->
+    <!--        &lt;!&ndash; property: 指的是集合属性的值, ofType：指的是集合中元素的类型 &ndash;&gt;-->
+    <!--        <collection property="resources" ofType="SysDpResource"  javaType="ArrayList">-->
+    <!--            <id column="resource_id" property="id"/>-->
+    <!--            <result column="resource_type" property="type"/>-->
+    <!--            <result column="resource_key" property="key"/>-->
+    <!--            <result column="resource_value" property="value"/>-->
+    <!--        </collection>-->
+    <!--        <collection property="users" ofType="SysDpUserRole"  javaType="ArrayList">-->
+    <!--            <result column="user_id" property="userId"/>-->
+    <!--        </collection>-->
+    <!--    </resultMap>-->
+
+    <!--    <select id="rolePages" resultMap="RolePagesResultMap">-->
+    <!--        SELECT role.id as role_id, role.name as role_name,-->
+    <!--               resource.id as resource_id, resource.type as resource_type, resource.key as resource_key , resource.value as resource_value,-->
+    <!--               user_role.user_id as user_id-->
+    <!--        FROM ((( ( sys_data_permission_role role LEFT JOIN sys_data_permission_role_resource role_resource ON role.id = role_resource.role_id )-->
+    <!--            LEFT JOIN sys_data_permission_resource resource ON resource.id = role_resource.resource_id ))-->
+    <!--            LEFT JOIN sys_data_permission_user_role user_role ON user_role.role_id = role.id ) ${ew.customSqlSegment}-->
+    <!--    </select>-->
+    <!--    <select id="rolePages" resultType="SysDpRole">-->
+    <!--        SELECT * FROM sys_data_permission_role ${ew.customSqlSegment}-->
+    <!--    </select>-->
+
+    <resultMap id="RolePagesResultMap" type="com.tony.boot.dp.dao.entity.SysDpRole">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <collection column="id" property="resources" ofType="com.tony.boot.dp.dao.entity.SysDpResource" javaType="ArrayList"
+                    select="selectResourceByRoleId">
+            <result column="id" property="id"/>
+            <result column="type" property="type"/>
+            <result column="key" property="key"/>
+            <result column="value" property="value"/>
+        </collection>
+        <collection column="id" property="users" ofType="com.tony.boot.dp.dao.entity.SysDpUserRole" javaType="ArrayList"
+                    select="selectUserByRoleId">
+            <result column="user_id" property="userId"/>
+        </collection>
+    </resultMap>
+
+    <select id="rolePages" resultMap="RolePagesResultMap">
+        select id, name
+        from sys_data_permission_role ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectResourceByRoleId" resultType="com.tony.boot.dp.dao.entity.SysDpResource">
+        SELECT resource_id as id, type, `key`, `value`
+        FROM sys_data_permission_role_resource role_resource,
+             sys_data_permission_resource resource
+        WHERE role_resource.role_id = #{id}
+          AND resource.id = role_resource.resource_id
+    </select>
+
+    <select id="selectUserByRoleId" resultType="com.tony.boot.dp.dao.entity.SysDpUserRole">
+        select user_id
+        from sys_data_permission_user_role
+        where role_id = #{id}
+    </select>
+
+</mapper>

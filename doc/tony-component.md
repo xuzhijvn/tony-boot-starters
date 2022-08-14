@@ -9,7 +9,7 @@
 
 ```xml
 <dependency>
-   <groupId>com.tony</groupId>
+   <groupId>com.tony.boot</groupId>
    <artifactId>tony-boot-starter-component</artifactId>
    <version>1.0.4-SNAPSHOT</version>
 </dependency>

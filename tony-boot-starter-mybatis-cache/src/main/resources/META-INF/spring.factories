@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.tony.mybatis.cache.autoconfigure.J2CacheAutoConfiguration
+com.tony.boot.mybatis.cache.autoconfigure.J2CacheAutoConfiguration

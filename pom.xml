@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tony</groupId>
+    <groupId>com.tony.boot</groupId>
     <artifactId>tony-boot-starters</artifactId>
     <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -19,6 +19,7 @@
         <module>tony-boot-starter-page</module>
         <module>tony-boot-starter-mybatis</module>
         <module>tony-boot-starter-mybatis-plus</module>
+        <module>tony-boot-starters-example</module>
     </modules>
 
     <name>tony-boot-starters</name>

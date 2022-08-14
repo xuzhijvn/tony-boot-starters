@@ -6,7 +6,7 @@
 
 ```XML
 <dependency>
-    <groupId>com.tony</groupId>
+    <groupId>com.tony.boot</groupId>
     <artifactId>tony-boot-starter-page</artifactId>
     <version>1.0.2-SNAPSHOT</version>
 </dependency>

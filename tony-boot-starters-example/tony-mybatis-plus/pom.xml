@@ -37,13 +37,13 @@
             <version>5.7.9</version>
         </dependency>
         <dependency>
-            <groupId>com.tony</groupId>
+            <groupId>com.tony.boot</groupId>
             <artifactId>tony-boot-starter-mybatis-plus</artifactId>
             <version>1.0.2-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.tony</groupId>
+            <groupId>com.tony.boot</groupId>
             <artifactId>tony-boot-starter-common</artifactId>
             <version>1.0.2-SNAPSHOT</version>
             <scope>compile</scope>

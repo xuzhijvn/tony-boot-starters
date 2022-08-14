@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.tony</groupId>
+        <groupId>com.tony.boot</groupId>
         <artifactId>tony-boot-starters</artifactId>
         <version>1.0.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -33,7 +33,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.tony</groupId>
+            <groupId>com.tony.boot</groupId>
             <artifactId>tony-boot-starter-common</artifactId>
             <version>${tony-starter.version}</version>
             <scope>compile</scope>

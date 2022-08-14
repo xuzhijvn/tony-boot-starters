@@ -132,7 +132,7 @@ To get a local copy up and running follow these simple example steps.
 
    ```java
    <dependency>
-      <groupId>com.tony</groupId>
+      <groupId>com.tony.boot</groupId>
       <artifactId>tony-boot-starter</artifactId>
       <version>1.0.2-SNAPSHOT</version>
    </dependency>
@@ -142,7 +142,7 @@ To get a local copy up and running follow these simple example steps.
 
    ```js
    <dependency>
-      <groupId>com.tony</groupId>
+      <groupId>com.tony.boot</groupId>
       <artifactId>tony-boot-starter-component</artifactId>
       <version>1.0.4-SNAPSHOT</version>
    </dependency>

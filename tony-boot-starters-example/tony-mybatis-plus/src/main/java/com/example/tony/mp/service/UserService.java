@@ -1,9 +1,8 @@
 package com.example.tony.mp.service;
 
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.tony.mp.entity.User;
-import com.tony.mybatis.plus.service.ITonyService;
+import com.tony.boot.mybatis.plus.service.ITonyService;
 
 /**
  *
