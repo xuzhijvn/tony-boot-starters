@@ -14,6 +14,7 @@ import org.springframework.core.annotation.Order;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
 
 /**
@@ -56,7 +57,7 @@ public class GlobalExceptionMethodInterceptor implements MethodInterceptor {
                     && exceptionHandlers.size() > 0
                     && !EXPIRY_CACHE.containsKey(ex)) {
                 EXPIRY_CACHE.put(ex, 1);
-                exceptionHandlers.forEach(exceptionHandler -> exceptionHandler.handle(method, args, ex));
+                exceptionHandlers.forEach(exceptionHandler -> CompletableFuture.runAsync(() -> exceptionHandler.handle(method, args, ex)));
             }
             throw ex;
         }

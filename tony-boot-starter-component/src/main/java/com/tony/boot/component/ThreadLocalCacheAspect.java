@@ -1,7 +1,7 @@
 package com.tony.boot.component;
 
 
-import com.alibaba.fastjson.JSON;
+import cn.hutool.json.JSONUtil;
 import com.tony.boot.component.annotation.ThreadLocalCache;
 import com.tony.boot.component.annotation.ThreadLocalCleanAfter;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -36,10 +36,10 @@ public class ThreadLocalCacheAspect {
     }
 
     @Around(value = "@annotation(localCache)")
-    public Object aroundAdvice(ProceedingJoinPoint joinpoint, ThreadLocalCache localCache) throws Throwable {
-        Object[] args = joinpoint.getArgs();
-        Method method = ((MethodSignature) joinpoint.getSignature()).getMethod();
-        String className = joinpoint.getTarget().getClass().getName();
+    public Object aroundAdvice(ProceedingJoinPoint joinPoint, ThreadLocalCache localCache) throws Throwable {
+        Object[] args = joinPoint.getArgs();
+        Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
+        String className = joinPoint.getTarget().getClass().getName();
         String methodName = method.getName();
 
         String key = parseKey(localCache.key(), method, args, getDefaultKey(className, methodName, args));
@@ -57,7 +57,7 @@ public class ThreadLocalCacheAspect {
 
         Object result = null;
         try {
-            result = joinpoint.proceed();
+            result = joinPoint.proceed();
         } catch (Throwable throwable) {
             throw new RuntimeException(throwable);
         }
@@ -69,7 +69,7 @@ public class ThreadLocalCacheAspect {
     private String getDefaultKey(String className, String methodName, Object[] args) {
         String defaultKey = className + "." + methodName;
         if (args != null) {
-            defaultKey = defaultKey + "." + JSON.toJSONString(args);
+            defaultKey = defaultKey + "." + JSONUtil.toJsonStr(args);
         }
         return defaultKey;
     }

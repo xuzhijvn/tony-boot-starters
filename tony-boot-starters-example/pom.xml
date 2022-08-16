@@ -4,17 +4,20 @@
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.tony.boot</groupId>
-        <artifactId>tony-boot-starters</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <artifactId>tony-boot-starters-example</artifactId>
     <name>tony-boot-starters-example</name>
     <description>tony-boot-starters-example</description>
+    <groupId>com.tony.boot</groupId>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
+        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
         <java.version>1.8</java.version>
     </properties>
 
