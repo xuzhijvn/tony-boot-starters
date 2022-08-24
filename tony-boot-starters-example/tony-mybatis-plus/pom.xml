@@ -8,6 +8,8 @@
         <version>1.0.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
+    <artifactId>tony-mybatis-plus</artifactId>
     <description>Demo project for Spring Boot</description>
 
     <properties>

@@ -3,7 +3,7 @@
  */
 package com.tony.boot.component.test;
 
-import com.tony.boot.component.LarkCustomizer;
+//import com.tony.boot.notify.LarkCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CustomLarkConfig {
 
-    @Bean
-    public LarkCustomizer larkCustomizer() {
-        return larkTemplate -> larkTemplate.getGlobalDefaultProperties().setPointcut("tony自定义Pointcut");
-    }
+//    @Bean
+//    public LarkCustomizer larkCustomizer() {
+//        return larkTemplate -> larkTemplate.getLarkProperties().setPointcut("tony自定义Pointcut");
+//    }
 }
