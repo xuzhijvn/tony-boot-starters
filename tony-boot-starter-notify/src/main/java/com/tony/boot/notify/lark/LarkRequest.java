@@ -4,7 +4,7 @@
 package com.tony.boot.notify.lark;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.tony.boot.common.utils.spring.SpringUtils;
+import com.tony.boot.tools.utils.spring.SpringUtils;
 import org.slf4j.MDC;
 
 import java.lang.reflect.Method;

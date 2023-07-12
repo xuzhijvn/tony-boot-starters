@@ -3,15 +3,15 @@ package com.tony.boot.log;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.support.spring.PropertyPreFilters;
-import com.tony.boot.common.CommonContext;
-import com.tony.boot.common.model.User;
-import com.tony.boot.common.utils.ServletUtils;
-import com.tony.boot.common.utils.StringUtils;
 import com.tony.boot.log.annotation.Log;
 import com.tony.boot.log.dao.entity.SysOperLog;
 import com.tony.boot.log.enums.BusinessStatus;
 import com.tony.boot.log.manager.AsyncManager;
 import com.tony.boot.log.manager.factory.AsyncFactory;
+import com.tony.boot.tools.DefaultContext;
+import com.tony.boot.tools.utils.StringUtils;
+import com.tony.boot.web.model.User;
+import com.tony.boot.web.utils.ServletUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -80,7 +80,7 @@ public class LogAspect {
             }
 
             // 获取当前的用户
-            User currentUser = (User) CommonContext.get(User.class);
+            User currentUser = (User) DefaultContext.get(User.class);
 
             // *========数据库日志=========*//
             SysOperLog operLog = new SysOperLog();

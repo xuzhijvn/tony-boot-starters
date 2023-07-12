@@ -38,7 +38,7 @@
         </dependency>
         <dependency>
             <groupId>com.tony.boot</groupId>
-            <artifactId>tony-boot-starter-common</artifactId>
+            <artifactId>tony-boot-tools</artifactId>
             <version>1.0.2-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

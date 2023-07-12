@@ -5,10 +5,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tony.boot.common.json.FastJsonEnumSerializer;
 import com.tony.boot.mybatis.BindEnum;
 import com.tony.boot.mybatis.BindEnumValue;
 import com.tony.boot.mybatis.example.Job;
+import com.tony.boot.web.json.FastJsonEnumSerializer;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

@@ -4,7 +4,7 @@
 package com.tony.boot.notify.lark;
 
 
-import com.tony.boot.common.utils.spring.SpringUtils;
+import com.tony.boot.tools.utils.spring.SpringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

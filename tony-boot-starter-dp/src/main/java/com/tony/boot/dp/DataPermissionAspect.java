@@ -4,16 +4,16 @@
 package com.tony.boot.dp;
 
 
-import com.tony.boot.common.CommonContext;
-import com.tony.boot.common.exception.TonyException;
-import com.tony.boot.common.model.User;
-import com.tony.boot.common.utils.LogUtils;
 import com.tony.boot.dp.annotation.DataConvert;
 import com.tony.boot.dp.annotation.DataPermission;
 import com.tony.boot.dp.converter.IDataConverter;
 import com.tony.boot.dp.converter.IUserConverter;
 import com.tony.boot.dp.handler.IPermissionHandler;
 import com.tony.boot.dp.model.Permission;
+import com.tony.boot.tools.DefaultContext;
+import com.tony.boot.tools.exception.TonyException;
+import com.tony.boot.web.model.User;
+import com.tony.boot.web.utils.LogUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -43,7 +43,7 @@ public class DataPermissionAspect {
     @Before(value = "@annotation(dataPermission)")
     public void doBefore(JoinPoint joinPoint, DataPermission dataPermission) throws Throwable {
 
-        User currentUser = (User) CommonContext.get(User.class);
+        User currentUser = (User) DefaultContext.get(User.class);
 
         Assert.isTrue(currentUser != null && currentUser.getId() != null,
                 "when @DataPermission is configured, the User in the header cannot be empty");

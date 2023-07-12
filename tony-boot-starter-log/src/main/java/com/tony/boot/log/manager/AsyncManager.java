@@ -1,7 +1,7 @@
 package com.tony.boot.log.manager;
 
-import com.tony.boot.common.utils.Threads;
-import com.tony.boot.common.utils.spring.SpringUtils;
+import com.tony.boot.tools.utils.Threads;
+import com.tony.boot.tools.utils.spring.SpringUtils;
 
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;

@@ -4,7 +4,7 @@
 package com.tony.boot.component.test;
 
 //import com.tony.boot.notify.LarkCustomizer;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.context.annotation.Configuration;
 
 /**

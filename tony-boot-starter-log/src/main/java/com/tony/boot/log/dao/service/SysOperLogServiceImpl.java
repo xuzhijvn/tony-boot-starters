@@ -1,9 +1,9 @@
 package com.tony.boot.log.dao.service;
 
-import com.tony.boot.common.core.text.Convert;
-import com.tony.boot.common.utils.spring.SpringUtils;
 import com.tony.boot.log.dao.entity.SysOperLog;
 import com.tony.boot.log.dao.mapper.SysOperLogMapper;
+import com.tony.boot.tools.text.Convert;
+import com.tony.boot.tools.utils.spring.SpringUtils;
 
 import java.util.List;
 

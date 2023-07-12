@@ -4,11 +4,11 @@
 package com.tony.boot.dp.converter;
 
 
-import com.tony.boot.common.model.User;
 import com.tony.boot.dp.ApplicationContextHolder;
 import com.tony.boot.dp.dao.entity.SysDpResource;
 import com.tony.boot.dp.dao.mapper.SysDpResourceMapper;
 import com.tony.boot.dp.model.Permission;
+import com.tony.boot.web.model.User;
 
 import java.util.Set;
 import java.util.stream.Collectors;

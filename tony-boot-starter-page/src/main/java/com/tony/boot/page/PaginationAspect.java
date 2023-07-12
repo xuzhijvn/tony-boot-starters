@@ -6,7 +6,7 @@ package com.tony.boot.page;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.tony.boot.common.utils.ServletUtils;
+import com.tony.boot.web.utils.ServletUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;

@@ -3,8 +3,8 @@
  */
 package com.tony.boot.component;
 
-import com.tony.boot.common.BootUtil;
 import com.tony.boot.component.advice.AdvisorAspect;
+import com.tony.boot.tools.utils.BootUtil;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

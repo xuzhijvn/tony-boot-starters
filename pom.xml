@@ -9,17 +9,18 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>tony-boot-starter-global-handle</module>
         <module>tony-boot-starter-component</module>
         <module>tony-boot-starter-mybatis-cache</module>
-        <module>tony-boot-starter-data-permission</module>
         <module>tony-boot-starter-dp</module>
         <module>tony-boot-starter-log</module>
-        <module>tony-boot-starter-common</module>
         <module>tony-boot-starter-page</module>
         <module>tony-boot-starter-mybatis</module>
         <module>tony-boot-starter-mybatis-plus</module>
         <module>tony-boot-starter-notify</module>
+        <module>tony-boot-stater-web</module>
+        <module>tony-boot-core</module>
+        <module>tony-boot-tools</module>
+        <module>tony-boot-autoconfigure</module>
     </modules>
 
     <name>tony-boot-starters</name>

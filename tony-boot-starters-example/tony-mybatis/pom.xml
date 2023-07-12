@@ -37,12 +37,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.tony.boot</groupId>
-            <artifactId>tony-boot-starter-common</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
@@ -82,6 +76,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.49</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tony.boot</groupId>
+            <artifactId>tony-boot-stater-web</artifactId>
+            <version>1.0.2-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

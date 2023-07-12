@@ -3,7 +3,7 @@
  */
 package com.tony.boot.component.advice;
 
-import com.tony.boot.common.utils.spring.SpringUtils;
+import com.tony.boot.tools.utils.spring.SpringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
