@@ -137,12 +137,12 @@
         <repository>
             <id>ONBOARDING</id>
             <name>ONBOARDING</name>
-            <url>http://repo.htzq.htsc.com.cn/repository/onboarding/</url>
+            <url>http://repo.hxtxzxq.hxtxsxc.com.cn/repository/onboarding/</url>
         </repository>
         <snapshotRepository>
             <id>ONBOARDING-Snapshots</id>
             <name>ONBOARDING-Snapshots</name>
-            <url>http://repo.htzq.htsc.com.cn/repository/onboarding-snapshot/</url>
+            <url>http://repo.hxtxzxq.hxtxsxc.com.cn/repository/onboarding-snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
