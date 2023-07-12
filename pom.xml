@@ -52,19 +52,19 @@
     <properties>
         <!-- Project revision -->
         <tony-starter.version>1.0.2-SNAPSHOT</tony-starter.version>
-
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
-
+        <lombok.version>1.18.24</lombok.version>
+        <hutool-all.version>5.8.5</hutool-all.version>
         <!-- jvm -->
         <java.version>1.8</java.version>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.source>${java.version}</maven.compiler.source>
 
         <!-- Maven Plugin Versions -->
-        <!--        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>-->
-        <!--        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>-->
-        <!--        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>-->
-        <!--        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>-->
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
     </properties>
 
@@ -85,14 +85,14 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.8.5</version>
+            <version>${hutool-all.version}</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
@@ -134,14 +134,14 @@
 
     <distributionManagement>
         <repository>
-            <id>xxx</id>
-            <name>Nexus Release Repository</name>
-            <url>xxx</url>
+            <id>ONBOARDING</id>
+            <name>ONBOARDING</name>
+            <url>http://repo.htzq.htsc.com.cn/repository/onboarding/</url>
         </repository>
         <snapshotRepository>
-            <id>xxx_snapshot</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>xxx</url>
+            <id>ONBOARDING-Snapshots</id>
+            <name>ONBOARDING-Snapshots</name>
+            <url>http://repo.htzq.htsc.com.cn/repository/onboarding-snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
