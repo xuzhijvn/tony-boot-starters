@@ -8,8 +8,6 @@
     </parent>
 
     <artifactId>tony-boot-tools</artifactId>
-    <packaging>jar</packaging>
-
     <name>tony-boot-tools</name>
     <url>http://maven.apache.org</url>
 

@@ -1,8 +1,7 @@
-package com.tony.boot.web.utils;
+package com.tony.boot.tools.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.tony.boot.tools.constant.Constants;
-import com.tony.boot.tools.utils.StringUtils;
 import com.tony.boot.tools.utils.http.HttpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

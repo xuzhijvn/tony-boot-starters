@@ -27,7 +27,7 @@ public class LogUtils {
     public static void logAccess(HttpServletRequest request) throws Exception {
         //String username = getUsername();
         String jsessionId = request.getRequestedSessionId();
-        String ip = IpUtils.getIpAddr(request);
+        String ip = ServletUtils.getIpAddr(request);
         String accept = request.getHeader("accept");
         String userAgent = request.getHeader("User-Agent");
         String url = request.getRequestURI();
@@ -82,7 +82,7 @@ public class LogUtils {
         //s.append(getBlock(username));
         s.append(getBlock(statusCode));
         s.append(getBlock(message));
-        s.append(getBlock(IpUtils.getIpAddr(request)));
+        s.append(getBlock(ServletUtils.getIpAddr(request)));
 
         s.append(getBlock(uri));
         s.append(getBlock(request.getHeader("Referer")));

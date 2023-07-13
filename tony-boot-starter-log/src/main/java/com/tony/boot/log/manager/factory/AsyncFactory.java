@@ -4,7 +4,7 @@ package com.tony.boot.log.manager.factory;
 import com.tony.boot.log.dao.entity.SysOperLog;
 import com.tony.boot.log.dao.service.ISysOperLogService;
 import com.tony.boot.tools.utils.spring.SpringUtils;
-import com.tony.boot.web.utils.AddressUtils;
+import com.tony.boot.tools.utils.AddressUtils;
 
 import java.util.TimerTask;
 
