@@ -8,7 +8,7 @@
 <dependency>
     <groupId>com.tony.boot</groupId>
     <artifactId>tony-boot-starter-page</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.6-SNAPSHOT</version>
 </dependency>
 ```
 

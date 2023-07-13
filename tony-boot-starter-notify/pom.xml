@@ -5,10 +5,9 @@
     <parent>
         <artifactId>tony-boot-starters</artifactId>
         <groupId>com.tony.boot</groupId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.6-SNAPSHOT</version>
     </parent>
     <artifactId>tony-boot-starter-notify</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>tony-boot-starter-notify</name>
     <description>tony-boot-starter-notify</description>
     <properties>
@@ -34,7 +33,7 @@
         <dependency>
             <groupId>com.tony.boot</groupId>
             <artifactId>tony-boot-tools</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.6-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

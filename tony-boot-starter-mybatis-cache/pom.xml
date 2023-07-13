@@ -5,14 +5,12 @@
     <parent>
         <groupId>com.tony.boot</groupId>
         <artifactId>tony-boot-starters</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.6-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>tony-boot-starter-mybatis-cache</artifactId>
     <name>tony-boot-starter-mybatis-cache</name>
     <description>tony-boot-starter-mybatis-cache</description>
-    <version>1.0.3-SNAPSHOT</version>
-
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

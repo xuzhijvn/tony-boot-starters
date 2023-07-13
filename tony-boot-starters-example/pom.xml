@@ -14,7 +14,7 @@
     <name>tony-boot-starters-example</name>
     <description>tony-boot-starters-example</description>
     <groupId>com.tony.boot</groupId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.6-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
