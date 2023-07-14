@@ -21,7 +21,6 @@ import java.util.Optional;
  * @description:
  */
 @Configuration
-@Import(SpringUtils.class)
 @EnableConfigurationProperties(WebProperties.class)
 public class WebConfiguration {
 
