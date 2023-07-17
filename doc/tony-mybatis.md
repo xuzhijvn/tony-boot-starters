@@ -6,7 +6,7 @@ tony-mybatis是对mybatis的增强。
 
 ```XML
 <dependency>
-    <groupId>com.tony.boot</groupId>
+    <groupId>io.github.xuzhijvn</groupId>
     <artifactId>tony-boot-starter-mybatis</artifactId>
     <version>${tony-starter.version}</version>
 </dependency>

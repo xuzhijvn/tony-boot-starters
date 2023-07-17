@@ -6,9 +6,9 @@
 
 ```XML
 <dependency>
-    <groupId>com.tony.boot</groupId>
+    <groupId>io.github.xuzhijvn</groupId>
     <artifactId>tony-boot-starter-page</artifactId>
-    <version>1.0.6-SNAPSHOT</version>
+    <version>1.0.7-SNAPSHOT</version>
 </dependency>
 ```
 

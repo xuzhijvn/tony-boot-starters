@@ -4,7 +4,7 @@
 
 ```XML
 <dependency>
-    <groupId>com.tony.boot</groupId>
+    <groupId>io.github.xuzhijvn</groupId>
     <artifactId>tony-boot-starter-log</artifactId>
     <version>${tony-starter.version}</version>
 </dependency>

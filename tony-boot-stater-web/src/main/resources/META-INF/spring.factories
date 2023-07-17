@@ -1,4 +1,4 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.tony.boot.web.config.WebConfiguration,\
-  com.tony.boot.web.config.WebMvcConfiguration
+  io.github.xuzhijvn.tonyboot.web.config.WebConfiguration,\
+  io.github.xuzhijvn.tonyboot.web.config.WebMvcConfiguration

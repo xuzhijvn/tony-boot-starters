@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>tony-boot-starters</artifactId>
-        <groupId>com.tony.boot</groupId>
-        <version>1.0.6-SNAPSHOT</version>
+        <groupId>io.github.xuzhijvn</groupId>
+        <version>1.0.7-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -48,21 +48,21 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.tony.boot</groupId>
+            <groupId>io.github.xuzhijvn</groupId>
             <artifactId>tony-boot-tools</artifactId>
-            <version>1.0.6-SNAPSHOT</version>
+            <version>1.0.7-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.tony.boot</groupId>
+            <groupId>io.github.xuzhijvn</groupId>
             <artifactId>tony-boot-core</artifactId>
-            <version>1.0.6-SNAPSHOT</version>
+            <version>1.0.7-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.tony.boot</groupId>
+            <groupId>io.github.xuzhijvn</groupId>
             <artifactId>tony-boot-stater-web</artifactId>
-            <version>1.0.6-SNAPSHOT</version>
+            <version>1.0.7-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

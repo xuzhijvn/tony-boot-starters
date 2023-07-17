@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.tony.boot</groupId>
+        <groupId>io.github.xuzhijvn</groupId>
         <artifactId>tony-boot-starters-example</artifactId>
-        <version>1.0.6-SNAPSHOT</version>
+        <version>1.0.7-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -31,9 +31,9 @@
             <version>5.7.9</version>
         </dependency>
         <dependency>
-            <groupId>com.tony.boot</groupId>
+            <groupId>io.github.xuzhijvn</groupId>
             <artifactId>tony-boot-starter-mybatis</artifactId>
-            <version>1.0.6-SNAPSHOT</version>
+            <version>1.0.7-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -79,9 +79,9 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.tony.boot</groupId>
+            <groupId>io.github.xuzhijvn</groupId>
             <artifactId>tony-boot-stater-web</artifactId>
-            <version>1.0.6-SNAPSHOT</version>
+            <version>1.0.7-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -115,7 +115,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.tony.boot.mybatis.example.TonyMybatisApplication</mainClass>
+                    <mainClass>io.github.xuzhijvn.tonyboot.mybatis.TonyMybatisApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

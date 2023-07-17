@@ -1,4 +1,4 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.tony.boot.dp.config.DataPermissionConfiguration,\
-  com.tony.boot.dp.config.MybatisPlusConfiguration
+  io.github.xuzhijvn.tonyboot.dp.config.DataPermissionConfiguration,\
+  io.github.xuzhijvn.tonyboot.dp.config.MybatisPlusConfiguration
