@@ -5,7 +5,7 @@
     <parent>
         <artifactId>tony-boot-starters</artifactId>
         <groupId>io.github.xuzhijvn</groupId>
-        <version>1.0.7-SNAPSHOT</version>
+        <version>1.0.8</version>
     </parent>
     <artifactId>tony-boot-starter-notify</artifactId>
     <name>tony-boot-starter-notify</name>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>io.github.xuzhijvn</groupId>
             <artifactId>tony-boot-tools</artifactId>
-            <version>1.0.7-SNAPSHOT</version>
+            <version>1.0.8</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

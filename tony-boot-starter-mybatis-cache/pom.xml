@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.github.xuzhijvn</groupId>
         <artifactId>tony-boot-starters</artifactId>
-        <version>1.0.7-SNAPSHOT</version>
+        <version>1.0.8</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>tony-boot-starter-mybatis-cache</artifactId>

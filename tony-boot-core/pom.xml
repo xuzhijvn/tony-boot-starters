@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.github.xuzhijvn</groupId>
         <artifactId>tony-boot-starters</artifactId>
-        <version>1.0.7-SNAPSHOT</version>
+        <version>1.0.8</version>
     </parent>
 
     <artifactId>tony-boot-core</artifactId>
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>io.github.xuzhijvn</groupId>
             <artifactId>tony-boot-tools</artifactId>
-            <version>1.0.7-SNAPSHOT</version>
+            <version>1.0.8</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

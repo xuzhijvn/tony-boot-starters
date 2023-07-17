@@ -5,7 +5,7 @@
 
     <groupId>io.github.xuzhijvn</groupId>
     <artifactId>tony-boot-starters</artifactId>
-    <version>1.0.7-SNAPSHOT</version>
+    <version>1.0.8</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -36,6 +36,13 @@
             <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
+
+    <scm>
+        <tag>master</tag>
+        <url>https://github.com/xuzhijvn/tony-boot-starters.git</url>
+        <connection>https://github.com/xuzhijvn/tony-boot-starters.git</connection>
+        <developerConnection>https://github.com/xuzhijvn/tony-boot-starters</developerConnection>
+    </scm>
 
     <!-- 开发者信息 -->
     <developers>

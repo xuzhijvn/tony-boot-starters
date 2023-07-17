@@ -8,7 +8,7 @@
 <dependency>
     <groupId>io.github.xuzhijvn</groupId>
     <artifactId>tony-boot-starter-page</artifactId>
-    <version>1.0.7-SNAPSHOT</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 

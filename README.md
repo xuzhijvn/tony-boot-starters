@@ -134,7 +134,7 @@ To get a local copy up and running follow these simple example steps.
    <dependency>
       <groupId>io.github.xuzhijvn</groupId>
       <artifactId>tony-boot-starter</artifactId>
-      <version>1.0.7-SNAPSHOT</version>
+      <version>1.0.8</version>
    </dependency>
    ```
 
