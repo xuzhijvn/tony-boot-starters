@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * @author xuzhijun@htsc.com
+ * @author xuzhijun
  */
 @Import(SpringUtils.class)
 @Configuration
